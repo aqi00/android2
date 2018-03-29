@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <AutoCompleteTextView
+        android:id="@+id/ac_text"
+        style="@style/text_normal"
+        android:padding="10dp"
+        android:hint="请输入“第一”或“第二”"
+        android:completionHint="相关词语"
+        android:completionThreshold="1"
+        android:dropDownHeight="wrap_content"
+        android:dropDownHorizontalOffset="0dp"
+        android:dropDownVerticalOffset="0dp"
+        android:dropDownWidth="match_parent"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+
+</LinearLayout>

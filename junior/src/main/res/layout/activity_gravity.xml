@@ -1,0 +1,46 @@
+<!-- 最外层的布局背景为橙色，它的下级布局在水平方向上依次排列 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="#ffff99"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <!-- 第一个子布局背景为红色，它与上级布局靠下对齐，它的下级视图则靠左对齐 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:gravity="left"
+        android:background="#ff0000"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <!-- 内层视图的宽度和高度都是100dp，且背景色为青色 -->
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#00ffff" />
+    </LinearLayout>
+
+    <!-- 第二个子布局背景为红色，它与上级布局靠上对齐，它的下级视图则靠右对齐 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:layout_gravity="top"
+        android:gravity="right"
+        android:background="#ff0000"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <!-- 内层视图的宽度和高度都是100dp，且背景色为青色 -->
+        <View
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#00ffff" />
+    </LinearLayout>
+</LinearLayout>

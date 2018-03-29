@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 这是普通的文本视图 -->
+    <TextView
+        android:id="@+id/tv_control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="聊天室效果，点击添加聊天记录，长按删除聊天记录" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+        <!-- 这是聊天室的文本视图，scrollbars属性设置为vertical表示在垂直方向上显示滚动条 -->
+        <TextView
+            android:id="@+id/tv_bbs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="left|bottom"
+            android:lines="8"
+            android:maxLines="8"
+            android:scrollbars="vertical"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </LinearLayout>
+</LinearLayout>

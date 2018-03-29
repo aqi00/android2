@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_shopping"
+        android:orderInCategory="1"
+        android:title="去商场购物"/>
+
+    <item
+        android:id="@+id/menu_clear"
+        android:orderInCategory="2"
+        android:title="清空购物车"/>
+    
+    <item
+        android:id="@+id/menu_return"
+        android:orderInCategory="9"
+        android:title="返回"/>
+    
+</menu>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.middle">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".RelativeXmlActivity" />
+        <activity android:name=".RelativeCodeActivity" />
+        <activity android:name=".FrameActivity" />
+        <activity android:name=".CheckboxActivity" />
+        <activity android:name=".SwitchDefaultActivity" />
+        <activity android:name=".SwitchIOSActivity" />
+        <activity android:name=".RadioHorizontalActivity" />
+        <activity android:name=".RadioVerticalActivity" />
+        <activity android:name=".SpinnerDropdownActivity" />
+        <activity android:name=".SpinnerDialogActivity" />
+        <activity android:name=".SpinnerIconActivity" />
+        <activity android:name=".EditSimpleActivity" />
+        <activity android:name=".EditCursorActivity" />
+        <activity android:name=".EditBorderActivity" />
+        <activity android:name=".EditHideActivity" />
+        <activity android:name=".EditJumpActivity" />
+        <activity android:name=".EditAutoActivity" />
+        <activity android:name=".ActJumpActivity" />
+        <activity android:name=".ActNextActivity" />
+        <activity android:name=".ActRotateActivity" />
+        <activity android:name=".ActHomeActivity" />
+        <activity android:name=".ActRequestActivity" />
+        <activity android:name=".ActResponseActivity" />
+        <activity android:name=".TextCheckActivity" />
+        <activity android:name=".MortgageActivity" />
+        <activity android:name=".AlertActivity" />
+        <activity android:name=".LoginMainActivity" />
+        <activity android:name=".LoginForgetActivity" />
+
+    </application>
+
+</manifest>

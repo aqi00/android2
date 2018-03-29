@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/tv_response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+    
+    <EditText
+        android:id="@+id/et_response"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="请输入返回参数"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+    
+    <Button
+        android:id="@+id/btn_act_response"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="返回应答参数"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+    
+</LinearLayout>

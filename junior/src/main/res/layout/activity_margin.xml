@@ -1,0 +1,23 @@
+<!-- 最外层的布局背景为蓝色 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="#00aaff"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <!-- 中间层的布局背景为黄色 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="#ffff99"
+        android:padding="60dp">
+
+        <!-- 最内层的视图背景为红色 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000" />
+    </LinearLayout>
+</LinearLayout>

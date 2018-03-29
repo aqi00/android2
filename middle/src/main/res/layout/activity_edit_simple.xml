@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/text_normal"
+        android:layout_marginTop="10dp"
+        android:text="下面是登录信息" />
+    
+    <EditText
+        style="@style/text_normal"
+        android:inputType="text"
+        android:maxLength="10"
+        android:hint="请输入用户名" />
+    
+    <EditText
+        style="@style/text_normal"
+        android:inputType="textPassword"
+        android:maxLength="8"
+        android:hint="请输入密码" />
+    
+    <TextView
+        style="@style/text_normal"
+        android:layout_marginTop="10dp"
+        android:text="下面是手机信息" />
+    
+    <EditText
+        style="@style/text_normal"
+        android:inputType="number"
+        android:maxLength="11"
+        android:hint="请输入11位手机号码" />
+    
+    <EditText
+        style="@style/text_normal"
+        android:inputType="numberPassword"
+        android:maxLength="6"
+        android:hint="请输入6位服务密码" />
+    
+</LinearLayout>

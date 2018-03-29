@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请选择您的婚姻状况"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+
+    <RadioGroup
+        android:id="@+id/rg_marry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/rb_unmarried"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:button="@drawable/radio_selector"
+            android:text="未婚"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+        <RadioButton
+            android:id="@+id/rb_married"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:button="@null"
+            android:drawableLeft="@drawable/radio_selector"
+            android:drawablePadding="10dp"
+            android:text="已婚"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_marry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+
+</LinearLayout>

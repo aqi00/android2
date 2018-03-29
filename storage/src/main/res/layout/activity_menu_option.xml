@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <Button
+        android:id="@+id/btn_option"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打开选项菜单，也可直接按菜单键"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <TextView
+        android:id="@+id/tv_option"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="left|center"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</LinearLayout>

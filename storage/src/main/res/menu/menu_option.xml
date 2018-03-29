@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_change_time"
+        android:orderInCategory="1"
+        android:title="改变时间"/>
+
+    <item
+        android:id="@+id/menu_change_color"
+        android:orderInCategory="8"
+        android:title="改变颜色"/>
+    
+    <item
+        android:id="@+id/menu_change_bg"
+        android:orderInCategory="9"
+        android:title="改变背景"/>
+    
+</menu>

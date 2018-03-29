@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.junior">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".PxActivity" />
+        <activity android:name=".ColorActivity" />
+        <activity android:name=".ScreenActivity" />
+
+        <activity android:name=".MarginActivity" />
+        <activity android:name=".GravityActivity" />
+        <activity android:name=".ScrollActivity" />
+
+        <activity android:name=".MarqueeActivity" />
+        <activity android:name=".BbsActivity" />
+        <activity android:name=".ClickActivity" />
+
+        <activity android:name=".ScaleActivity" />
+        <activity android:name=".CaptureActivity" />
+        <activity android:name=".IconActivity" />
+
+        <activity android:name=".StateActivity" />
+        <activity android:name=".ShapeActivity" />
+        <activity android:name=".NineActivity" />
+
+        <activity android:name=".CalculatorActivity" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical" >
+
+    <EditText
+        style="@style/text_normal"
+        android:inputType="text"
+        android:hint="这是默认光标" />
+    
+    <EditText
+        style="@style/text_normal"
+        android:inputType="text"
+        android:hint="我的光标不见了"
+        android:cursorVisible="false" />
+    
+    <EditText
+        style="@style/text_normal"
+        android:inputType="text"
+        android:hint="我的光标变红了"
+        android:textCursorDrawable="@drawable/text_cursor" />
+    
+</LinearLayout>

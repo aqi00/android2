@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_scale"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/apple1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_fitCenter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="fitCenter"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_centerCrop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="centerCrop"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_centerInside"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="centerInside"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="center"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_fitXY"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="fitXY"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_fitStart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="fitStart"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+        <Button
+            android:id="@+id/btn_fitEnd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="fitEnd"
+            android:textColor="#000000"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <TextView
+        style="@style/btn_relative"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="点击按钮添加视图，长按视图删除自身" />
+    
+    <Button
+        android:id="@+id/btn_add_left"
+        style="@style/btn_relative"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="添加左边视图" />
+    
+    <Button
+        android:id="@+id/btn_add_above"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_add_left"
+        android:layout_alignLeft="@+id/btn_add_left"
+        android:text="添加上方视图" />
+    
+    <Button
+        android:id="@+id/btn_add_right"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_add_above"
+        android:layout_alignLeft="@+id/btn_add_left"
+        android:text="添加右边视图" />
+    
+    <Button
+        android:id="@+id/btn_add_below"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_add_right"
+        android:layout_alignLeft="@+id/btn_add_left"
+        android:text="添加下方视图" />
+    
+    <Button
+        android:id="@+id/btn_add_center"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_add_below"
+        android:layout_alignLeft="@+id/btn_add_left"
+        android:text="添加中间视图" />
+    
+    <Button
+        android:id="@+id/btn_add_parent_left"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_add_center"
+        android:layout_alignLeft="@+id/btn_add_left"
+        android:text="添加上级左侧对齐视图" />
+    
+    <Button
+        android:id="@+id/btn_add_parent_top"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_add_parent_left"
+        android:layout_alignLeft="@+id/btn_add_left"
+        android:text="添加上级顶部对齐视图" />
+    
+    <Button
+        android:id="@+id/btn_add_parent_right"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_add_parent_top"
+        android:layout_alignLeft="@+id/btn_add_left"
+        android:text="添加上级右侧对齐视图" />
+    
+    <Button
+        android:id="@+id/btn_add_parent_bottom"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_add_parent_right"
+        android:layout_alignLeft="@+id/btn_add_left"
+        android:text="添加上级底部对齐视图" />
+    
+</RelativeLayout>

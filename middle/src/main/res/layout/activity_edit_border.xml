@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical" >
+
+    <EditText
+        style="@style/text_normal"
+        android:inputType="text"
+        android:hint="这是默认边框" />
+    
+    <EditText
+        style="@style/text_normal"
+        android:inputType="text"
+        android:hint="我的边框不见了"
+        android:background="@null" />
+    
+    <EditText
+        style="@style/text_normal"
+        android:inputType="text"
+        android:hint="我的边框是圆角"
+        android:background="@drawable/editext_selector" />
+    
+</LinearLayout>

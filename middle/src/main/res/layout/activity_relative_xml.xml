@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="500dp" >
+    
+    <Button
+        android:id="@+id/btn_center"
+        style="@style/btn_relative"
+        android:layout_centerInParent="true"
+        android:text="我在中间" />
+    
+    <Button
+        android:id="@+id/btn_center_horizontal"
+        style="@style/btn_relative"
+        android:layout_centerHorizontal="true"
+        android:text="我在水平中间" />
+    
+    <Button
+        android:id="@+id/btn_center_vertical"
+        style="@style/btn_relative"
+        android:layout_centerVertical="true"
+        android:text="我在垂直中间" />
+    
+    <Button
+        android:id="@+id/btn_parent_left"
+        style="@style/btn_relative"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentLeft="true"
+        android:text="我跟上级左边对齐" />
+    
+    <Button
+        android:id="@+id/btn_parent_top"
+        style="@style/btn_relative"
+        android:layout_width="120dp"
+        android:layout_alignParentTop="true"
+        android:text="我跟上级顶部对齐" />
+    
+    <Button
+        android:id="@+id/btn_parent_right"
+        style="@style/btn_relative"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentRight="true"
+        android:text="我跟上级右边对齐" />
+    
+    <Button
+        android:id="@+id/btn_parent_bottom"
+        style="@style/btn_relative"
+        android:layout_width="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="我跟上级底部对齐" />
+    
+    <Button
+        android:id="@+id/btn_left_bottom"
+        style="@style/btn_relative"
+        android:layout_toLeftOf="@+id/btn_parent_bottom"
+        android:layout_alignTop="@+id/btn_parent_bottom"
+        android:text="我在底部左边" />
+    
+    <Button
+        android:id="@+id/btn_right_bottom"
+        style="@style/btn_relative"
+        android:layout_toRightOf="@+id/btn_parent_bottom"
+        android:layout_alignBottom="@+id/btn_parent_bottom"
+        android:text="我在底部右边" />
+    
+    <Button
+        android:id="@+id/btn_above_center"
+        style="@style/btn_relative"
+        android:layout_above="@+id/btn_center"
+        android:layout_alignLeft="@+id/btn_center"
+        android:text="我在中间上面" />
+    
+    <Button
+        android:id="@+id/btn_below_center"
+        style="@style/btn_relative"
+        android:layout_below="@+id/btn_center"
+        android:layout_alignRight="@+id/btn_center"
+        android:text="我在中间下面" />
+    
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <CheckBox
+        android:id="@+id/ck_system"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:checked="false"
+        android:text="这是系统的CheckBox"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+
+    <CheckBox
+        android:id="@+id/ck_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:button="@drawable/checkbox_selector"
+        android:padding="10dp"
+        android:checked="false"
+        android:text="这个CheckBox换了图标"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+
+</LinearLayout>

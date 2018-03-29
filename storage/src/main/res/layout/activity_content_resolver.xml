@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <EditText
+        android:id="@+id/et_contact_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/editext_selector"
+        android:hint="请输入联系人姓名"
+        android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <EditText
+        android:id="@+id/et_contact_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/editext_selector"
+        android:hint="请输入联系人手机号"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <EditText
+        android:id="@+id/et_contact_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/editext_selector"
+        android:hint="请输入联系人邮箱"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <Button
+        android:id="@+id/btn_add_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="添加联系人"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/tv_read_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</LinearLayout>
