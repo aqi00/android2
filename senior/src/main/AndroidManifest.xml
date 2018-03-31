@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.senior" >
+
+    <!-- SD卡读写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAG" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".MainApplication" >
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".DatePickerActivity" />
+        <activity android:name=".TimePickerActivity" />
+        <activity android:name=".BaseAdapterActivity" />
+        <activity android:name=".ListViewActivity" />
+        <activity android:name=".GridViewActivity" />
+        <activity android:name=".ViewPagerActivity" />
+        <activity android:name=".PagerTabStripActivity" />
+        <activity android:name=".PagerTitleStripActivity" />
+        <activity android:name=".LaunchSimpleActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".FragmentStaticActivity" />
+        <activity android:name=".FragmentDynamicActivity" />
+        <activity android:name=".LaunchImproveActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".BroadTempActivity" />
+        <activity android:name=".BroadSystemActivity" />
+        <activity android:name=".AlarmActivity" />
+        <activity android:name=".ShoppingCartActivity" android:theme="@style/AppBaseTheme" />
+        <activity android:name=".ShoppingChannelActivity" />
+        <activity android:name=".ShoppingDetailActivity" />
+        <activity android:name=".MonthPickerActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".VibratorActivity" />
+        <activity android:name=".ScheduleActivity" />
+        <activity android:name=".ScheduleDetailActivity" />
+        
+        <receiver android:name=".AlarmActivity$AlarmReceiver" >
+            <intent-filter>
+                <action android:name="com.example.senior.AlarmActivity.AlarmReceiver" />
+            </intent-filter>
+        </receiver>
+        
+        <receiver android:name=".ScheduleDetailActivity$AlarmReceiver" >
+            <intent-filter>
+                <action android:name="com.example.senior.ScheduleDetailActivity.AlarmReceiver" />
+            </intent-filter>
+        </receiver>
+        
+    </application>
+
+</manifest>

@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/week_number"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_weight="1"
+        android:gravity="center|top"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/week_shedule"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_weight="4"
+        android:gravity="left|top"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</LinearLayout>

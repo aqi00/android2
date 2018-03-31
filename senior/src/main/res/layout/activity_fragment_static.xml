@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <!-- 把碎片当作一个控件使用，其中android:name指明了碎片来源 -->
+    <fragment
+        android:id="@+id/fragment_static"
+        android:name="com.example.senior.fragment.StaticFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:text="这里是每个页面的具体内容"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+</LinearLayout>
