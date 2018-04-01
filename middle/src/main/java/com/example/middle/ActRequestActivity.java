@@ -14,8 +14,8 @@ import android.widget.TextView;
  * Created by ouyangshen on 2017/9/24.
  */
 public class ActRequestActivity extends AppCompatActivity implements OnClickListener {
-    private EditText et_request; // 声明一个编辑框对象et_request
-    private TextView tv_request; // 声明一个文本视图对象tv_request
+    private EditText et_request; // 声明一个编辑框对象
+    private TextView tv_request; // 声明一个文本视图对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,8 +15,8 @@ import com.example.middle.util.DateUtil;
  * Created by ouyangshen on 2017/9/24.
  */
 public class ActResponseActivity extends AppCompatActivity implements OnClickListener {
-    private EditText et_response; // 声明一个编辑框对象et_response
-    private TextView tv_response; // 声明一个文本视图对象tv_response
+    private EditText et_response; // 声明一个编辑框对象
+    private TextView tv_response; // 声明一个文本视图对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

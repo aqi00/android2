@@ -59,8 +59,7 @@ public class EditHideActivity extends AppCompatActivity implements OnClickListen
         }
 
         // 在编辑框的输入文本变化前触发
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
         // 在编辑框的输入文本变化时触发
         public void onTextChanged(CharSequence s, int start, int before, int count) {
