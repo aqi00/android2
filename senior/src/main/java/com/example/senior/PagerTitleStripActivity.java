@@ -26,9 +26,9 @@ public class PagerTitleStripActivity extends AppCompatActivity implements OnPage
         setContentView(R.layout.activity_title_strip);
         // 从布局视图中获取名叫pts_title的翻页标题栏
         PagerTitleStrip pts_title = findViewById(R.id.pts_title);
-        // 设置标题栏的文本大小
+        // 设置翻页标题栏的文本大小
         pts_title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
-        // 设置标题栏的文本颜色
+        // 设置翻页标题栏的文本颜色
         pts_title.setTextColor(Color.BLUE);
         goodsList = GoodsInfo.getDefaultList();
         // 构建一个商品图片的翻页适配器

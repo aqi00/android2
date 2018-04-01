@@ -22,8 +22,7 @@ public class StaticFragment extends Fragment implements OnClickListener {
 
     // 创建碎片视图
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // 获取活动页面的上下文
-        mContext = getActivity();
+        mContext = getActivity(); // 获取活动页面的上下文
         // 根据布局文件fragment_static.xml生成视图对象
         mView = inflater.inflate(R.layout.fragment_static, container, false);
         TextView tv_adv = mView.findViewById(R.id.tv_adv);

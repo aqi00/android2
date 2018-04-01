@@ -277,18 +277,12 @@ public class ShoppingCartActivity extends Activity implements
         tv_total_price.setText("" + total_price);
     }
 
-    private String mFirst = "true";
+    private String mFirst = "true"; // 是否首次打开
     //模拟网络数据，初始化数据库中的商品信息
     public static void downloadGoods(Context ctx, String isFirst, GoodsDBHelper helper) {
-        String path;
-        //Android7.0之后默认关闭App的SD卡权限，所以对于7.0以上系统把存储路径改为App安装路径的data目录下
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            // 获取系统的公共存储路径
-            path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/";
-        } else {
-            // 获取当前App的私有存储路径
-            path = MainApplication.getInstance().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
-        }
+        // 获取当前App的私有存储路径
+        String path = MainApplication.getInstance().getExternalFilesDir(
+                Environment.DIRECTORY_DOWNLOADS).toString() + "/";
         if (isFirst.equals("true")) { // 如果是首次打开
             ArrayList<GoodsInfo> goodsList = GoodsInfo.getDefaultList();
             for (int i = 0; i < goodsList.size(); i++) {

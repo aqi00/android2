@@ -35,10 +35,8 @@ public class LaunchFragment extends Fragment {
 
     // 创建碎片视图
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // 获取活动页面的上下文
-        mContext = getActivity();
-        // 如果碎片携带有包裹，则打开包裹获取参数信息
-        if (getArguments() != null) {
+        mContext = getActivity(); // 获取活动页面的上下文
+        if (getArguments() != null) { // 如果碎片携带有包裹，则打开包裹获取参数信息
             mPosition = getArguments().getInt("position", 0);
             mImageId = getArguments().getInt("image_id", 0);
         }
