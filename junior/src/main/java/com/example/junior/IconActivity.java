@@ -31,7 +31,7 @@ public class IconActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {  // 一旦监听到点击动作，就触发监听器的onClick方法
         if (v.getId() == R.id.btn_left) {
             // 设置按钮控件btn_icon内部文字左边的图标
             btn_icon.setCompoundDrawables(drawable, null, null, null);

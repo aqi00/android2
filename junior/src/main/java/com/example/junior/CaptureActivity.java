@@ -53,7 +53,7 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {  // 一旦监听到点击动作，就触发监听器的onClick方法
         if (v.getId() == R.id.btn_chat) { // 点击了聊天按钮，则给文本视图添加聊天文字
             int random = (int) (Math.random() * 10) % 5;
             // 下面的DateUtil参见本书附录源码中的DateUtil.java

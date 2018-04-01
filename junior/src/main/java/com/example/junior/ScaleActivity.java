@@ -10,7 +10,7 @@ import android.widget.ImageView;
  */
 // 页面类直接实现点击监听器的接口View.OnClickListener
 public class ScaleActivity extends AppCompatActivity implements View.OnClickListener {
-    private ImageView iv_scale; // 声明一个图像视图的实例
+    private ImageView iv_scale; // 声明一个图像视图的对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class ScaleActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {  // 一旦监听到点击动作，就触发监听器的onClick方法
         if (v.getId() == R.id.btn_center) {
             // 将拉伸类型设置为“按照原尺寸居中显示”
             iv_scale.setScaleType(ImageView.ScaleType.CENTER);
