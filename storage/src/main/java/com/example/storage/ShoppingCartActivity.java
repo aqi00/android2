@@ -355,20 +355,14 @@ public class ShoppingCartActivity extends Activity implements OnClickListener {
             R.drawable.vivo, R.drawable.oppo_9p, R.drawable.meizu
     };
 
-    private String mFirst = "true";
+    private String mFirst = "true"; // 是否首次打开
     // 模拟网络数据，初始化数据库中的商品信息
     private void downloadGoods() {
         // 获取共享参数保存的是否首次打开参数
         mFirst = SharedUtil.getIntance(this).readShared("first", "true");
-        String path = "";
-        // Android7.0之后默认关闭App的SD卡权限，所以对于7.0以上系统把存储路径改为App安装路径的data目录下
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            // 获取系统的公共存储路径
-            path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/";
-        } else {
-            // 获取当前App的私有存储路径
-            path = MainApplication.getInstance().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString() + "/";
-        }
+        // 获取当前App的私有存储路径
+        String path = MainApplication.getInstance().getExternalFilesDir(
+                Environment.DIRECTORY_DOWNLOADS).toString() + "/";
         if (mFirst.equals("true")) { // 如果是首次打开
             for (int i = 0; i < mNameArray.length; i++) {
                 GoodsInfo info = new GoodsInfo();

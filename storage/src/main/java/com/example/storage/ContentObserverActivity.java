@@ -94,7 +94,7 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
         mSmsUri = Uri.parse("content://sms");
         mSmsColumn = new String[]{"address", "body", "date"};
         mObserver = new SmsGetObserver(this, mHandler);
-        // 给指定Uri注册一个内容观察器，一旦该Uri的内容提供器发生数据变化，就会触发观察器的onChange方法
+        // 给指定Uri注册内容观察器，一旦Uri内部发生数据变化，就触发观察器的onChange方法
         getContentResolver().registerContentObserver(mSmsUri, true, mObserver);
     }
 
@@ -107,7 +107,7 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
 
     // 定义一个短信获取的观察器
     private static class SmsGetObserver extends ContentObserver {
-        private Context mContext;
+        private Context mContext; // 声明一个上下文对象
         public SmsGetObserver(Context context, Handler handler) {
             super(handler);
             mContext = context;
@@ -115,8 +115,7 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
 
         @Override
         public void onChange(boolean selfChange) { // 观察到短信的内容提供器发生变化
-            String sender = "";
-            String content = "";
+            String sender = "", content = "";
             // 构建一个查询短信的条件语句，这里使用移动号码测试，故而查找10086发来的短信
             String selection = String.format("address='10086' and date>%d", System.currentTimeMillis() - 1000 * 60 * 60);
             // 通过内容解析器获取符合条件的结果集游标
@@ -134,8 +133,7 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
             String flow = String.format("流量校准结果如下：\n\t总流量为：%s\n\t已使用：%s" +
                             "\n\t剩余：%s", findFlow(content, "总流量为", "MB"),
                     findFlow(content, "已使用", "MB"), findFlow(content, "剩余", "MB"));
-            // 离开该页面时就不再显示流量信息
-            if (tv_check_flow != null) {
+            if (tv_check_flow != null) { // 离开该页面时就不再显示流量信息
                 // 把流量校准结果显示到文本视图tv_check_flow上面
                 tv_check_flow.setText(flow);
             }

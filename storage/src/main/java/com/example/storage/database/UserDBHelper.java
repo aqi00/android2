@@ -64,7 +64,6 @@ public class UserDBHelper extends SQLiteOpenHelper {
     }
 
     // 创建数据库，执行建表语句
-    @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "onCreate");
         String drop_sql = "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
@@ -83,7 +82,6 @@ public class UserDBHelper extends SQLiteOpenHelper {
     }
 
     // 修改数据库，执行表结构变更语句
-    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d(TAG, "onUpgrade oldVersion=" + oldVersion + ", newVersion=" + newVersion);
         if (newVersion > 1) {
