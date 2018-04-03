@@ -20,7 +20,8 @@ public class AppUtil {
         SparseIntArray siArray = new SparseIntArray();
         PackageManager pm = ctx.getPackageManager();
         // 获取系统中已经安装的应用列表
-        List<ApplicationInfo> installList = pm.getInstalledApplications(PackageManager.PERMISSION_GRANTED);
+        List<ApplicationInfo> installList = pm.getInstalledApplications(
+                PackageManager.PERMISSION_GRANTED);
         for (int i = 0; i < installList.size(); i++) {
             ApplicationInfo item = installList.get(i);
             // 去掉重复的应用信息
@@ -30,25 +31,26 @@ public class AppUtil {
             siArray.put(item.uid, 1);
             try {
                 // 获取该应用的权限列表
-                String[] permissions = pm.getPackageInfo(item.packageName, PackageManager.GET_PERMISSIONS).requestedPermissions;
+                String[] permissions = pm.getPackageInfo(item.packageName,
+                        PackageManager.GET_PERMISSIONS).requestedPermissions;
                 if (permissions == null) {
                     continue;
                 }
-                boolean bNet = false;
+                boolean isQueryNetwork = false;
                 for (String permission : permissions) {
                     // 过滤那些具备上网权限的应用
                     if (permission.equals("android.permission.INTERNET")) {
-                        bNet = true;
+                        isQueryNetwork = true;
                         break;
                     }
                 }
                 // 类型为0表示所有应用，为1表示只要联网应用
-                if (type == 0 || (type == 1 && bNet)) {
+                if (type == 0 || (type == 1 && isQueryNetwork)) {
                     AppInfo app = new AppInfo();
-                    app.uid = item.uid;
-                    app.label = item.loadLabel(pm).toString();
-                    app.package_name = item.packageName;
-                    app.icon = item.loadIcon(pm);
+                    app.uid = item.uid; // 获取应用的编号
+                    app.label = item.loadLabel(pm).toString(); // 获取应用的名称
+                    app.package_name = item.packageName; // 获取应用的包名
+                    app.icon = item.loadIcon(pm); // 获取应用的图标
                     appList.add(app);
                 }
             } catch (Exception e) {
