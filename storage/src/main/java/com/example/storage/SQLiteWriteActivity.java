@@ -65,7 +65,7 @@ public class SQLiteWriteActivity extends AppCompatActivity implements OnClickLis
         super.onStart();
         // 获得数据库帮助器的实例
         mHelper = UserDBHelper.getInstance(this, 2);
-        // 打开数据库帮助器的读连接
+        // 打开数据库帮助器的写连接
         mHelper.openWriteLink();
     }
 

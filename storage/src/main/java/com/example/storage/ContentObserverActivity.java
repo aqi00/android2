@@ -93,6 +93,7 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
         //Android5.0之后似乎无法单独观察某个信箱，只能监控整个短信
         mSmsUri = Uri.parse("content://sms");
         mSmsColumn = new String[]{"address", "body", "date"};
+        // 创建一个短信观察器对象
         mObserver = new SmsGetObserver(this, mHandler);
         // 给指定Uri注册内容观察器，一旦Uri内部发生数据变化，就触发观察器的onChange方法
         getContentResolver().registerContentObserver(mSmsUri, true, mObserver);
