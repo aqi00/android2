@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.custom">
+
+    <!-- 短信 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <!-- 读取电话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".MainApplication">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".CustomPropertyActivity" />
+        <activity android:name=".MeasureTextActivity" />
+        <activity android:name=".MeasureLayoutActivity" />
+        <activity android:name=".OnMeasureActivity" />
+        <activity android:name=".OnLayoutActivity" />
+        <activity android:name=".ShowDrawActivity" />
+        <activity android:name=".RunnableActivity" />
+        <activity android:name=".PullRefreshActivity" />
+        <activity android:name=".CircleAnimationActivity" />
+        <activity android:name=".WindowActivity" android:theme="@style/AppBaseTheme" />
+        <activity android:name=".DialogDateActivity" />
+        <activity android:name=".DialogMultiActivity" />
+        <activity android:name=".NotifySimpleActivity" />
+        <activity android:name=".NotifyCounterActivity" />
+        <activity android:name=".NotifyProgressActivity" />
+        <activity android:name=".NotifyCustomActivity" />
+        <activity android:name=".ServiceNormalActivity" />
+        <activity android:name=".BindImmediateActivity" />
+        <activity android:name=".BindDelayActivity" />
+        <activity android:name=".NotifyServiceActivity" />
+        <activity android:name=".AppInfoActivity" />
+        <activity android:name=".TrafficInfoActivity" />
+        <activity android:name=".MobileAssistantActivity" />
+        <activity android:name=".MobileConfigActivity" />
+        
+        <service android:name=".service.MusicService" android:enabled="true" />
+        <service android:name=".service.NormalService" android:enabled="true" />
+        <service android:name=".service.BindImmediateService" android:enabled="true" />
+        <service android:name=".service.BindDelayService" android:enabled="true" />
+        <service android:name=".service.TrafficService" android:enabled="true" />
+        
+    </application>
+
+</manifest>

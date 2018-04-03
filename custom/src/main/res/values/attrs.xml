@@ -1,0 +1,21 @@
+<resources>
+    
+    <declare-styleable name="CustomPagerTab">
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        
+        <attr name="customBackground" format="reference" />
+        <attr name="customOrientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+        <attr name="customGravity">
+            <flag name = "center" value = "0" />
+            <flag name = "left" value = "1" />
+            <flag name = "top" value = "2" />
+            <flag name = "right" value = "3" />
+            <flag name = "bttom" value = "4" />
+        </attr>
+    </declare-styleable>
+    
+</resources>

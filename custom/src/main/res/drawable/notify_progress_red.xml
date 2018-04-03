@@ -1,0 +1,15 @@
+<!-- 层次图形定义 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 这是背景图层，里面定义了一个shape形状图形 -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#333333" />
+        </shape>
+    </item>
+    <!-- 这是进度条图层，里面定义了一个clip裁剪图形 -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <nine-patch android:src="@drawable/notify_red" />
+        </clip>
+    </item>
+</layer-list>

@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <TextView
+            android:id="@+id/tv_offset"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:text="偏移大小："
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <Spinner
+            android:id="@+id/sp_offset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/tv_offset"
+            android:gravity="left|center"
+            android:spinnerMode="dialog" />
+    </RelativeLayout>
+
+    <com.example.custom.widget.OffsetLayout
+        android:id="@+id/ol_content"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#00ff00" >
+
+        <View
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="#000000" />
+    </com.example.custom.widget.OffsetLayout>
+
+</LinearLayout>

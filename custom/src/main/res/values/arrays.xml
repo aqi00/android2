@@ -1,0 +1,46 @@
+<resources>
+    <string-array name="relation_name">
+        <item>其他</item>
+        <item>本人</item>
+        <item>妻子</item>
+        <item>哥哥</item>
+        <item>弟弟</item>
+        <item>姐姐</item>
+        <item>妹妹</item>
+        <item>表哥</item>
+        <item>表弟</item>
+        <item>表姐</item>
+        <item>表妹</item>
+        <item>叔叔</item>
+        <item>婶婶</item>
+        <item>姑妈</item>
+        <item>姑父</item>
+        <item>舅舅</item>
+        <item>舅妈</item>
+        <item>阿姨</item>
+        <item>姨夫</item>
+        <item>朋友</item>
+    </string-array>
+    <string-array name="relation_value">
+        <item>99</item>
+        <item>01</item>
+        <item>11</item>
+        <item>12</item>
+        <item>20</item>
+        <item>30 </item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>51</item>
+        <item>52</item>
+        <item>61</item>
+        <item>62</item>
+        <item>63</item>
+        <item>64</item>
+        <item>71</item>
+        <item>73</item>
+        <item>75</item>
+        <item>77</item>
+    </string-array>
+</resources>

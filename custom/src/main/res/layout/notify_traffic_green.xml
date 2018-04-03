@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="60dp"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="55dp"
+        android:layout_height="match_parent"
+        android:gravity="center" >
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_app" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="left"
+            android:singleLine="true"
+            android:text="手机安全助手实时监控中"
+            style="@style/NotificationTitle"
+            android:textSize="15sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@id/tv_title"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/tv_title"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp" >
+
+            <!-- 这是水平进度条，其中progressDrawable属性指定了进度条的图形模样 -->
+            <ProgressBar
+                android:id="@+id/pb_flow"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/notify_progress_green" />
+
+            <TextView
+                android:id="@+id/tv_flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</LinearLayout>
