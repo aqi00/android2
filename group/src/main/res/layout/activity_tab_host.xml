@@ -1,0 +1,76 @@
+<!-- 该方式的底部标签栏，根布局必须是TabHost，且id必须为@android:id/tabhost -->
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 内容页面都挂在这个框架布局下面 -->
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/tabbar_height" />
+
+        <!-- 这是例行公事的选项部件，实际隐藏掉了 -->
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <!-- 下面是事实上的底部标签栏，采取水平线性布局展示 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tabbar_height"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+            <!-- 第一个标签控件 -->
+            <LinearLayout
+                android:id="@+id/ll_first"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TabButton"
+                    android:drawableTop="@drawable/tab_first_selector"
+                    android:text="@string/menu_first" />
+            </LinearLayout>
+
+            <!-- 第二个标签控件 -->
+            <LinearLayout
+                android:id="@+id/ll_second"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TabButton"
+                    android:drawableTop="@drawable/tab_second_selector"
+                    android:text="@string/menu_second" />
+            </LinearLayout>
+
+            <!-- 第三个标签控件 -->
+            <LinearLayout
+                android:id="@+id/ll_third"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TabButton"
+                    android:drawableTop="@drawable/tab_third_selector"
+                    android:text="@string/menu_third" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</TabHost>

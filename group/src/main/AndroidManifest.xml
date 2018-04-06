@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.group">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".TabButtonActivity" />
+        <activity android:name=".TabHostActivity" />
+        <activity android:name=".TabFirstActivity" />
+        <activity android:name=".TabSecondActivity" />
+        <activity android:name=".TabThirdActivity" />
+        <activity android:name=".TabGroupActivity" />
+        <activity android:name=".TabFragmentActivity" />
+        <activity android:name=".ToolbarActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".OverflowMenuActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".SearchViewActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".ToolbarCustomActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".TabLayoutActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".TabCustomActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".BannerIndicatorActivity" />
+        <activity android:name=".BannerPagerActivity" />
+        <activity android:name=".BannerTopActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".RecyclerLinearActivity" />
+        <activity android:name=".RecyclerGridActivity" />
+        <activity android:name=".RecyclerCombineActivity" />
+        <activity android:name=".RecyclerStaggeredActivity" />
+        <activity android:name=".RecyclerDynamicActivity" />
+        <activity android:name=".CoordinatorActivity" />
+        <activity android:name=".AppbarRecyclerActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".AppbarNestedActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".CollapsePinActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".CollapseParallaxActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".ImageFadeActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".ScrollFlagActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".ScrollAlipayActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".SwipeRefreshActivity" />
+        <activity android:name=".SwipeRecyclerActivity" />
+        <activity android:name=".DepartmentStoreActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".DepartmentHomeActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".DepartmentClassActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".DepartmentCartActivity" android:theme="@style/AppCompatTheme" />
+        
+        <activity android:name=".SearchResultActvity" android:theme="@style/AppCompatTheme" >
+            <intent-filter> 
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter> 
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        
+    </application>
+
+</manifest>

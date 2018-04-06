@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <Button
+        android:id="@+id/btn_recycler_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="增加新聊天"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_dynamic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#aaaaff" />
+
+</LinearLayout>

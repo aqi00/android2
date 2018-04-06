@@ -1,0 +1,24 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_toolbar2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="@drawable/toolbar_text_selector"
+        android:textSize="17sp" />
+
+    <ImageView
+        android:id="@+id/iv_point2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/tv_toolbar2"
+        android:paddingTop="10dp"
+        android:paddingLeft="3dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/toolbar_image_selector" />
+
+</RelativeLayout>

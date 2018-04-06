@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <CheckBox
+        android:id="@+id/ck_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:checked="false"
+        android:text="选定标签按钮"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <!-- 注意这个文本视图的背景、文字颜色和顶部图标都采用了状态图形，使其看起来像个崭新的标签控件 -->
+    <TextView
+        android:id="@+id/tv_tab_button"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:padding="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/tab_bg_selector"
+        android:text="点我"
+        android:textSize="12sp"
+        android:textColor="@drawable/tab_text_selector"
+        android:drawableTop="@drawable/tab_first_selector" />
+</LinearLayout>

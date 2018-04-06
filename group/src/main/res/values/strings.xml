@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">group</string>
+    
+    <string name="menu_first">首页</string>
+    <string name="menu_second">分类</string>
+    <string name="menu_third">购物车</string>
+    <string name="please_input">请输入</string>
+    <string name="search">搜索</string>
+
+    <string name="toolbar_name">欢乐中国年</string>
+    <string name="book_name">Android Studio开发实战\n从零基础到App上线</string>
+</resources>

@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 自定义的横幅轮播条，需要使用全路径 -->
+    <com.example.group.widget.BannerPager
+        android:id="@+id/banner_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="腾出状态栏"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</LinearLayout>

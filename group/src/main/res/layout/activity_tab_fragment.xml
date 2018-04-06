@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 这是实际的内容框架，内容页面都挂在这个框架布局下面。
+        把FragmentLayout放在FragmentTabHost上面，标签栏就在页面底部；
+        反之FragmentLayout在FragmentTabHost下面，标签栏就在页面顶部。 -->
+    <FrameLayout
+        android:id="@+id/realtabcontent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 碎片标签栏的id必须是@android:id/tabhost -->
+    <android.support.v4.app.FragmentTabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tabbar_height">
+
+        <!-- 这是例行公事的选项内容，实际看不到 -->
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0" />
+    </android.support.v4.app.FragmentTabHost>
+</LinearLayout>
