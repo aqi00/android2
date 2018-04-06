@@ -73,8 +73,7 @@ public class TabLayoutActivity extends AppCompatActivity implements OnTabSelecte
     }
 
     // 在标签被重复选中时触发
-    public void onTabReselected(Tab tab) {
-    }
+    public void onTabReselected(Tab tab) {}
 
     // 在标签选中时触发
     public void onTabSelected(Tab tab) {
@@ -83,8 +82,7 @@ public class TabLayoutActivity extends AppCompatActivity implements OnTabSelecte
     }
 
     // 在标签取消选中时触发
-    public void onTabUnselected(Tab tab) {
-    }
+    public void onTabUnselected(Tab tab) {}
 
     @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
@@ -103,7 +101,7 @@ public class TabLayoutActivity extends AppCompatActivity implements OnTabSelecte
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home) { // 点击了返回箭头
+        if (id == android.R.id.home) { // 点击了工具栏左边的返回箭头
             finish();
         } else if (id == R.id.menu_refresh) { // 点击了刷新图标
             Toast.makeText(this, "当前刷新时间: " + DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss")

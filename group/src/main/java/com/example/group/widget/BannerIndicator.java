@@ -112,12 +112,11 @@ public class BannerIndicator extends RelativeLayout implements View.OnClickListe
         void onBannerClick(int position);
     }
 
-    // 定一个广告轮播监听器
+    // 定义一个广告轮播监听器
     private class BannerChangeListener implements ViewPager.OnPageChangeListener {
 
         // 翻页状态改变时触发
-        public void onPageScrollStateChanged(int arg0) {
-        }
+        public void onPageScrollStateChanged(int arg0) {}
 
         // 在翻页过程中触发
         public void onPageScrolled(int seq, float ratio, int offset) {

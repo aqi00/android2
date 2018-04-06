@@ -49,7 +49,7 @@ public class SearchResultActvity extends AppCompatActivity {
                 String value = bundle.getString("hi");
                 // 获取实际的搜索文本
                 String queryString = intent.getStringExtra(SearchManager.QUERY);
-                tv_search_result.setText("您输入的搜索文字是：" + queryString + ", 额外信息：" + value);
+                tv_search_result.setText("您输入的搜索文字是："+queryString+", 额外信息："+value);
             }
         }
     }
@@ -63,7 +63,7 @@ public class SearchResultActvity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) { // 点击了返回箭头
+        if (item.getItemId() == android.R.id.home) { // 点击了工具栏左边的返回箭头
             finish();
         }
         return super.onOptionsItemSelected(item);

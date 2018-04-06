@@ -140,7 +140,7 @@ public class DepartmentHomeActivity extends AppCompatActivity implements BannerC
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home) { // 点击了返回箭头
+        if (id == android.R.id.home) { // 点击了工具栏左边的返回箭头
             finish();
         } else if (id == R.id.menu_search) { // 点击了搜索图标
             // 跳转到搜索页面

@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- 注意TabLayout节点需要使用完整路径 -->
             <android.support.design.widget.TabLayout
                 android:id="@+id/tab_title"
                 android:layout_width="wrap_content"
@@ -24,7 +25,6 @@
                 app:tabSelectedTextColor="@color/red"
                 app:tabTextColor="@color/grey"
                 app:tabTextAppearance="@style/TabText" />
-
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 

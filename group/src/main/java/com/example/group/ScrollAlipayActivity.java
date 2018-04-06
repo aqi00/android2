@@ -17,8 +17,8 @@ import android.view.View;
  */
 public class ScrollAlipayActivity extends AppCompatActivity implements OnOffsetChangedListener {
     private final static String TAG = "ScrollAlipayActivity";
-    private View tl_expand, tl_collapse;
-    private View v_expand_mask, v_collapse_mask, v_pay_mask;
+    private View tl_expand, tl_collapse; // 分别声明伸展时候与收缩时候的工具栏视图
+    private View v_expand_mask, v_collapse_mask, v_pay_mask; // 分别声明三个遮罩视图
     private int mMaskColor; // 遮罩颜色
 
     @Override
@@ -77,5 +77,4 @@ public class ScrollAlipayActivity extends AppCompatActivity implements OnOffsetC
         // 设置life_pay.xml即生活频道视图的遮罩颜色
         v_pay_mask.setBackgroundColor(maskColorIn);
     }
-
 }

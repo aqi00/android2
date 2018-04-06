@@ -59,7 +59,7 @@ public class ToolbarCustomActivity extends AppCompatActivity implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home) { // 点击了返回箭头
+        if (id == android.R.id.home) { // 点击了工具栏左边的返回箭头
             finish();
         } else if (id == R.id.menu_refresh) { // 点击了刷新图标
             tv_desc.setText("当前刷新时间: " + DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss"));

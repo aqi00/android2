@@ -36,6 +36,7 @@ public class MenuUtil {
         if (featureId % 100 == Window.FEATURE_ACTION_BAR && menu != null) {
             if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
                 try {
+                    // setOptionalIconsVisible是个隐藏方法，需要通过反射机制调用
                     Method m = menu.getClass().getDeclaredMethod(
                             "setOptionalIconsVisible", Boolean.TYPE);
                     m.setAccessible(true);

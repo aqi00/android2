@@ -112,7 +112,7 @@ public class StatusBarUtil {
         // 先移除已有的冒牌状态栏
         View fakeView = decorView.findViewWithTag(TAG_FAKE_STATUS_BAR_VIEW);
         if (fakeView != null) {
-            decorView.removeView(fakeView);
+            decorView.removeView(fakeView); // 从根视图移除旧状态栏
         }
         // 再添加新来的冒牌状态栏
         View statusBarView = new View(activity);
@@ -122,7 +122,7 @@ public class StatusBarUtil {
         statusBarView.setLayoutParams(params);
         statusBarView.setBackgroundColor(statusBarColor);
         statusBarView.setTag(TAG_FAKE_STATUS_BAR_VIEW);
-        decorView.addView(statusBarView);
+        decorView.addView(statusBarView); // 往根视图添加新状态栏
     }
 
 }

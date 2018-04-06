@@ -31,7 +31,7 @@ public class SearchViewActivity extends AppCompatActivity {
     private final static String TAG = "SearchViewActivity";
     private TextView tv_desc;
     private SearchView.SearchAutoComplete sac_key; // 声明一个搜索自动完成的编辑框对象
-    private String[] hintArray = {"iphone", "iphone7s", "iphone7", "iphone7 plus", "iphone6s", "iphone6", "iphone6 plus"};
+    private String[] hintArray = {"iphone", "iphone8", "iphone8 plus", "iphone7", "iphone7 plus"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +60,11 @@ public class SearchViewActivity extends AppCompatActivity {
             // 查看Android源码，搜索按钮用的控件是ImageView，所以只能显示图标不能显示文字。
             searchView.setSubmitButtonEnabled(true);
             // 从系统服务中获取搜索管理器
-            SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+            SearchManager searchManager = (SearchManager)
+                    getSystemService(Context.SEARCH_SERVICE);
             // 创建搜索结果页面的组件名称对象
             ComponentName cn = new ComponentName(this, SearchResultActvity.class);
-            // 从结果页面注册的activity节点中获取相关搜索信息，即searchable.xml定义的搜索控件
+            // 从结果页面注册的activity节点获取相关搜索信息，即searchable.xml定义的搜索控件
             SearchableInfo info = searchManager.getSearchableInfo(cn);
             if (info == null) {
                 Log.d(TAG, "Fail to get SearchResultActvity.");
@@ -133,7 +134,7 @@ public class SearchViewActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == android.R.id.home) { // 点击了返回箭头
+        if (id == android.R.id.home) { // 点击了工具栏左边的返回箭头
             finish();
         } else if (id == R.id.menu_refresh) { // 点击了刷新图标
             tv_desc.setText("当前刷新时间: " + DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss"));

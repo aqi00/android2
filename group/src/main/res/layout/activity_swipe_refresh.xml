@@ -4,11 +4,13 @@
     android:orientation="vertical"
     android:padding="5dp">
 
+    <!-- 注意SwipeRefreshLayout节点必须使用完整路径 -->
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/srl_simple"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- SwipeRefreshLayout的下级必须是可滚动的视图 -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -24,5 +26,4 @@
                 android:textSize="17sp" />
         </ScrollView>
     </android.support.v4.widget.SwipeRefreshLayout>
-
 </LinearLayout>
