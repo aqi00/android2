@@ -1,5 +1,6 @@
 package com.example.storage;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 /**
  * Created by ouyangshen on 2017/10/1.
  */
+@SuppressLint("DefaultLocale")
 public class LoginForgetActivity extends AppCompatActivity implements OnClickListener {
     private EditText et_password_first;
     private EditText et_password_second;

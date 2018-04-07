@@ -40,6 +40,7 @@ public class ShareWriteActivity extends AppCompatActivity implements OnClickList
 		mShared = getSharedPreferences("share", MODE_PRIVATE);
 	}
 
+	// 初始化婚姻状况的下拉框
 	private void initTypeSpinner() {
 		ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this,
 				R.layout.item_select, typeArray);

@@ -3,13 +3,13 @@ package com.example.storage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -39,6 +39,7 @@ import com.example.storage.util.SharedUtil;
 /**
  * Created by ouyangshen on 2017/10/1.
  */
+@SuppressLint("SetTextI18n")
 public class ShoppingCartActivity extends Activity implements OnClickListener {
     private final static String TAG = "ShoppingCartActivity";
     private ImageView iv_menu;

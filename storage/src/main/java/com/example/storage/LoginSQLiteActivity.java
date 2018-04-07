@@ -5,6 +5,7 @@ import com.example.storage.database.UserDBHelper;
 import com.example.storage.util.DateUtil;
 import com.example.storage.util.ViewUtil;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,6 +33,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 /**
  * Created by ouyangshen on 2017/10/1.
  */
+@SuppressLint("DefaultLocale")
 public class LoginSQLiteActivity extends AppCompatActivity implements OnClickListener, OnFocusChangeListener {
     private RadioGroup rg_login;
     private RadioButton rb_password;

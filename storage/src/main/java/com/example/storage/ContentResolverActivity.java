@@ -3,6 +3,7 @@ package com.example.storage;
 import com.example.storage.bean.Contact;
 import com.example.storage.util.CommunicationUtil;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 /**
  * Created by ouyangshen on 2017/12/4.
  */
+@SuppressLint("DefaultLocale")
 public class ContentResolverActivity extends AppCompatActivity implements OnClickListener {
     private static final String TAG = "ContentResolverActivity";
     private EditText et_contact_name;

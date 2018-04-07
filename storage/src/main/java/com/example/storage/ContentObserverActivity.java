@@ -1,5 +1,6 @@
 package com.example.storage;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -11,7 +12,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -19,6 +19,7 @@ import android.widget.TextView;
 /**
  * Created by ouyangshen on 2017/12/4.
  */
+@SuppressLint("DefaultLocale")
 public class ContentObserverActivity extends AppCompatActivity implements OnClickListener {
     private static final String TAG = "ContentObserverActivity";
     private static TextView tv_check_flow;

@@ -1,5 +1,6 @@
 package com.example.storage;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.example.storage.util.FileUtil;
 /**
  * Created by ouyangshen on 2017/10/1.
  */
+@SuppressLint("SetTextI18n")
 public class TextWriteActivity extends AppCompatActivity implements OnClickListener {
     private EditText et_name;
     private EditText et_age;
@@ -44,6 +46,7 @@ public class TextWriteActivity extends AppCompatActivity implements OnClickListe
         initTypeSpinner();
     }
 
+    // 初始化婚姻状况的下拉框
     private void initTypeSpinner() {
         ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, typeArray);

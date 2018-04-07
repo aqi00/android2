@@ -2,6 +2,7 @@ package com.example.storage;
 
 import com.example.storage.util.ViewUtil;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,6 +30,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 /**
  * Created by ouyangshen on 2017/10/1.
  */
+@SuppressLint("DefaultLocale")
 public class LoginShareActivity extends AppCompatActivity implements OnClickListener {
     private RadioGroup rg_login;
     private RadioButton rb_password;

@@ -1,5 +1,6 @@
 package com.example.storage;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
@@ -22,6 +23,7 @@ import com.example.storage.util.FileUtil;
 /**
  * Created by ouyangshen on 2017/10/1.
  */
+@SuppressLint("SetTextI18n")
 public class ImageWriteActivity extends AppCompatActivity implements OnClickListener {
     private LinearLayout ll_info;
     private EditText et_name;
@@ -49,6 +51,7 @@ public class ImageWriteActivity extends AppCompatActivity implements OnClickList
         initTypeSpinner();
     }
 
+    // 初始化婚姻状况的下拉框
     private void initTypeSpinner() {
         ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, typeArray);

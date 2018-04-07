@@ -39,6 +39,7 @@ public class SQLiteWriteActivity extends AppCompatActivity implements OnClickLis
         initTypeSpinner();
     }
 
+    // 初始化婚姻状况的下拉框
     private void initTypeSpinner() {
         ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, typeArray);

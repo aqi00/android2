@@ -2,6 +2,7 @@ package com.example.storage;
 
 import java.util.Map;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 /**
  * Created by ouyangshen on 2017/10/1.
  */
+@SuppressLint("DefaultLocale")
 public class ShareReadActivity extends AppCompatActivity {
     private TextView tv_share;
 

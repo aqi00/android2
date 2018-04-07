@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.example.storage.util.FileUtil;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 /**
  * Created by ouyangshen on 2017/10/1.
  */
+@SuppressLint("SetTextI18n")
 public class TextReadActivity extends AppCompatActivity implements OnClickListener {
     private final static String TAG = "TextReadActivity";
     private TextView tv_text;
