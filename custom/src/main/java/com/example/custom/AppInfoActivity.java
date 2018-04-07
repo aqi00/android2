@@ -31,6 +31,7 @@ public class AppInfoActivity extends AppCompatActivity {
         initTypeSpinner();
     }
 
+    // 初始化应用类型的下拉框
     private void initTypeSpinner() {
         ArrayAdapter<String> typeAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, typeArray);

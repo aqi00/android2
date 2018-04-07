@@ -1,5 +1,6 @@
 package com.example.custom;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 /**
  * Created by ouyangshen on 2017/10/14.
  */
+@SuppressLint("SetTextI18n")
 public class RunnableActivity extends AppCompatActivity implements OnClickListener {
     private final static String TAG = "RunnableActivity";
     private Button btn_runnable;

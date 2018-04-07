@@ -3,6 +3,7 @@ package com.example.custom;
 import com.example.custom.service.NormalService;
 import com.example.custom.util.DateUtil;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 /**
  * Created by ouyangshen on 2017/10/14.
  */
+@SuppressLint("StaticFieldLeak")
 public class ServiceNormalActivity extends AppCompatActivity implements OnClickListener {
     private static TextView tv_normal;
     private Intent mIntent; // 声明一个意图对象

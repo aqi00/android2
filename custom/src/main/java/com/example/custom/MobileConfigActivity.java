@@ -23,7 +23,7 @@ import android.widget.Toast;
 /**
  * Created by ouyangshen on 2017/10/14.
  */
-@SuppressLint(value={"SetTextI18n","DefaultLocale"})
+@SuppressLint(value={"SetTextI18n","DefaultLocale","StaticFieldLeak"})
 public class MobileConfigActivity extends AppCompatActivity implements OnClickListener {
     private static final String TAG = "MobileConfigActivity";
     private static EditText et_config_month;

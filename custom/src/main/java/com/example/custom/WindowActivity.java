@@ -9,7 +9,6 @@ import android.widget.TextView;
  * Created by ouyangshen on 2017/10/14.
  */
 public class WindowActivity extends Activity {
-    private TextView tv_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +22,7 @@ public class WindowActivity extends Activity {
         // 设置窗口的背景图片
 //        getWindow().setBackgroundDrawableResource(R.drawable.icon_header);
         // 从窗口中获取名叫tv_info的文本视图
-        tv_info = getWindow().findViewById(R.id.tv_info);
+        TextView tv_info = getWindow().findViewById(R.id.tv_info);
         tv_info.setText("我在直接操作窗口啦");
     }
 

@@ -29,6 +29,7 @@ public class MeasureTextActivity extends AppCompatActivity {
         initSizeSpinner();
     }
 
+    // 初始化文字大小的下拉框
     private void initSizeSpinner() {
         ArrayAdapter<String> sizeAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, descArray);

@@ -28,6 +28,7 @@ public class ShowDrawActivity extends AppCompatActivity {
         initTypeSpinner();
     }
 
+    // 初始化绘图方式的下拉框
     private void initTypeSpinner() {
         ArrayAdapter<String> drawAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, descArray);

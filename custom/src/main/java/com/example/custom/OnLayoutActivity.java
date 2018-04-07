@@ -25,6 +25,7 @@ public class OnLayoutActivity extends AppCompatActivity {
         initOffsetSpinner();
     }
 
+    // 初始化偏移大小的下拉框
     private void initOffsetSpinner() {
         ArrayAdapter<String> offsetAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, descArray);
