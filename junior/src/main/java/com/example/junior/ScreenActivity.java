@@ -1,5 +1,6 @@
 package com.example.junior;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import com.example.junior.util.Utils;
 /**
  * Created by ouyangshen on 2017/9/11.
  */
+@SuppressLint("DefaultLocale")
 public class ScreenActivity extends AppCompatActivity {
     private TextView tv_screen; // 声明一个文本视图对象
 

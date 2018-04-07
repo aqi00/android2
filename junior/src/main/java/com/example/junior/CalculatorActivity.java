@@ -26,25 +26,25 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         // 设置tv_result内部文本的移动方式为滚动形式
         tv_result.setMovementMethod(new ScrollingMovementMethod());
         // 下面给每个按钮控件都注册了点击监听器
-        findViewById(R.id.btn_cancel).setOnClickListener(this);
-        findViewById(R.id.btn_divide).setOnClickListener(this);
-        findViewById(R.id.btn_multiply).setOnClickListener(this);
-        findViewById(R.id.btn_clear).setOnClickListener(this);
-        findViewById(R.id.btn_seven).setOnClickListener(this);
-        findViewById(R.id.btn_eight).setOnClickListener(this);
-        findViewById(R.id.btn_nine).setOnClickListener(this);
-        findViewById(R.id.btn_plus).setOnClickListener(this);
-        findViewById(R.id.btn_four).setOnClickListener(this);
-        findViewById(R.id.btn_five).setOnClickListener(this);
-        findViewById(R.id.btn_six).setOnClickListener(this);
-        findViewById(R.id.btn_minus).setOnClickListener(this);
-        findViewById(R.id.btn_one).setOnClickListener(this);
-        findViewById(R.id.btn_two).setOnClickListener(this);
-        findViewById(R.id.btn_three).setOnClickListener(this);
-        findViewById(R.id.btn_zero).setOnClickListener(this);
-        findViewById(R.id.btn_dot).setOnClickListener(this);
-        findViewById(R.id.btn_equal).setOnClickListener(this);
-        findViewById(R.id.ib_sqrt).setOnClickListener(this);
+        findViewById(R.id.btn_cancel).setOnClickListener(this); // “取消”按钮
+        findViewById(R.id.btn_divide).setOnClickListener(this); // “除法”按钮
+        findViewById(R.id.btn_multiply).setOnClickListener(this); // “乘法”按钮
+        findViewById(R.id.btn_clear).setOnClickListener(this); // “清除”按钮
+        findViewById(R.id.btn_seven).setOnClickListener(this); // 数字7
+        findViewById(R.id.btn_eight).setOnClickListener(this); // 数字8
+        findViewById(R.id.btn_nine).setOnClickListener(this); // 数字9
+        findViewById(R.id.btn_plus).setOnClickListener(this); // “加法”按钮
+        findViewById(R.id.btn_four).setOnClickListener(this); // 数字4
+        findViewById(R.id.btn_five).setOnClickListener(this); // 数字5
+        findViewById(R.id.btn_six).setOnClickListener(this); // 数字6
+        findViewById(R.id.btn_minus).setOnClickListener(this); // “减法”按钮
+        findViewById(R.id.btn_one).setOnClickListener(this); // 数字1
+        findViewById(R.id.btn_two).setOnClickListener(this); // 数字2
+        findViewById(R.id.btn_three).setOnClickListener(this); // 数字3
+        findViewById(R.id.btn_zero).setOnClickListener(this); // 数字0
+        findViewById(R.id.btn_dot).setOnClickListener(this); // “小数点”按钮
+        findViewById(R.id.btn_equal).setOnClickListener(this); // “等号”按钮
+        findViewById(R.id.ib_sqrt).setOnClickListener(this); // “开平方”按钮
     }
 
     @Override
