@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import com.example.senior.util.DateUtil;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -23,6 +24,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 /**
  * Created by ouyangshen on 2017/10/7.
  */
+@SuppressLint("StaticFieldLeak")
 public class AlarmActivity extends AppCompatActivity implements OnClickListener {
     private static final String TAG = "AlarmActivity";
     private static TextView tv_alarm;
@@ -37,6 +39,7 @@ public class AlarmActivity extends AppCompatActivity implements OnClickListener 
         initDelaySpinner();
     }
 
+    // 初始化闹钟延迟的下拉框
     private void initDelaySpinner() {
         ArrayAdapter<String> delayAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, delayDescArray);

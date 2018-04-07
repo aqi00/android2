@@ -18,7 +18,7 @@ import com.example.senior.util.DateUtil;
 /**
  * Created by ouyangshen on 2017/10/7.
  */
-@SuppressLint("DefaultLocale")
+@SuppressLint(value={"DefaultLocale","StaticFieldLeak"})
 public class VibratorActivity extends AppCompatActivity implements OnClickListener {
     private static TextView tv_vibrator;
 
@@ -31,6 +31,7 @@ public class VibratorActivity extends AppCompatActivity implements OnClickListen
         initDurationSpinner();
     }
 
+    // 初始化震动时长的下拉框
     private void initDurationSpinner() {
         ArrayAdapter<String> durationAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, durationDescArray);
@@ -41,7 +42,7 @@ public class VibratorActivity extends AppCompatActivity implements OnClickListen
         sp_duration.setSelection(0);
     }
 
-    private int mDuration;
+    private int mDuration; // 震动时长
     private int[] durationArray = {500, 1000, 2000, 3000, 4000, 5000};
     private String[] durationDescArray = {"0.5秒", "1秒", "2秒", "3秒", "4秒", "5秒"};
 

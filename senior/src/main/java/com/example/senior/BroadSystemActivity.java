@@ -4,6 +4,7 @@ import java.util.Set;
 
 import com.example.senior.util.DateUtil;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 /**
  * Created by ouyangshen on 2017/10/7.
  */
+@SuppressLint("StaticFieldLeak")
 public class BroadSystemActivity extends AppCompatActivity {
     private static TextView tv_system;
     private static String desc = "开始侦听分钟广播，请稍等。注意要保持屏幕亮着，才能正常收到广播";

@@ -2,6 +2,7 @@ package com.example.senior;
 
 import java.util.Calendar;
 
+import android.annotation.SuppressLint;
 import android.app.TimePickerDialog;
 import android.app.TimePickerDialog.OnTimeSetListener;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 /**
  * Created by ouyangshen on 2017/10/7.
  */
+@SuppressLint("DefaultLocale")
 // 该页面类实现了接口OnTimeSetListener，意味着要重写时间监听器的onTimeSet方法
 public class TimePickerActivity extends AppCompatActivity implements
         OnClickListener, OnTimeSetListener {

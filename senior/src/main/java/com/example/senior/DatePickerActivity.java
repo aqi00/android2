@@ -2,6 +2,7 @@ package com.example.senior;
 
 import java.util.Calendar;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 /**
  * Created by ouyangshen on 2017/10/7.
  */
+@SuppressLint("DefaultLocale")
 // 该页面类实现了接口OnDateSetListener，意味着要重写日期监听器的onDateSet方法
 public class DatePickerActivity extends AppCompatActivity implements
         OnClickListener, OnDateSetListener {

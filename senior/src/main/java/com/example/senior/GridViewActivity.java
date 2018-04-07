@@ -42,6 +42,7 @@ public class GridViewActivity extends AppCompatActivity {
         initDividerSpinner();
     }
 
+    // 初始化分隔线显示方式的下拉框
     private void initDividerSpinner() {
         ArrayAdapter<String> dividerAdapter = new ArrayAdapter<String>(this,
                 R.layout.item_select, dividerArray);
