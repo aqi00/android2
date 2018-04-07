@@ -1,5 +1,6 @@
 package com.example.middle;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.app.AlertDialog;
@@ -13,10 +14,11 @@ import android.widget.Toast;
 /**
  * Created by ouyangshen on 2017/9/24.
  */
+@SuppressLint("DefaultLocale")
 public class LoginForgetActivity extends AppCompatActivity implements OnClickListener {
-    private EditText et_password_first;
-    private EditText et_password_second;
-    private EditText et_verifycode;
+    private EditText et_password_first; // 声明一个编辑框对象
+    private EditText et_password_second; // 声明一个编辑框对象
+    private EditText et_verifycode; // 声明一个编辑框对象
     private String mVerifyCode; // 验证码
     private String mPhone; // 手机号码
 
@@ -24,8 +26,11 @@ public class LoginForgetActivity extends AppCompatActivity implements OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_forget);
+        // 从布局文件中获取名叫et_password_first的编辑框
         et_password_first = findViewById(R.id.et_password_first);
+        // 从布局文件中获取名叫et_password_second的编辑框
         et_password_second = findViewById(R.id.et_password_second);
+        // 从布局文件中获取名叫et_verifycode的编辑框
         et_verifycode = findViewById(R.id.et_verifycode);
         findViewById(R.id.btn_verifycode).setOnClickListener(this);
         findViewById(R.id.btn_confirm).setOnClickListener(this);

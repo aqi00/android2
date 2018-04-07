@@ -10,7 +10,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
  * Created by ouyangshen on 2017/9/24.
  */
 public class RadioVerticalActivity extends AppCompatActivity implements OnCheckedChangeListener {
-    private TextView tv_marry;
+    private TextView tv_marry; // 声明一个文本视图对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

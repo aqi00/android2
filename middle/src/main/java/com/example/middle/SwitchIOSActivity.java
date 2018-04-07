@@ -12,7 +12,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
  */
 public class SwitchIOSActivity extends AppCompatActivity implements OnCheckedChangeListener {
     private CheckBox ck_status; // 声明一个复选框对象
-    private TextView tv_result;
+    private TextView tv_result; // 声明一个文本视图对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

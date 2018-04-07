@@ -11,7 +11,7 @@ import android.widget.Toast;
  * Created by ouyangshen on 2017/9/24.
  */
 public class RadioHorizontalActivity extends AppCompatActivity implements OnCheckedChangeListener {
-    private TextView tv_sex;
+    private TextView tv_sex; // 声明一个文本视图对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

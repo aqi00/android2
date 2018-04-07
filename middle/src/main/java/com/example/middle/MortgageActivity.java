@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 
 import com.example.middle.bean.Repayment;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -25,17 +26,18 @@ import android.widget.TextView;
 /**
  * Created by ouyangshen on 2017/9/24.
  */
+@SuppressLint("DefaultLocale")
 public class MortgageActivity extends AppCompatActivity implements OnClickListener,
         RadioGroup.OnCheckedChangeListener, OnCheckedChangeListener {
-    private EditText et_price;
-    private EditText et_loan;
-    private TextView tv_loan;
-    private RadioGroup rg_payment;
-    private CheckBox ck_business;
-    private EditText et_business;
-    private CheckBox ck_accumulation;
-    private EditText et_accumulation;
-    private TextView tv_payment;
+    private EditText et_price; // 声明一个编辑框对象
+    private EditText et_loan; // 声明一个编辑框对象
+    private TextView tv_loan; // 声明一个文本视图对象
+    private RadioGroup rg_payment; // 声明一个单选组对象
+    private CheckBox ck_business; // 声明一个复选框对象
+    private EditText et_business; // 声明一个编辑框对象
+    private CheckBox ck_accumulation; // 声明一个复选框对象
+    private EditText et_accumulation; // 声明一个编辑框对象
+    private TextView tv_payment; // 声明一个文本视图对象
 
     private boolean isInterest = true; // 是否为等额本息
     private boolean hasBusiness = true; // 是否存在商业贷款

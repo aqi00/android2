@@ -12,7 +12,7 @@ import android.widget.TextView;
  * Created by ouyangshen on 2017/9/24.
  */
 public class AlertActivity extends AppCompatActivity implements OnClickListener {
-    private TextView tv_alert;
+    private TextView tv_alert; // 声明一个文本视图对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

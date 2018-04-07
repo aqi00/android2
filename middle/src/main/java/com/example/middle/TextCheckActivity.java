@@ -1,5 +1,6 @@
 package com.example.middle;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -9,9 +10,10 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 
+@SuppressLint(value={"SetTextI18n","DefaultLocale"})
 public class TextCheckActivity extends AppCompatActivity implements OnClickListener {
     private EditText et_input; // 声明一个编辑框对象
-    private TextView tv_result;
+    private TextView tv_result; // 声明一个文本视图对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

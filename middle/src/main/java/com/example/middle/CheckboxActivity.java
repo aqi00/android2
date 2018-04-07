@@ -1,5 +1,6 @@
 package com.example.middle;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.CheckBox;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 /**
  * Created by ouyangshen on 2017/9/24.
  */
+@SuppressLint("DefaultLocale")
 public class CheckboxActivity extends AppCompatActivity implements OnCheckedChangeListener {
 
     @Override

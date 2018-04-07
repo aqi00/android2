@@ -13,7 +13,7 @@ import com.example.middle.util.DateUtil;
  */
 public class ActRotateActivity extends AppCompatActivity {
     private final static String TAG = "ActRotateActivity";
-    private TextView tv_life;
+    private TextView tv_life; // 声明一个文本视图对象
     private String mStr = "";
 
     private void refreshLife(String desc) { // 刷新生命周期的日志信息

@@ -12,7 +12,7 @@ import android.widget.TextView;
  */
 public class SwitchDefaultActivity extends AppCompatActivity implements OnCheckedChangeListener {
     private Switch sw_status; // 声明一个开关按钮对象
-    private TextView tv_result;
+    private TextView tv_result; // 声明一个文本视图对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
