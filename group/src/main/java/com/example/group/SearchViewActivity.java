@@ -51,50 +51,46 @@ public class SearchViewActivity extends AppCompatActivity {
         MenuItem menuItem = menu.findItem(R.id.menu_search);
         // 从菜单项中获取搜索框对象
         SearchView searchView = (SearchView) menuItem.getActionView();
-        if (searchView == null) {
-            Log.d(TAG, "Fail to get SearchView.");
-        } else {
-            // 设置搜索框默认自动缩小为图标
-            searchView.setIconifiedByDefault(getIntent().getBooleanExtra("collapse", true));
-            // 设置是否显示搜索按钮。搜索按钮只显示一个箭头图标，Android暂不支持显示文本。
-            // 查看Android源码，搜索按钮用的控件是ImageView，所以只能显示图标不能显示文字。
-            searchView.setSubmitButtonEnabled(true);
-            // 从系统服务中获取搜索管理器
-            SearchManager searchManager = (SearchManager)
-                    getSystemService(Context.SEARCH_SERVICE);
-            // 创建搜索结果页面的组件名称对象
-            ComponentName cn = new ComponentName(this, SearchResultActvity.class);
-            // 从结果页面注册的activity节点获取相关搜索信息，即searchable.xml定义的搜索控件
-            SearchableInfo info = searchManager.getSearchableInfo(cn);
-            if (info == null) {
-                Log.d(TAG, "Fail to get SearchResultActvity.");
-            }
-            // 设置搜索框的可搜索信息
-            searchView.setSearchableInfo(info);
-            // 从搜索框中获取名叫search_src_text的自动完成编辑框
-            sac_key = searchView.findViewById(R.id.search_src_text);
-            // 设置自动完成编辑框的文本颜色
-            sac_key.setTextColor(Color.WHITE);
-            // 设置自动完成编辑框的提示文本颜色
-            sac_key.setHintTextColor(Color.WHITE);
-            // 给搜索框设置文本变化监听器
-            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                // 搜索关键词完成输入
-                public boolean onQueryTextSubmit(String query) {
-                    return false;
-                }
-
-                // 搜索关键词发生变化
-                public boolean onQueryTextChange(String newText) {
-                    doSearch(newText);
-                    return true;
-                }
-            });
-            Bundle bundle = new Bundle(); // 创建一个新包裹
-            bundle.putString("hi", "hello"); // 往包裹中存放名叫hi的字符串
-            // 设置搜索框的额外搜索数据
-            searchView.setAppSearchData(bundle);
+        // 设置搜索框默认自动缩小为图标
+        searchView.setIconifiedByDefault(getIntent().getBooleanExtra("collapse", true));
+        // 设置是否显示搜索按钮。搜索按钮只显示一个箭头图标，Android暂不支持显示文本。
+        // 查看Android源码，搜索按钮用的控件是ImageView，所以只能显示图标不能显示文字。
+        searchView.setSubmitButtonEnabled(true);
+        // 从系统服务中获取搜索管理器
+        SearchManager sm = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        // 创建搜索结果页面的组件名称对象
+        ComponentName cn = new ComponentName(this, SearchResultActvity.class);
+        // 从结果页面注册的activity节点获取相关搜索信息，即searchable.xml定义的搜索控件
+        SearchableInfo info = sm.getSearchableInfo(cn);
+        if (info == null) {
+            Log.d(TAG, "Fail to get SearchResultActvity.");
+            return;
         }
+        // 设置搜索框的可搜索信息
+        searchView.setSearchableInfo(info);
+        // 从搜索框中获取名叫search_src_text的自动完成编辑框
+        sac_key = searchView.findViewById(R.id.search_src_text);
+        // 设置自动完成编辑框的文本颜色
+        sac_key.setTextColor(Color.WHITE);
+        // 设置自动完成编辑框的提示文本颜色
+        sac_key.setHintTextColor(Color.WHITE);
+        // 给搜索框设置文本变化监听器
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            // 搜索关键词完成输入
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            // 搜索关键词发生变化
+            public boolean onQueryTextChange(String newText) {
+                doSearch(newText);
+                return true;
+            }
+        });
+        Bundle bundle = new Bundle(); // 创建一个新包裹
+        bundle.putString("hi", "hello"); // 往包裹中存放名叫hi的字符串
+        // 设置搜索框的额外搜索数据
+        searchView.setAppSearchData(bundle);
     }
 
     // 自动匹配相关的关键词列表

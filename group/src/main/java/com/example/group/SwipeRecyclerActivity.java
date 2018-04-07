@@ -93,6 +93,9 @@ public class SwipeRecyclerActivity extends AppCompatActivity implements OnRefres
             mAdapter.notifyItemInserted(0);
             // 让循环视图滚动到第一项所在的位置
             rv_dynamic.scrollToPosition(0);
+            // 当循环视图的列表项已经占满整个屏幕时，再往顶部添加一条新记录，
+            // 感觉屏幕没有发生变化，也没看到插入动画。
+            // 此时就要调用scrollToPosition(0)方法，表示滚动到第一条记录。
         }
     };
 
