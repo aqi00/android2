@@ -5,15 +5,12 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5Util {
 
-    // 首先初始化一个MessageDigest对象，该对象通过update方法获取原始数据，
-    // 并调用digest方法完成哈希计算，再把字节数组逐位转换为十六进制数，最后拼装加密字符串。
     public static String encrypt(String raw) {
         String md5Str = raw;
         try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(raw.getBytes());
-            byte[] encryContext = md.digest();
-
+            MessageDigest md = MessageDigest.getInstance("MD5"); // 创建一个MD5算法对象
+            md.update(raw.getBytes()); // 给算法对象加载待加密的原始数据
+            byte[] encryContext = md.digest(); // 调用digest方法完成哈希计算
             int i;
             StringBuffer buf = new StringBuffer("");
             for (int offset = 0; offset < encryContext.length; offset++) {
@@ -24,9 +21,9 @@ public class MD5Util {
                 if (i < 16) {
                     buf.append("0");
                 }
-                buf.append(Integer.toHexString(i));
+                buf.append(Integer.toHexString(i)); // 把字节数组逐位转换为十六进制数
             }
-            md5Str = buf.toString();
+            md5Str = buf.toString(); // 拼装加密字符串
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
