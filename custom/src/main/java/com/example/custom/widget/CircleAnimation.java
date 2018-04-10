@@ -104,7 +104,7 @@ public class CircleAnimation extends RelativeLayout {
         @Override
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            // 绘制360度的阴影圆弧
+            // 绘制360度的阴影圆弧。第四个参数为true表示绘制扇形，为false表示绘制圆弧
             canvas.drawArc(mRect, mBeginAngle, 360, false, paint);
         }
     }
@@ -129,7 +129,7 @@ public class CircleAnimation extends RelativeLayout {
         @Override
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            // 绘制指定角度的阴影圆弧
+            // 绘制指定角度的阴影圆弧。第四个参数为true表示绘制扇形，为false表示绘制圆弧
             canvas.drawArc(mRect, mBeginAngle, (float) (mDrawingAngle), false, paint);
         }
 
