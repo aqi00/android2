@@ -26,7 +26,7 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
         tv_capture = findViewById(R.id.tv_capture);
         // 从布局文件中获取名叫iv_capture的图像视图
         iv_capture = findViewById(R.id.iv_capture);
-        // 开启图像视图tv_capture的绘图缓存
+        // 开启文本视图tv_capture的绘图缓存
         tv_capture.setDrawingCacheEnabled(true);
         // 从布局文件中获取名叫btn_chat的按钮
         Button btn_chat = findViewById(R.id.btn_chat);
@@ -77,9 +77,9 @@ public class CaptureActivity extends AppCompatActivity implements View.OnClickLi
     private Runnable mResetCache = new Runnable() {
         @Override
         public void run() {
-            // 关闭图像视图tv_capture的绘图缓存
+            // 关闭文本视图tv_capture的绘图缓存
             tv_capture.setDrawingCacheEnabled(false);
-            // 开启图像视图tv_capture的绘图缓存
+            // 开启文本视图tv_capture的绘图缓存
             tv_capture.setDrawingCacheEnabled(true);
         }
     };
