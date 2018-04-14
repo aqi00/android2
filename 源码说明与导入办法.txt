@@ -1,0 +1,11 @@
+一、关于这套源码的运行环境
+最新添加了全面注释的源码工程，基于Android Studio 3.0编写，并在API27（Android 8.1）上编译通过。
+
+二、如何在Android Studio中导入本书的源码
+时常有买书的朋友在导入本书源码时，出现“Plugin with id 'com.android.application' not found.”的错误，这是因为本书源码以module形式提供，需要以“Import Module”的形式导入。具体导入步骤如下：
+1、依次选择菜单“File”——“New”——“New Project”，按提示新建一个项目（即Project）；
+2、项目创建完毕，再依次选择菜单“File”——“New”——“Import Module”，按提示导入具体的demo；
+注意要出现Project级别的build.gradle才可以正常编译。
+
+三、导入源码时可能出现的问题
+注意修改模块的build.gradle，把“$supportVersion”改为“27.0.0”，如果编译有问题则可改为“25.1.0”再试试
