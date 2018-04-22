@@ -39,6 +39,7 @@
         <activity android:name=".ShareReadActivity" />
         <activity android:name=".LoginShareActivity" />
         <activity android:name=".LoginForgetActivity" />
+        <activity android:name=".DatabaseActivity" />
         <activity android:name=".SQLiteWriteActivity" />
         <activity android:name=".SQLiteReadActivity" />
         <activity android:name=".LoginSQLiteActivity" />

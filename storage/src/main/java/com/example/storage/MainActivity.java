@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         findViewById(R.id.btn_share_write).setOnClickListener(this);
         findViewById(R.id.btn_share_read).setOnClickListener(this);
         findViewById(R.id.btn_login_share).setOnClickListener(this);
+        findViewById(R.id.btn_sqlite_create).setOnClickListener(this);
         findViewById(R.id.btn_sqlite_write).setOnClickListener(this);
         findViewById(R.id.btn_sqlite_read).setOnClickListener(this);
         findViewById(R.id.btn_login_sqlite).setOnClickListener(this);
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             startActivity(intent);
         } else if (v.getId() == R.id.btn_login_share) {
             Intent intent = new Intent(this, LoginShareActivity.class);
+            startActivity(intent);
+        } else if (v.getId() == R.id.btn_sqlite_create) {
+            Intent intent = new Intent(this, DatabaseActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_sqlite_write) {
             Intent intent = new Intent(this, SQLiteWriteActivity.class);
