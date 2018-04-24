@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.middle">
 
+    <!-- 拨打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 发送短信 -->
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,6 +42,7 @@
         <activity android:name=".ActNextActivity" />
         <activity android:name=".ActRotateActivity" />
         <activity android:name=".ActHomeActivity" />
+        <activity android:name=".ActUriActivity" />
         <activity android:name=".ActRequestActivity" />
         <activity android:name=".ActResponseActivity" />
         <activity android:name=".TextCheckActivity" />

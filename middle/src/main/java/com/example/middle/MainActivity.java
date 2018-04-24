@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         findViewById(R.id.btn_act_jump).setOnClickListener(this);
         findViewById(R.id.btn_act_rotate).setOnClickListener(this);
         findViewById(R.id.btn_act_home).setOnClickListener(this);
+        findViewById(R.id.btn_act_uri).setOnClickListener(this);
         findViewById(R.id.btn_act_request).setOnClickListener(this);
         findViewById(R.id.btn_text_check).setOnClickListener(this);
         findViewById(R.id.btn_mortgage).setOnClickListener(this);
@@ -104,6 +105,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             startActivity(intent);
         } else if (v.getId() == R.id.btn_act_home) {
             Intent intent = new Intent(this, ActHomeActivity.class);
+            startActivity(intent);
+        } else if (v.getId() == R.id.btn_act_uri) {
+            Intent intent = new Intent(this, ActUriActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_act_request) {
             Intent intent = new Intent(this, ActRequestActivity.class);

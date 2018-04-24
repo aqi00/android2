@@ -238,11 +238,18 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btn_act_uri"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="跳转到Uri" />
+
+                <Button
                     android:id="@+id/btn_act_request"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="携带请求参数跳转，下个页面返回应答参数" />
+                    android:text="请求参数和应答参数" />
 
             </LinearLayout>
 
