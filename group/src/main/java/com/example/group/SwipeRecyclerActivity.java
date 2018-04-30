@@ -45,6 +45,11 @@ public class SwipeRecyclerActivity extends AppCompatActivity implements OnRefres
         // 设置下拉刷新布局的进度圆圈颜色
         srl_dynamic.setColorSchemeResources(
                 R.color.red, R.color.orange, R.color.green, R.color.blue);
+        initRecyclerDynamic(); // 初始化动态线性布局的循环视图
+    }
+
+    // 初始化动态线性布局的循环视图
+    private void initRecyclerDynamic() {
         // 从布局文件中获取名叫rv_dynamic的循环视图
         rv_dynamic = findViewById(R.id.rv_dynamic);
         // 创建一个垂直方向的线性布局管理器

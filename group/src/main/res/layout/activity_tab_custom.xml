@@ -10,6 +10,7 @@
         android:layout_height="50dp"
         app:navigationIcon="@drawable/ic_back">
 
+        <!-- Toolbar下面允许添加自定义的布局内容 -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

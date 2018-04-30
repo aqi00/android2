@@ -19,6 +19,11 @@ public class RecyclerGridActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_grid);
+        initRecyclerGrid(); // 初始化网格布局的循环视图
+    }
+
+    // 初始化网格布局的循环视图
+    private void initRecyclerGrid() {
         // 从布局文件中获取名叫rv_grid的循环视图
         RecyclerView rv_grid = findViewById(R.id.rv_grid);
         // 创建一个垂直方向的网格布局管理器

@@ -20,6 +20,11 @@ public class RecyclerLinearActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_linear);
+        initRecyclerLinear(); // 初始化线性布局的循环视图
+    }
+
+    // 初始化线性布局的循环视图
+    private void initRecyclerLinear() {
         // 从布局文件中获取名叫rv_linear的循环视图
         RecyclerView rv_linear = findViewById(R.id.rv_linear);
         // 创建一个垂直方向的线性布局管理器

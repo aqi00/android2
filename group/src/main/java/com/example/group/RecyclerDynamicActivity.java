@@ -36,10 +36,16 @@ public class RecyclerDynamicActivity extends AppCompatActivity implements OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_dynamic);
         findViewById(R.id.btn_recycler_add).setOnClickListener(this);
+        initRecyclerDynamic(); // 初始化动态线性布局的循环视图
+    }
+
+    // 初始化动态线性布局的循环视图
+    private void initRecyclerDynamic() {
         // 从布局文件中获取名叫rv_dynamic的循环视图
         rv_dynamic = findViewById(R.id.rv_dynamic);
         // 创建一个垂直方向的线性布局管理器
-        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayout.VERTICAL, false);
+        LinearLayoutManager manager = new LinearLayoutManager(
+                this, LinearLayout.VERTICAL, false);
         // 设置循环视图的布局管理器
         rv_dynamic.setLayoutManager(manager);
         // 获取默认的所有公众号信息队列

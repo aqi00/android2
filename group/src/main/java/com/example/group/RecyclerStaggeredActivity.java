@@ -20,10 +20,16 @@ public class RecyclerStaggeredActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_staggered);
+        initRecyclerStaggered(); // 初始化瀑布流布局的循环视图
+    }
+
+    // 初始化瀑布流布局的循环视图
+    private void initRecyclerStaggered() {
         // 从布局文件中获取名叫rv_staggered的循环视图
         RecyclerView rv_staggered = findViewById(R.id.rv_staggered);
         // 创建一个垂直方向的瀑布流布局管理器
-        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(3, LinearLayout.VERTICAL);
+        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(
+                3, LinearLayout.VERTICAL);
         // 设置循环视图的布局管理器
         rv_staggered.setLayoutManager(manager);
         // 构建一个服装列表的瀑布流适配器

@@ -19,6 +19,11 @@ public class RecyclerCombineActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_combine);
+        initRecyclerCombine(); // 初始化合并网格布局的循环视图
+    }
+
+    // 初始化合并网格布局的循环视图
+    private void initRecyclerCombine() {
         // 从布局文件中获取名叫rv_combine的循环视图
         RecyclerView rv_combine = findViewById(R.id.rv_combine);
         // 创建一个四列的网格布局管理器
@@ -39,7 +44,8 @@ public class RecyclerCombineActivity extends AppCompatActivity {
         // 设置循环视图的布局管理器
         rv_combine.setLayoutManager(manager);
         // 构建一个猜你喜欢的网格适配器
-        RecyclerCombineAdapter adapter = new RecyclerCombineAdapter(this, GoodsInfo.getDefaultCombine());
+        RecyclerCombineAdapter adapter = new RecyclerCombineAdapter(
+                this, GoodsInfo.getDefaultCombine());
         // 设置网格列表的点击监听器
         adapter.setOnItemClickListener(adapter);
         // 设置网格列表的长按监听器
