@@ -37,7 +37,7 @@ public class MenuContextActivity extends AppCompatActivity implements OnClickLis
         }
     }
 
-    @Override
+    // 在页面恢复时调用
     protected void onResume() {
         // 给文本视图tv_context注册上下文菜单。
         // 注册之后，只要长按该控件，App就会自动打开上下文菜单

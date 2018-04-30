@@ -6,6 +6,8 @@ import com.example.storage.bean.CallRecord;
 import com.example.storage.bean.Contact;
 import com.example.storage.bean.SmsContent;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.ContentProviderOperation;
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -18,6 +20,7 @@ import android.provider.ContactsContract;
 import android.provider.Telephony;
 import android.util.Log;
 
+@SuppressLint("DefaultLocale")
 public class CommunicationUtil {
     private final static String TAG = "CommunicationUtil";
     private static Uri mContactUri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
@@ -25,6 +28,7 @@ public class CommunicationUtil {
             ContactsContract.CommonDataKinds.Phone.NUMBER,
             ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
 
+    // 读取手机保存的联系人数量
     public static int readPhoneContacts(ContentResolver resolver) {
         ArrayList<Contact> contactArray = new ArrayList<Contact>();
         Cursor cursor = resolver.query(mContactUri, mContactColumn, null, null, null);
@@ -39,6 +43,7 @@ public class CommunicationUtil {
         return contactArray.size();
     }
 
+    // 读取sim卡保存的联系人数量
     public static int readSimContacts(ContentResolver resolver) {
         Uri simUri = Uri.parse("content://icc/adn");
         ArrayList<Contact> contactArray = new ArrayList<Contact>();
@@ -54,6 +59,7 @@ public class CommunicationUtil {
         return contactArray.size();
     }
 
+    // 往手机中添加一个联系人信息（包括姓名、电话号码、电子邮箱）
     public static void addContacts(ContentResolver resolver, Contact contact) {
         // 构建一个指向系统联系人提供器的Uri对象
         Uri raw_uri = Uri.parse("content://com.android.contacts/raw_contacts");
@@ -97,6 +103,7 @@ public class CommunicationUtil {
         resolver.insert(uri, email);
     }
 
+    // 往手机中一次性添加一个联系人信息（包括主记录、姓名、电话号码、电子邮箱）
     public static void addFullContacts(ContentResolver resolver, Contact contact) {
         // 构建一个指向系统联系人提供器的Uri对象
         Uri raw_uri = Uri.parse("content://com.android.contacts/raw_contacts");
@@ -140,6 +147,8 @@ public class CommunicationUtil {
     private static Uri mSmsUri;
     private static String[] mSmsColumn;
 
+    // 读取指定号码发来的短信记录
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     public static int readSms(ContentResolver resolver, String phone, int gaps) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mSmsUri = Telephony.Sms.Inbox.CONTENT_URI;
@@ -179,6 +188,7 @@ public class CommunicationUtil {
             CallLog.Calls.CACHED_NAME, CallLog.Calls.NUMBER, CallLog.Calls.TYPE,
             CallLog.Calls.DATE, CallLog.Calls.DURATION, CallLog.Calls.NEW};
 
+    // 读取规定时间内的通话记录
     public static int readCallRecord(ContentResolver resolver, int gaps) {
         ArrayList<CallRecord> recordArray = new ArrayList<CallRecord>();
         String selection = String.format("date>%d", System.currentTimeMillis() - gaps * 1000);
@@ -198,6 +208,7 @@ public class CommunicationUtil {
         return recordArray.size();
     }
 
+    // 读取所有的联系人信息
     public static String readAllContacts(ContentResolver resolver) {
         ArrayList<Contact> contactArray = new ArrayList<Contact>();
         Cursor cursor = resolver.query(

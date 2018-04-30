@@ -100,7 +100,7 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
         getContentResolver().registerContentObserver(mSmsUri, true, mObserver);
     }
 
-    @Override
+    // 在页面销毁时触发
     protected void onDestroy() {
         // 注销内容观察器
         getContentResolver().unregisterContentObserver(mObserver);
@@ -115,8 +115,8 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
             mContext = context;
         }
 
-        @Override
-        public void onChange(boolean selfChange) { // 观察到短信的内容提供器发生变化
+        // 观察到短信的内容提供器发生变化时触发
+        public void onChange(boolean selfChange) {
             String sender = "", content = "";
             // 构建一个查询短信的条件语句，这里使用移动号码测试，故而查找10086发来的短信
             String selection = String.format("address='10086' and date>%d", System.currentTimeMillis() - 1000 * 60 * 60);
