@@ -9,7 +9,7 @@
     <RadioGroup
         android:id="@+id/rg_login"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:orientation="horizontal" >
 
         <RadioButton
@@ -37,7 +37,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp" >
+        android:layout_height="50dp" >
 
         <TextView
             android:id="@+id/tv_type"
@@ -60,7 +60,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp" >
+        android:layout_height="50dp" >
 
         <TextView
             android:id="@+id/tv_phone"
@@ -92,7 +92,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp" >
+        android:layout_height="50dp" >
 
         <TextView
             android:id="@+id/tv_password"
