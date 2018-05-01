@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -57,7 +58,8 @@ public class CustomMonthDialog implements View.OnClickListener {
         // 设置对话框窗口的内容视图
         dialog.getWindow().setContentView(view);
         // 设置对话框窗口的布局参数
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(
+                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         dialog.show(); // 显示对话框
     }
 

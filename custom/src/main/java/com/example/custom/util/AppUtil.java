@@ -18,6 +18,7 @@ public class AppUtil {
     public static ArrayList<AppInfo> getAppInfo(Context ctx, int type) {
         ArrayList<AppInfo> appList = new ArrayList<AppInfo>();
         SparseIntArray siArray = new SparseIntArray();
+        // 获得应用包管理器
         PackageManager pm = ctx.getPackageManager();
         // 获取系统中已经安装的应用列表
         List<ApplicationInfo> installList = pm.getInstalledApplications(
@@ -28,6 +29,7 @@ public class AppUtil {
             if (siArray.indexOfKey(item.uid) >= 0) {
                 continue;
             }
+            // 往siArray中添加一个应用编号，以便后续的去重校验
             siArray.put(item.uid, 1);
             try {
                 // 获取该应用的权限列表
@@ -58,7 +60,7 @@ public class AppUtil {
                 continue;
             }
         }
-        return appList;
+        return appList;  // 返回去重后的应用包队列
     }
 
     // 填充应用的完整信息。主要做两个事情：其一是补充应用的图标字段，其二是将列表按照流量排序

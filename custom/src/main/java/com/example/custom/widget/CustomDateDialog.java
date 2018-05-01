@@ -44,7 +44,8 @@ public class CustomDateDialog implements OnClickListener {
         // 设置对话框窗口的内容视图
         dialog.getWindow().setContentView(view);
         // 设置对话框窗口的布局参数
-        dialog.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setLayout(
+                LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         dialog.show(); // 显示对话框
     }
 

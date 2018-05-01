@@ -52,13 +52,15 @@ public class NotifySimpleActivity extends AppCompatActivity implements OnClickLi
                 //.setSubText("这里是副本") // 设置通知栏里面的附加说明文本
                 .setTicker("提示消息来啦") // 设置状态栏里面的提示文本
                 .setWhen(System.currentTimeMillis()) // 设置推送时间，格式为“小时：分钟”
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_app)) // 设置通知栏里面的大图标
+                // 设置通知栏里面的大图标
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_app))
                 .setContentTitle(title) // 设置通知栏里面的标题文本
                 .setContentText(message); // 设置通知栏里面的内容文本
         // 根据消息构造器构建一个通知对象
         Notification notify = builder.build();
         // 从系统服务中获取通知管理器
-        NotificationManager notifyMgr = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notifyMgr = (NotificationManager)
+                getSystemService(Context.NOTIFICATION_SERVICE);
         // 使用通知管理器推送通知，然后在手机的通知栏就会看到该消息
         notifyMgr.notify(R.string.app_name, notify);
     }

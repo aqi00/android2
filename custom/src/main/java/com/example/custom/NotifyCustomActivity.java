@@ -37,7 +37,8 @@ public class NotifyCustomActivity extends AppCompatActivity implements OnClickLi
             Notification notify = getNotify(this, PAUSE_EVENT,
                     et_song.getText().toString(), true, 50, SystemClock.elapsedRealtime());
             // 从系统服务中获取通知管理器
-            NotificationManager notifyMgr = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            NotificationManager notifyMgr = (NotificationManager)
+                    getSystemService(Context.NOTIFICATION_SERVICE);
             // 使用通知管理器推送通知，然后在手机的通知栏就会看到该消息
             notifyMgr.notify(R.string.app_name, notify);
         }

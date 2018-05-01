@@ -59,7 +59,8 @@ public class NotifyCounterActivity extends AppCompatActivity implements OnClickL
         // 根据消息构造器构建一个通知对象
         Notification notify = builder.build();
         // 从系统服务中获取通知管理器
-        NotificationManager notifyMgr = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notifyMgr = (NotificationManager)
+                getSystemService(Context.NOTIFICATION_SERVICE);
         // 使用通知管理器推送通知，然后在手机的通知栏就会看到该消息
         notifyMgr.notify(R.string.app_name, notify);
     }
