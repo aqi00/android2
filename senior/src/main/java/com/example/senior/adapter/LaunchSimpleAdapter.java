@@ -35,7 +35,8 @@ public class LaunchSimpleAdapter extends PagerAdapter {
             // 每张图片都分配一个对应的单选按钮RadioButton
             for (int j = 0; j < imageArray.length; j++) {
                 RadioButton radio = new RadioButton(mContext);
-                radio.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                radio.setLayoutParams(new LayoutParams(
+                        LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
                 radio.setButtonDrawable(R.drawable.launch_guide);
                 radio.setPadding(10, 10, 10, 10);
                 // 把单选按钮添加到底部指示器的单选组
@@ -49,7 +50,8 @@ public class LaunchSimpleAdapter extends PagerAdapter {
                 btn_start.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(mContext, "欢迎您开启美好生活", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "欢迎您开启美好生活",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
             }

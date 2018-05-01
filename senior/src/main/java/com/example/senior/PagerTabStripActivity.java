@@ -24,12 +24,22 @@ public class PagerTabStripActivity extends AppCompatActivity implements OnPageCh
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab_strip);
+        initPagerStrip(); // 初始化翻页标题栏
+        initViewPager(); // 初始化翻页视图
+    }
+
+    // 初始化翻页标题栏
+    private void initPagerStrip() {
         // 从布局视图中获取名叫pts_tab的翻页标题栏
         PagerTabStrip pts_tab = findViewById(R.id.pts_tab);
         // 设置翻页标题栏的文本大小
         pts_tab.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
         // 设置翻页标题栏的文本颜色
         pts_tab.setTextColor(Color.GREEN);
+    }
+
+    // 初始化翻页视图
+    private void initViewPager() {
         goodsList = GoodsInfo.getDefaultList();
         // 构建一个商品图片的翻页适配器
         ImagePagerAdapater adapter = new ImagePagerAdapater(this, goodsList);
