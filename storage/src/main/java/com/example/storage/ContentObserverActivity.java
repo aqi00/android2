@@ -133,7 +133,7 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
             mCheckResult = String.format("发送号码：%s\n短信内容：%s", sender, content);
             // 依次解析流量校准短信里面的各项流量数值，并拼接流量校准的结果字符串
             String flow = String.format("流量校准结果如下：\n\t总流量为：%s\n\t已使用：%s" +
-                            "\n\t剩余：%s", findFlow(content, "总流量为", "MB"),
+                            "\n\t剩余：%s", findFlow(content, "总流量为", "，"),
                     findFlow(content, "已使用", "MB"), findFlow(content, "剩余", "MB"));
             if (tv_check_flow != null) { // 离开该页面时就不再显示流量信息
                 // 把流量校准结果显示到文本视图tv_check_flow上面
@@ -154,7 +154,11 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
         if (end_pos < 0) {
             return "未获取";
         }
-        return sub_sms.substring(begin.length(), end_pos + end.length());
+        if (end.equals("，")) {
+            return sub_sms.substring(begin.length(), end_pos);
+        } else {
+            return sub_sms.substring(begin.length(), end_pos + end.length());
+        }
     }
 
 }
