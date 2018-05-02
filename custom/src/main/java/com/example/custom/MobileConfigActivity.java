@@ -143,7 +143,7 @@ public class MobileConfigActivity extends AppCompatActivity implements OnClickLi
             String totalFlow = "0";
             if (sender.equals(mCustomNumber)) {
                 // 解析流量校准短信里面的总流量数值
-                totalFlow = findFlow(content, "总流量为", "MB");
+                totalFlow = findFlow(content, "总流量为", "，");
             }
             String[] flows = totalFlow.split("GB");
             Log.d(TAG, "totalFlow="+totalFlow+", flows.length="+flows.length);
@@ -176,7 +176,11 @@ public class MobileConfigActivity extends AppCompatActivity implements OnClickLi
         if (end_pos < 0) {
             return "未获取";
         }
-        return sub_sms.substring(begin.length(), end_pos);
+        if (end.equals("，")) {
+            return sub_sms.substring(begin.length(), end_pos);
+        } else {
+            return sub_sms.substring(begin.length(), end_pos + end.length());
+        }
     }
 
 }
