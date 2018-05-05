@@ -1,0 +1,1 @@
+include ':app', ':junior', ':middle', ':storage', ':senior', ':custom', ':group', ':test'
