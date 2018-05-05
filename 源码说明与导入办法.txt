@@ -7,5 +7,9 @@
 2、项目创建完毕，再依次选择菜单“File”——“New”——“Import Module”，按提示导入具体的demo；
 注意要出现Project级别的build.gradle才可以正常编译。
 
-三、导入源码时可能出现的问题
-注意修改模块的build.gradle，把“$supportVersion”改为“27.0.0”，如果编译有问题则可改为“25.1.0”再试试
+三、关于Android Studio 3.1无法正常导入模块
+先按照上面的第二点导入模块，此时Android Studio没有任何反应，既不重编也不在左侧列表添加新模块。此时要打开项目的settings.gradle，把下面这行：
+    include ':app'
+改成下面这样，也就是手动添加新模块的名称：
+    include ':app', ':新模块的名称'
+修改完毕，重启Android Studio，再次打开后AS就会自动重新编译了。
