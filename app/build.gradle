@@ -4,7 +4,7 @@ android {
     // 指定编译用的SDK版本号。如27表示使用Android 8.1编译
     compileSdkVersion 27
     // 指定编译工具的版本号。这里的头两位数字必须与compileSdkVersion保持一致，具体的版本号可在sdk安装目录的“sdk\build-tools”下找到
-    buildToolsVersion "27.0.1"
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         // 指定该模块的应用编号，即App的包名。该参数为自动生成，无需修改
@@ -31,9 +31,9 @@ android {
 // 指定App编译的依赖信息
 dependencies {
     // 指定引用jar包的路径
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     // 指定单元测试编译用的junit版本号
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
     // 指定编译Android的高版本支持库。如AppCompatActivity必须指定编译appcompat-v7库
-    compile "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:appcompat-v7:27.1.1"
 }
