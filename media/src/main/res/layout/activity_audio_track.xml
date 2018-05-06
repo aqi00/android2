@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/tv_audio_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <CheckBox 
+        android:id="@+id/ck_audio_record"
+        style="@style/SwitchButton"
+        android:layout_width="match_parent"
+        android:text="开始录制"
+        android:checked="false" />
+    
+    <TextView
+        android:id="@+id/tv_audio_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <CheckBox 
+        android:id="@+id/ck_audio_play"
+        style="@style/SwitchButton"
+        android:layout_width="match_parent"
+        android:enabled="false"
+        android:text="开始播放"
+        android:textColor="@color/dark_grey" />
+    
+</LinearLayout>

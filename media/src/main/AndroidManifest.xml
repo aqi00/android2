@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.media">
+
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- SD卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 悬浮窗 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 互联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".GalleryActivity" />
+        <activity android:name=".RecyclerViewActivity" />
+        <activity android:name=".ImageSwitcherActivity" />
+        <activity android:name=".CardViewActivity" />
+        <activity android:name=".PaletteActivity" />
+        <activity android:name=".RingtoneActivity" />
+        <activity android:name=".SoundPoolActivity" />
+        <activity android:name=".AudioTrackActivity" />
+        <activity android:name=".VideoViewActivity" />
+        <activity android:name=".VideoControllerActivity" />
+        <activity android:name=".MediaControllerActivity" />
+        <activity android:name=".CustomControllerActivity" />
+        <activity
+            android:name=".SplitScreenActivity"
+            android:theme="@style/AppCompatTheme"
+            android:configChanges="screenLayout|orientation" />
+        <activity
+            android:name=".PicInPicActivity"
+            android:theme="@style/AppCompatTheme"
+            android:configChanges="screenLayout|orientation"
+            android:supportsPictureInPicture="true" />
+        <activity android:name=".FloatWindowActivity" />
+        <activity android:name=".ScreenCaptureActivity" />
+        <activity android:name=".ScreenRecordActivity" />
+        <activity
+            android:name=".OrientationActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".MoviePlayerActivity"
+            android:theme="@style/AppCompatTheme" />
+        <!-- 视频播放页面要同时豁免分屏/全屏、竖屏/横屏这两种屏幕切换情况 -->
+        <activity
+            android:name=".MovieDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:screenOrientation="sensor"
+            android:theme="@style/FullScreenTheme" />
+        <activity android:name=".SpannableActivity" />
+        <activity
+            android:name=".MusicPlayerActivity"
+            android:theme="@style/AppCompatTheme" />
+        <activity
+            android:name=".MusicDetailActivity"
+            android:theme="@style/AppCompatTheme" />
+
+        <service android:name=".service.TrafficService" />
+        <service android:name=".service.StockService" />
+        <service android:name=".service.CaptureService" />
+        <service android:name=".service.RecordService" />
+        <service
+            android:name=".service.MusicService"
+            android:enabled="true" />
+
+    </application>
+
+</manifest>

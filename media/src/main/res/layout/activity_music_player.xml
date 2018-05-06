@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/player_bg1"
+    android:orientation="vertical" >
+    
+    <Button
+        android:id="@+id/btn_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@color/transparent"
+        android:text="打开音乐文件"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+    
+    <ListView
+        android:id="@+id/lv_music"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    
+    <TextView
+        android:id="@+id/tv_song"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:paddingLeft="10dp"
+        android:gravity="left|center"
+        android:background="@color/translucent"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+    
+    <com.example.media.widget.AudioController
+        android:id="@+id/ac_play"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/translucent" />
+    
+</LinearLayout>

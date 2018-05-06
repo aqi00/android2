@@ -1,0 +1,14 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <style name="NotificationText">
+        <!--<item name="android:textColor">?android:attr/textColorPrimary</item>-->
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Notification.Line2</item>
+    </style>
+    
+    <style name="NotificationTitle">
+        <!--<item name="android:textColor">?android:attr/textColorPrimary</item>-->
+        <item name="android:textAppearance">@android:style/TextAppearance.Material.Notification.Title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+</resources>
