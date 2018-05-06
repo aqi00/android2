@@ -1,0 +1,8 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/vector_pay_circle_white">
+
+    <target
+        android:name="circle"
+        android:animation="@animator/anim_pay" />
+
+</animated-vector>

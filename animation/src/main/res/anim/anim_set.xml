@@ -1,0 +1,29 @@
+<!-- set标记表示下面定义的是集合动画 -->
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- alpha标记表示下面定义的是灰度动画 -->
+    <alpha
+        android:duration="3000"
+        android:fromAlpha="1.0"
+        android:toAlpha="0.1" />
+    <!-- translate标记表示下面定义的是平移动画 -->
+    <translate
+        android:duration="3000"
+        android:fromXDelta="1.0"
+        android:toXDelta="-200"
+        android:fromYDelta="1.0"
+        android:toYDelta="1.0" />
+    <!-- scale标记表示下面定义的是缩放动画 -->
+    <scale
+        android:duration="3000"
+        android:fromXScale="1.0"
+        android:toXScale="1.0"
+        android:fromYScale="1.0"
+        android:toYScale="0.5" />
+    <!-- rotate标记表示下面定义的是旋转动画 -->
+    <rotate
+        android:duration="3000"
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        android:pivotX="50%"
+        android:pivotY="50%" />
+</set>

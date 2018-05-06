@@ -1,0 +1,17 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="100dp"
+    android:viewportHeight="100"
+    android:viewportWidth="100"
+    android:width="100dp">
+
+    <path
+        android:name="circle"
+        android:pathData="
+            M 10,50
+            A 40 40 0 1 0 10 49"
+        android:strokeAlpha="1"
+        android:strokeColor="@color/blue_sky"
+        android:strokeLineCap="round"
+        android:strokeWidth="3" />
+
+</vector>

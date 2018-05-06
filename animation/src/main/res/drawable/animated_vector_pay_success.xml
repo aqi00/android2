@@ -1,0 +1,8 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/vector_pay_success_blue">
+
+    <target
+        android:name="hook"
+        android:animation="@animator/anim_pay" />
+
+</animated-vector>

@@ -1,0 +1,16 @@
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/vector_face_eye">
+
+    <target
+        android:name="mouth"
+        android:animation="@animator/anim_smile_mouth" />
+
+    <target
+        android:name="eye_left"
+        android:animation="@animator/anim_smile_eye_left" />
+
+    <target
+        android:name="eye_right"
+        android:animation="@animator/anim_smile_eye_right" />
+
+</animated-vector>

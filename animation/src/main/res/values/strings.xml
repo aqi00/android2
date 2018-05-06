@@ -1,0 +1,43 @@
+﻿<resources>
+    <string name="app_name">animation</string>
+
+    <string name="news1">幸福，就是当激情退去容颜衰老，牵你的还是那双不怨悔的手；就是当财富散尽一无所有，陪你的还是那颗不回头的心；就是当灾难降临众生远离，暖你的还是那份不冷却的情。幸福很简单，就是找一个温暖的人共同燃烧此生，奢侈、富贵、炫耀只是一层包装，只要你觉得是幸福的，其它一切都无所谓。</string>
+    <string name="news2">遇到爱你的人，学会感恩。遇到你爱的人，学会付出；遇到你恨的人，学会原谅。遇到恨你的人，学会道歉；遇到欣赏你的人，学会笑纳。遇到你欣赏的人，学会赞美；遇到嫉妒你的人，学会低调。遇到你嫉妒的人，学会宽容；遇到不懂你的人，学会沟通。遇到你不懂的人，学会好奇。</string>
+    <string name="news3">生活是不能等别人来安排的，它要自已去争取和奋斗。一辈子有耐心去做一件事，这个世界诱惑太多，这也想做那也想做，多路出击，最后一事无成。能沉下心来耐住寂寞做好一件事，这么简单的道理，也是很多人不懂的。人脉要远些，人际要近些，所有利益驱使的并非深交，心神相映的方是至友。</string>
+    <string name="news4">爱拼才会赢，这是一种自信。别人可以替你做事，但不能替你感受。天助自助者，成功者自救。很多时候，我们的命运，在前世就已经注定，没有办法改变，比如我们的性格，我们今生遇见的人，伤害你的，就是上辈子你欠了他的，被你伤害的，上辈子欠了你的。谁爱谁，谁欠谁。</string>
+
+    <string name="path_circle">
+    M 50,50
+    m -48,0
+    a 48,48 0 1,0 96,0
+    a 48,48 0 1,0 -96,0</string>
+    <string name="path_face_left_eye">
+    M 35,40
+    m -7,0
+    a 7,7 0 1,0 14,0
+    a 7,7 0 1,0 -14,0</string>
+    <string name="path_face_right_eye">
+    M 65,40
+    m -7,0
+    a 7,7 0 1,0 14,0
+    a 7,7 0 1,0 -14,0</string>
+    <string name="path_face_mouth_sad">
+    M 30,75
+    Q 50,55 70,75</string>
+    <string name="path_face_mouth_happy">
+    M 30,65
+    Q 50,85 70,65</string>
+    <string name="path_eye_left_sad">
+    M 25,30
+    Q 35,40 45,30</string>
+    <string name="path_eye_left_happy">
+    M 25,40
+    Q 35,30 45,40</string>
+    <string name="path_eye_right_sad">
+    M 55,30
+    Q 65,40 75,30</string>
+    <string name="path_eye_right_happy">
+    M 55,40
+    Q 65,30 75,40</string>
+
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.animation">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".TweenAnimActivity" />
+        <activity android:name=".SwingAnimActivity" />
+        <activity android:name=".AnimSetActivity" />
+        <activity android:name=".BannerAnimActivity" />
+        <activity android:name=".FrameAnimActivity" />
+        <activity android:name=".GifActivity" />
+        <activity android:name=".FadeAnimActivity" />
+        <activity android:name=".ObjectAnimActivity" />
+        <activity android:name=".ObjectGroupActivity" />
+        <activity android:name=".InterpolatorActivity" />
+        <activity android:name=".VectorDrawableActivity" />
+        <activity android:name=".VectorSmileActivity" />
+        <activity android:name=".VectorHookActivity" />
+        <activity android:name=".PaySuccessActivity" />
+        <activity android:name=".PieActivity" />
+        <activity android:name=".ExpandActivity" />
+        <activity android:name=".ScrollerActivity" />
+        <activity android:name=".MosaicActivity" />
+        <activity android:name=".ShutterActivity" />
+        <activity android:name=".YingjiActivity" />
+
+    </application>
+
+</manifest>

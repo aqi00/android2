@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <com.example.animation.widget.ScrollTextView
+        android:id="@+id/stv_rough"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:text="拖拖我试试看"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</LinearLayout>

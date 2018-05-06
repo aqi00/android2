@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item
+        android:drawable="@drawable/flow_p1"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/flow_p2"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/flow_p3"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/flow_p4"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/flow_p5"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/flow_p6"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/flow_p7"
+        android:duration="50" />
+    <item
+        android:drawable="@drawable/flow_p8"
+        android:duration="50" />
+</animation-list>
