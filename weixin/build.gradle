@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "net.sourceforge.simcpux"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //发布时使用build.gradle指定的签名文件
+            //signingConfig signingConfigs.debug
+        }
+    }
+    useLibrary 'org.apache.http.legacy'
+    signingConfigs {
+        //调试使用
+        debug {
+            storeFile file("debug.keystore")
+        }
+//        //发布使用
+//        release {
+//            storeFile file("release.keystore")
+//            storePassword "password"
+//            keyAlias "release"
+//            keyPassword "password"
+//            //关闭Android Studio 2.3的V2签名
+//            v2SigningEnabled false
+//        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation 'org.apache.httpcomponents:httpcore:4.4.1'
+    //implementation 'org.apache.httpcomponents:httpclient:4.5'
+}

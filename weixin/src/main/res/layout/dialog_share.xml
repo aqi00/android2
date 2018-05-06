@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <GridView
+        android:id="@+id/gv_share_channel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="0dp"
+        android:verticalSpacing="0dp"
+        android:listSelector="@null"
+        android:numColumns="4"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:stretchMode="columnWidth" />
+
+    <TextView
+        android:id="@+id/tv_share_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:background="@color/blue_light"
+        android:text="取　消"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</LinearLayout>
