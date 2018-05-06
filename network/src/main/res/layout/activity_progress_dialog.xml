@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp" >
+
+        <TextView
+            android:id="@+id/tv_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:text="请选择对话框样式 "
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <Spinner
+            android:id="@+id/sp_style"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/tv_style"
+            android:gravity="left|center"
+            android:spinnerMode="dialog" />
+    </RelativeLayout>
+    
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="这里查看加载结束时间"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+</LinearLayout>

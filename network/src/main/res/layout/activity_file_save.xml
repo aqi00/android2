@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <EditText
+        android:id="@+id/et_image_save"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/editext_selector"
+        android:gravity="left|top"
+        android:hint="请输入文字"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <Button
+        android:id="@+id/btn_image_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存截图"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <TextView
+        android:id="@+id/tv_image_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</LinearLayout>

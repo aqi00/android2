@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.network">
+
+    <!-- 互联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 查看网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 开关网络状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 查看手机状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 下载时不提示通知栏 -->
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <!-- 拍照 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 录像/录音 -->
+    <uses-permission android:name="android.permission.RECORD_VIDEO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- SD卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 安装应用请求，Android8.0需要 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- 安装、卸载与超级用户权限 -->
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".MainApplication">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".MessageActivity" />
+        <activity android:name=".ProgressDialogActivity" />
+        <activity android:name=".ProgressTextActivity" />
+        <activity android:name=".ProgressCircleActivity" />
+        <activity android:name=".AsyncTaskActivity" />
+        <activity android:name=".IntentServiceActivity" />
+        <activity android:name=".ConnectActivity" />
+        <activity android:name=".JsonParseActivity" />
+        <activity android:name=".JsonConvertActivity" />
+        <activity android:name=".HttpRequestActivity" />
+        <activity android:name=".HttpImageActivity" />
+        <activity android:name=".DownloadApkActivity" />
+        <activity android:name=".DownloadImageActivity" />
+        <activity android:name=".FileSaveActivity" />
+        <activity android:name=".FileSelectActivity" />
+        <activity android:name=".UploadHttpActivity" />
+        <activity android:name=".NetAddressActivity" />
+        <activity android:name=".SocketActivity" />
+        <activity android:name=".ApkInfoActivity" />
+        <activity android:name=".AppStoreActivity" />
+        <activity android:name=".FoldListActivity" />
+        <activity android:name=".QQLoginActivity" />
+        <activity android:name=".QQChatActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".QQConcernActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".QQContactActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".ChatMainActivity" />
+        <activity android:name=".QQFindActivity" android:theme="@style/AppCompatTheme" />
+        
+        <service android:name=".service.AsyncService" android:enabled="true" />
+
+        <!-- AutoInstallService为智能安装服务，参见AppStoreActivity的调用 -->
+        <service
+            android:name=".service.AutoInstallService"
+            android:label="@string/accessibility_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_service_config" />
+        </service>
+
+        <!-- 接收下载任务的下载完成事件 -->
+        <receiver android:name=".DownloadApkActivity$DownloadCompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        <!-- 接收通知栏上的下载任务点击事件 -->
+        <receiver android:name=".DownloadApkActivity$NotificationClickReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 接收Socket得到的收到对方消息事件 -->
+        <receiver android:name=".ChatMainActivity$RecvMsgReceiver" >
+            <intent-filter>
+                <action android:name="com.example.network.RECV_MSG" />
+            </intent-filter>
+        </receiver>
+        <!-- 接收Socket得到的获取好友列表事件 -->
+        <receiver android:name=".QQContactActivity$GetListReceiver" >
+            <intent-filter>
+                <action android:name="com.example.network.GET_LIST" />
+            </intent-filter>
+        </receiver>
+        
+    </application>
+
+</manifest>

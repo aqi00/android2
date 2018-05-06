@@ -1,0 +1,11 @@
+﻿<resources>
+    <string name="app_name">network</string>
+    
+    <string name="menu_first">关注</string>
+    <string name="menu_second">联系人</string>
+    <string name="menu_third">发现</string>
+
+    <string name="accessibility_label">应用超市智能安装</string>
+    <string name="accessibility_service_description">智能安装服务，无需用户的任何操作就可以自动安装程序。</string>
+
+</resources>

@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="horizontal" >
+
+    <CheckBox
+        android:id="@+id/ck_mail"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="6"
+        android:gravity="left|center_vertical"
+        android:button="@null"
+        android:drawableLeft="@drawable/mail_selector"
+        android:drawablePadding="5dp"
+        android:checked="true"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:gravity="right|center_vertical"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+</LinearLayout>
