@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 在此插入common_title.xml所定义的布局 -->
+    <include layout="@layout/common_title" />
+
+    <!-- 下面的占位视图包含的是列表布局viewstub_list.xml -->
+    <ViewStub
+        android:id="@+id/vs_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/viewstub_list" />
+
+    <!-- 下面的占位视图包含的是网格布局viewstub_grid.xml -->
+    <ViewStub
+        android:id="@+id/vs_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout="@layout/viewstub_grid" />
+</LinearLayout>
