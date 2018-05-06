@@ -1,0 +1,48 @@
+{
+  "buildFiles": [
+    "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\Android.mk"
+  ],
+  "cleanCommands": [
+    "D:\\android-ndk-r13b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\Android.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/StudioProjects/FurtherStudy/mixture/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dF:\\StudioProjects\\FurtherStudy\\mixture\\build\\intermediates\\ndkBuild\\debug\\lib clean"
+  ],
+  "libraries": {
+    "jni_mix-debug-x86": {
+      "buildCommand": "D:\\android-ndk-r13b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\Android.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/StudioProjects/FurtherStudy/mixture/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003dF:\\StudioProjects\\FurtherStudy\\mixture\\build\\intermediates\\ndkBuild\\debug\\lib F:/StudioProjects/FurtherStudy/mixture/build/intermediates/ndkBuild/debug/obj/local/x86/libjni_mix.so",
+      "toolchain": "toolchain-x86",
+      "abi": "x86",
+      "artifactName": "jni_mix",
+      "files": [
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\aes.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-fno-exceptions\" \"-fno-rtti\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-x86/usr/include\""
+        },
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\find_name.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-fno-exceptions\" \"-fno-rtti\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-x86/usr/include\""
+        },
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\get_cpu.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-fno-exceptions\" \"-fno-rtti\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-x86/usr/include\""
+        },
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\get_decrypt.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-fno-exceptions\" \"-fno-rtti\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-x86/usr/include\""
+        },
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\get_encrypt.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/x86-4.9/prebuilt/windows-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-fno-exceptions\" \"-fno-rtti\" \"-O0\" \"-UNDEBUG\" \"-fno-limit-debug-info\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-x86/usr/include\""
+        }
+      ],
+      "output": "F:\\StudioProjects\\FurtherStudy\\mixture\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\x86\\libjni_mix.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-x86": {
+      "cppCompilerExecutable": "D:\\android-ndk-r13b\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mixture">
+
+    <!-- 读取手机设置 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 查看网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- WLAN -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 蓝牙 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!-- 仅在支持BLE（即蓝牙4.0）的设备上运行 -->
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <!-- 如果Android6.0 蓝牙搜索不到设备，需要补充下面两个权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AssetsTextActivity" />
+        <activity android:name=".AssetsImageActivity" />
+        <activity android:name=".WebLocalActivity" />
+        <activity android:name=".WebSpanActivity" />
+        <activity android:name=".WebBrowserActivity" />
+        <activity android:name=".WebScriptActivity" />
+        <activity android:name=".JniCpuActivity" />
+        <activity android:name=".JniSecretActivity" />
+        <activity android:name=".WifiInfoActivity" />
+        <activity android:name=".WifiConnectActivity" />
+        <activity android:name=".WifiApActivity" />
+        <activity android:name=".BluetoothTransActivity" />
+        <activity android:name=".NetbiosActivity" />
+        <activity android:name=".WifiShareActivity" />
+        <activity
+            android:name=".PdfRenderActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppCompatTheme" />
+        <activity
+            android:name=".PdfSliderActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppCompatTheme" />
+        <activity
+            android:name=".PdfTurnActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppCompatTheme" />
+        <activity
+            android:name=".EbookReaderActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppCompatTheme" />
+        <activity
+            android:name=".EpubActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppCompatTheme" />
+        <activity
+            android:name=".VudroidActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+            android:screenOrientation="sensor"
+            android:theme="@style/AppCompatTheme" />
+
+        <service
+            android:name=".service.ImportDeviceService"
+            android:enabled="true" />
+        <service
+            android:name=".service.CopyFileService"
+            android:enabled="true" />
+
+    </application>
+
+</manifest>

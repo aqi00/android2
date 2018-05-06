@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi" />
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+   function showMsgFromWeb(){
+      alert("这是网页弹出的对话框");
+   }
+   function getMsgFromWeb(){
+      return "这是网页返回的字符串";
+   }
+   function showMsgInAndroid(){
+      var result = client.getMsgFromAndroid("这是网页给的参数");
+      alert(result);
+   }
+   function showAndroidDialog(){
+       client.showMsgFromAndroid("网页要求安卓弹窗");
+   }
+</script>
+</HEAD>
+<BODY><br>
+<font size='4'>测试js使用</font><br><br>
+<button onclick="javascript:showAndroidDialog()"><font size='4'>让android弹窗</font></button><br><br>
+<button onclick="javascript:showMsgInAndroid()"><font size='4'>调用Android方法获得字符串</font></button><br>
+</BODY>
+</HTML>

@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.example.mixture"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        // 此处说明mk文件未能指定的编译参数
+        externalNativeBuild {
+            ndkBuild {
+                // 本模块有三个有效目标，分别是vudroid、mupdf和djvudroid，但只有vudroid能够编译出so文件
+                //targets "vudroid"
+                // 此处的Application.mk没什么作用
+                //arguments "NDK_APPLICATION_MK:=src/main/jni/Application.mk"
+                // 说明需要生成哪些处理器的so文件
+                abiFilters "armeabi", "armeabi-v7a"
+                // 指定C++编译器的版本，比如下面这行用的是C++11
+                //cppFlags "-std=c++11"
+            }
+        }
+    }
+
+    // 下面指定拾取的第一个so库路径，编译时才不会重复链接
+    packagingOptions {
+        pickFirst 'lib/armeabi/libjni_mix.so'
+        pickFirst 'lib/armeabi-v7a/libjni_mix.so'
+        pickFirst 'lib/armeabi/libvudroid.so'
+        pickFirst 'lib/armeabi-v7a/libvudroid.so'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Android Studio 2.2之后才引入externalNativeBuild。此处指定mk文件的路径
+    externalNativeBuild {
+        ndkBuild {
+            // 下面是编译cpu信息、加解密、获取主机名专用的mk文件
+            path "src/main/jni/Android.mk"
+            //path file("src\\main\\jni\\Android.mk")
+            // 下面是编译vudroid专用的mk文件
+            //path "src/main/jni/Android_vudroid.mk"
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation project(':filedialog')
+}

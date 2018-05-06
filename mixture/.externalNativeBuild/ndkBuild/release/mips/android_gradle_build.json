@@ -1,0 +1,48 @@
+{
+  "buildFiles": [
+    "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\Android.mk"
+  ],
+  "cleanCommands": [
+    "D:\\android-ndk-r13b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\Android.mk APP_ABI\u003dmips NDK_ALL_ABIS\u003dmips NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/StudioProjects/FurtherStudy/mixture/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\StudioProjects\\FurtherStudy\\mixture\\build\\intermediates\\ndkBuild\\release\\lib clean"
+  ],
+  "libraries": {
+    "jni_mix-release-mips": {
+      "buildCommand": "D:\\android-ndk-r13b\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dF:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\Android.mk APP_ABI\u003dmips NDK_ALL_ABIS\u003dmips NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-19 NDK_OUT\u003dF:/StudioProjects/FurtherStudy/mixture/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dF:\\StudioProjects\\FurtherStudy\\mixture\\build\\intermediates\\ndkBuild\\release\\lib F:/StudioProjects/FurtherStudy/mixture/build/intermediates/ndkBuild/release/obj/local/mips/libjni_mix.so",
+      "toolchain": "toolchain-mips",
+      "abi": "mips",
+      "artifactName": "jni_mix",
+      "files": [
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\aes.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/mipsel-linux-android-4.9/prebuilt/windows-x86_64\" \"-target\" \"mipsel-none-linux-android\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fmessage-length\u003d0\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-mips32\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-DNDEBUG\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-mips/usr/include\""
+        },
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\find_name.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/mipsel-linux-android-4.9/prebuilt/windows-x86_64\" \"-target\" \"mipsel-none-linux-android\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fmessage-length\u003d0\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-mips32\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-DNDEBUG\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-mips/usr/include\""
+        },
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\get_cpu.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/mipsel-linux-android-4.9/prebuilt/windows-x86_64\" \"-target\" \"mipsel-none-linux-android\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fmessage-length\u003d0\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-mips32\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-DNDEBUG\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-mips/usr/include\""
+        },
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\get_decrypt.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/mipsel-linux-android-4.9/prebuilt/windows-x86_64\" \"-target\" \"mipsel-none-linux-android\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fmessage-length\u003d0\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-mips32\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-DNDEBUG\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-mips/usr/include\""
+        },
+        {
+          "src": "F:\\StudioProjects\\FurtherStudy\\mixture\\src\\main\\jni\\get_encrypt.cpp",
+          "flags": "\"-gcc-toolchain\" \"D:/android-ndk-r13b/build//../toolchains/mipsel-linux-android-4.9/prebuilt/windows-x86_64\" \"-target\" \"mipsel-none-linux-android\" \"-fpic\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fmessage-length\u003d0\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-mips32\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-DNDEBUG\" \"-ID:/android-ndk-r13b/build//../sources/cxx-stl/system/include\" \"-IF:/StudioProjects/FurtherStudy/mixture/src/main/jni\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-fexceptions\" \"-isystem\" \"D:/android-ndk-r13b/build//../platforms/android-19/arch-mips/usr/include\""
+        }
+      ],
+      "output": "F:\\StudioProjects\\FurtherStudy\\mixture\\build\\intermediates\\ndkBuild\\release\\obj\\local\\mips\\libjni_mix.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-mips": {
+      "cppCompilerExecutable": "D:\\android-ndk-r13b\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
