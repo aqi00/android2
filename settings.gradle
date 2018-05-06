@@ -1,1 +1,3 @@
 include ':app', ':junior', ':middle', ':storage', ':senior', ':custom', ':group', ':test'
+include ':device', ':network', ':event', ':animation', ':media', ':mixture', ':thirdsdk', ':weixin', ':performance'
+include ':filedialog'
