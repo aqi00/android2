@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.example.device.widget.VideoRecorder
+        android:id="@+id/vr_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="5dp" />
+
+    <com.example.device.widget.VideoPlayer
+        android:id="@+id/vp_movie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/vr_movie"
+        android:paddingTop="5dp" />
+    
+</RelativeLayout>

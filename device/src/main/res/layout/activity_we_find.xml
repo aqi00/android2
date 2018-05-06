@@ -1,0 +1,84 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tl_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_light"
+        app:navigationIcon="@drawable/ic_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/grey"
+        android:orientation="vertical"
+        android:padding="5dp" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+        
+        <TextView
+            android:id="@+id/tv_scan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="50dp"
+            android:gravity="left|center"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:text="扫一扫（扫描二维码）" />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+        
+        <TextView
+            android:id="@+id/tv_shake"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="50dp"
+            android:gravity="left|center"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:text="摇一摇（博饼抽大奖）" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+        
+        <TextView
+            android:id="@+id/tv_smell"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="50dp"
+            android:gravity="left|center"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:text="咻一咻（卫星浑天仪）" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/tv_listen"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="50dp"
+            android:gravity="left|center"
+            android:background="@color/white"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:text="听一听（蓝牙播音乐）" />
+
+    </LinearLayout>
+
+</LinearLayout>

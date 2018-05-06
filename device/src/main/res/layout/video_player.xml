@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical" >
+
+    <SurfaceView
+        android:id="@+id/sv_play"
+        android:layout_width="@dimen/video_width"
+        android:layout_height="@dimen/video_height"
+        android:layout_gravity="center_horizontal" />
+    
+    <ProgressBar
+        android:id="@+id/pb_play"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <CheckBox 
+        android:id="@+id/ck_play"
+        style="@style/SwitchButton"
+        android:layout_width="match_parent"
+        android:enabled="false"
+        android:text="开始播放"
+        android:textColor="@color/dark_grey" />
+    
+</LinearLayout>

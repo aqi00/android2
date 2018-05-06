@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.example.device.widget.CameraView
+        android:id="@+id/camera_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button 
+        android:id="@+id/btn_shutter"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" 
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="单拍"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <Button 
+        android:id="@+id/btn_shooting"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" 
+        android:layout_toRightOf="@+id/btn_shutter"
+        android:layout_marginLeft="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="连拍"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+</RelativeLayout>

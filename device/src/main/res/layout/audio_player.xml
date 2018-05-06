@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ProgressBar
+        android:id="@+id/pb_play"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <CheckBox 
+        android:id="@+id/ck_play"
+        style="@style/SwitchButton"
+        android:layout_width="match_parent"
+        android:enabled="false"
+        android:text="开始播放"
+        android:textColor="@color/dark_grey" />
+    
+</LinearLayout>

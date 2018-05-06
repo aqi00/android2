@@ -1,0 +1,253 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:text="调节通话音量"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/iv_voice_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/del_btn" />
+
+                <ImageView
+                    android:id="@+id/iv_voice_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/add_btn" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/sb_voice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:thumb="@drawable/seekbar_point" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:text="调节系统音量"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/iv_system_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/del_btn" />
+
+                <ImageView
+                    android:id="@+id/iv_system_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/add_btn" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/sb_system"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:thumb="@drawable/seekbar_point" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:text="调节铃声音量"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/iv_ring_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/del_btn" />
+
+                <ImageView
+                    android:id="@+id/iv_ring_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/add_btn" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/sb_ring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:thumb="@drawable/seekbar_point" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:text="调节音乐音量"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/iv_music_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/del_btn" />
+
+                <ImageView
+                    android:id="@+id/iv_music_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/add_btn" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/sb_music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:thumb="@drawable/seekbar_point" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:text="调节闹钟音量"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/iv_alarm_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/del_btn" />
+
+                <ImageView
+                    android:id="@+id/iv_alarm_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/add_btn" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/sb_alarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:thumb="@drawable/seekbar_point" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="bottom|center_horizontal"
+                    android:text="调节通知音量"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/iv_notify_del"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/del_btn" />
+
+                <ImageView
+                    android:id="@+id/iv_notify_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="50dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/add_btn" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/sb_notify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:thumb="@drawable/seekbar_point" />
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

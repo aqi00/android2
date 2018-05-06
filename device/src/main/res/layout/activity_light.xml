@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <CheckBox
+        android:id="@+id/ck_bright"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:button="@null"
+        android:checked="false"
+        android:drawableLeft="@drawable/ck_status_selector"
+        android:text="亮度自动调节"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <TextView
+        android:id="@+id/tv_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_gravity="left"
+        android:text="看看光线变化了没有"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+</LinearLayout>

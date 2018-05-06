@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_direction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="指南针找方向来啦"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <com.example.device.widget.CompassView
+        android:id="@+id/cv_sourth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

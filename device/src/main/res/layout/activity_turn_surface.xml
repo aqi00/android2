@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <com.example.device.widget.TurnSurfaceView
+        android:id="@+id/tfv_circle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp" />
+    
+    <CheckBox 
+        android:id="@+id/ck_control"
+        style="@style/SwitchButton"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp" />
+
+</RelativeLayout>

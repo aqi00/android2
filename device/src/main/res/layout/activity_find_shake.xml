@@ -1,0 +1,20 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical" >
+    
+    <com.example.device.widget.BettingView
+        android:id="@+id/bv_cake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <TextView
+        android:id="@+id/tv_cake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="摇一摇，博饼中大奖"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+</LinearLayout>

@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="请将卡片靠近手机背面"
+                android:textColor="#000000"
+                android:textSize="17sp" />
+
+            <RadioGroup
+                android:id="@+id/rg_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_guard_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="读取小区门禁卡"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_bus_card"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="读取北京一卡通"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_nfc_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="5dp"
+                android:text="这里查看卡片信息"
+                android:textColor="#000000"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
