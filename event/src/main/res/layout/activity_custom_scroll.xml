@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.example.event.widget.CustomScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#9999ff" />
+            
+            <com.example.event.widget.BannerFlipper
+                android:id="@+id/banner_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/tv_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#eeffee"
+                android:gravity="top|center"
+                android:paddingTop="20dp"
+                android:text="请左右滑动或者上下拉动广告图片"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:background="#9999ff" />
+        </LinearLayout>
+    </com.example.event.widget.CustomScrollView>
+
+</LinearLayout>

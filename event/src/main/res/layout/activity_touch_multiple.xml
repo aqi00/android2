@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp" >
+
+    <TextView
+        android:id="@+id/tv_touch_major"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这里显示主要点触摸结果"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+    <TextView
+        android:id="@+id/tv_touch_minor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这里显示次要点触摸结果"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+</LinearLayout>

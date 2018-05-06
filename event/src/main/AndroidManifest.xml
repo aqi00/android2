@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.event" >
+
+    <!-- SD卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".KeySoftActivity" />
+        <activity android:name=".KeyHardActivity" />
+        <activity android:name=".VolumeSetActivity" />
+        <activity android:name=".GestureDetectorActivity" />
+        <activity android:name=".ViewFlipperActivity" />
+        <activity android:name=".BannerFlipperActivity" />
+        <activity android:name=".EventDispatchActivity" />
+        <activity android:name=".EventInterceptActivity" />
+        <activity android:name=".TouchSingleActivity" />
+        <activity android:name=".TouchMultipleActivity" />
+        <activity android:name=".SignatureActivity" />
+        <activity android:name=".CustomScrollActivity" />
+        <activity android:name=".DisallowScrollActivity" />
+        <activity android:name=".DrawerLayoutActivity" />
+        <activity android:name=".PullRefreshActivity" android:theme="@style/AppCompatTheme" />
+        <activity android:name=".ImageChangeActivity" />
+        <activity android:name=".ImageCutActivity" />
+        <activity android:name=".MeituActivity" />
+        <activity android:name=".GlLineActivity" />
+        <activity android:name=".GlGlobeActivity" />
+        <activity android:name=".GlPanoramaActivity" android:theme="@style/AppCompatTheme" />
+        
+    </application>
+
+</manifest>

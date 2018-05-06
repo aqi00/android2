@@ -1,0 +1,64 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_drawer_left"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="打开左边侧滑"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/btn_drawer_right"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="打开右边侧滑"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_drawer_center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top|center"
+            android:paddingTop="30dp"
+            android:text="这里是首页"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+    <!-- 这是位于抽屉布局左边的侧滑列表视图，layout_gravity属性设定了它的对齐方式 -->
+    <ListView
+        android:id="@+id/lv_drawer_left"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#ffdd99" />
+
+    <!-- 这是位于抽屉布局右边的侧滑列表视图，layout_gravity属性设定了它的对齐方式 -->
+    <ListView
+        android:id="@+id/lv_drawer_right"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:background="#99ffdd" />
+</android.support.v4.widget.DrawerLayout>

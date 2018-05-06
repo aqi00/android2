@@ -1,0 +1,16 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_gesture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="这里查看手势结果"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+    
+</LinearLayout>
