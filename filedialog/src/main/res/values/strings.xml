@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="tag_title_OpenFile">打开文件</string>
+    <string name="tag_fragment_FileSelect">Open File</string>
+    <string name="tag_title_SaveFile">保存文件</string>
+    <string name="tag_fragment_FileSave">Save File</string>
+    <string name="tag_save_hint">请输入文件名</string>
+    
+</resources>
