@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- background定义了背景图片，即灰色星星 -->
+    <item
+        android:id="@+android:id/background"
+        android:drawable="@drawable/star_background">
+    </item>
+    <!-- secondaryProgress定义了次要进度图片，即灰色星星 -->
+    <item
+        android:id="@+android:id/secondaryProgress"
+        android:drawable="@drawable/star_background">
+    </item>
+    <!-- background定义了主要进度图片，即高亮星星 -->
+    <item
+        android:id="@+android:id/progress"
+        android:drawable="@drawable/star_foreground">
+    </item>
+</layer-list>

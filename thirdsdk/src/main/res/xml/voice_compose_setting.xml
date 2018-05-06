@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <EditTextPreference
+        android:dialogTitle="请输入语速:在线(0-100)本地(0-200)"
+        android:key="speed_preference"
+        android:defaultValue="50"
+        android:summary="默认值：50 "
+        android:title="语速" />
+    <EditTextPreference
+        android:dialogTitle="请输入音调(0-100)"
+        android:key="pitch_preference"
+        android:defaultValue="50"
+        android:summary="默认值：50 "
+        android:title="音调" />
+    <EditTextPreference
+        android:dialogTitle="请输入音量(0-100)"
+        android:key="volume_preference"
+        android:defaultValue="50"
+        android:summary="默认值：50 "
+        android:title="音量" />
+    <ListPreference
+        android:defaultValue="3"
+        android:entries="@array/stream_entries"
+        android:entryValues="@array/stream_values"
+        android:key="stream_preference"
+        android:title="音频流类型" />
+
+</PreferenceScreen>

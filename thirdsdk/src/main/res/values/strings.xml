@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">thirdsdk</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string formatted="false" name="compose_toast_format2">缓冲进度为%d%%，播放进度为%d%%</string>
+    <string name="compose_source">锄禾日当午，\n汗滴禾下土。\n谁知盘中餐，\n粒粒皆辛苦。\n</string>
+    <string name="compose_source_en">Who knows Chinese food, every grain of hard work.</string>
+    
+</resources>
