@@ -28,7 +28,7 @@ public class CalendarActivity extends AppCompatActivity implements OnClickListen
     private ViewPager vp_calendar; // 声明一个翻页视图对象
     private TextView tv_calendar; // 声明一个选中年份的文本视图对象
     private boolean isShowSelect = false; // 是否显示月份选择器
-    private int mSelectedYear = DateUtil.getNowYear(); // 当前选中的年份
+    private int mSelectedYear = 2000; // 当前选中的年份
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
