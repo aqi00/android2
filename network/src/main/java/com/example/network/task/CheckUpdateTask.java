@@ -36,7 +36,7 @@ public class CheckUpdateTask extends AsyncTask<String, Void, String> {
 //        }
 //        HttpRespData resp_data = new HttpRespData();
 //        resp_data.content = "{\"package_list\":[{\"new_version\":\"8.12.5\",\"download_url\":\"http://www.lenovomm.com/appdown/21661264-2\",\"package_name\":\"com.qiyi.video\"},{\"new_version\":\"8.9.2\",\"download_url\":\"http://www.lenovomm.com/appdown/21589548-2\",\"package_name\":\"com.kugou.android\"},{\"new_version\":\"7.0.5.0\",\"download_url\":\"http://www.lenovomm.com/appdown/21665086-2\",\"package_name\":\"com.mt.mtxx.mtxx\"},{\"new_version\":\"6.6.1\",\"download_url\":\"http://www.lenovomm.com/appdown/21665350-2\",\"package_name\":\"com.tencent.mm\"},{\"new_version\":\"7.4.0\",\"download_url\":\"http://www.lenovomm.com/appdown/21672339-2\",\"package_name\":\"com.taobao.taobao\"},{\"new_version\":\"7.3.2\",\"download_url\":\"http://www.lenovomm.com/appdown/21639509-2\",\"package_name\":\"com.tencent.mobileqq\"}]}";
-        Log.d(TAG, "result=" + resp_data.content);
+        Log.d(TAG, "err_msg=" + resp_data.err_msg + ", result=" + resp_data.content);
         return resp_data.content; // 返回HTTP调用的应答内容
     }
 

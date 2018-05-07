@@ -31,10 +31,6 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!-- 安装应用请求，Android8.0需要 -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
-    <!-- 安装、卸载与超级用户权限 -->
-    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
-    <uses-permission android:name="android.permission.DELETE_PACKAGES"/>
-    <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
     
     <application
         android:allowBackup="true"
@@ -80,6 +76,17 @@
         <activity android:name=".QQFindActivity" android:theme="@style/AppCompatTheme" />
         
         <service android:name=".service.AsyncService" android:enabled="true" />
+
+        <!-- 兼容Android7.0，把访问文件的Uri方式改为FileProvider -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.network.fileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <!-- AutoInstallService为智能安装服务，参见AppStoreActivity的调用 -->
         <service

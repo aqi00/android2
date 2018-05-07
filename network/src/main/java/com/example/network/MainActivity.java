@@ -109,8 +109,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(this, ApkInfoActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_app_store) {
-            Intent intent = new Intent(this, AppStoreActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, R.id.btn_app_store % 4096)) {
+                PermissionUtil.goActivity(this, AppStoreActivity.class);
+            }
         } else if (v.getId() == R.id.btn_fold_list) {
             Intent intent = new Intent(this, FoldListActivity.class);
             startActivity(intent);
@@ -145,6 +146,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 PermissionUtil.goActivity(this, UploadHttpActivity.class);
             } else {
                 Toast.makeText(this, "需要允许SD卡权限才能上传文件噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_app_store % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, AppStoreActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许SD卡权限才能升级应用噢", Toast.LENGTH_SHORT).show();
             }
         }
     }

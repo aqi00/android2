@@ -14,6 +14,7 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.network.adapter.PackageInfoAdapter;
 import com.example.network.bean.PackageInfo;
@@ -128,6 +129,9 @@ public class AppStoreActivity extends AppCompatActivity implements OnCheckUpdate
                     }
                 }
             }
+        } else {
+            Toast.makeText(this, "返回数据格式不对，请检查服务是否正常开启",
+                    Toast.LENGTH_SHORT).show();
         }
         // 下面利用最新的包信息队列，刷新应用列表的展示
         mAdapter = new PackageInfoAdapter(mContext, mPackageList);
