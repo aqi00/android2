@@ -3,7 +3,16 @@
     android:layout_height="match_parent"
     android:padding="10dp"
     android:orientation="vertical" >
-    
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:text="摇一摇，博饼中大奖"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
     <com.example.device.widget.BettingView
         android:id="@+id/bv_cake"
         android:layout_width="match_parent"
@@ -13,7 +22,7 @@
         android:id="@+id/tv_cake"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="摇一摇，博饼中大奖"
+        android:layout_marginTop="-30dp"
         android:textColor="@color/black"
         android:textSize="17sp" />
     
