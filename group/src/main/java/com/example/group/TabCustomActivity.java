@@ -37,6 +37,8 @@ public class TabCustomActivity extends AppCompatActivity {
         setSupportActionBar(tl_head);
         mTitleArray.add("商品");
         mTitleArray.add("详情");
+        // 从布局文件中获取名叫vp_content的翻页视图
+        vp_content = findViewById(R.id.vp_content);
         initTabLayout(); // 初始化标签布局
         initTabViewPager(); // 初始化标签翻页
     }
@@ -59,8 +61,6 @@ public class TabCustomActivity extends AppCompatActivity {
 
     // 初始化标签翻页
     private void initTabViewPager() {
-        // 从布局文件中获取名叫vp_content的翻页视图
-        vp_content = findViewById(R.id.vp_content);
         // 构建一个商品信息的翻页适配器
         GoodsPagerAdapter adapter = new GoodsPagerAdapter(
                 getSupportFragmentManager(), mTitleArray);
