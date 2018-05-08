@@ -63,7 +63,8 @@
             android:name=".MovieDetailActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
             android:screenOrientation="sensor"
-            android:theme="@style/FullScreenTheme" />
+            android:theme="@style/FullScreenTheme"
+            android:supportsPictureInPicture="true" />
         <activity android:name=".SpannableActivity" />
         <activity
             android:name=".MusicPlayerActivity"

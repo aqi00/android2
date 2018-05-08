@@ -6,12 +6,21 @@ import com.example.media.widget.VideoController;
 import com.example.media.widget.VideoController.OnSeekChangeListener;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.PictureInPictureParams;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnPreparedListener;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Rational;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -43,6 +52,17 @@ public class MovieDetailActivity extends AppCompatActivity implements OnSeekChan
         RelativeLayout rl_top = findViewById(R.id.rl_top);
         // 为电影视图准备顶部视图和底部视图
         mv_content.prepare(rl_top, vc_play);
+        initDesktopRecevier(); // 初始化桌面广播
+    }
+
+    // 初始化桌面广播。用于在按下主页键时开启画中画模式
+    private void initDesktopRecevier() {
+        // 创建一个返回桌面的广播接收器
+        mDesktopRecevier = new DesktopRecevier();
+        // 创建一个意图过滤器，只接收关闭系统对话框（即返回桌面）的广播
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+        // 给当前页面注册广播接收器
+        registerReceiver(mDesktopRecevier, intentFilter);
     }
 
     @Override
@@ -50,6 +70,8 @@ public class MovieDetailActivity extends AppCompatActivity implements OnSeekChan
         super.onDestroy();
         // 移除所有的处理器任务
         mHandler.removeCallbacksAndMessages(null);
+        // 注销当前页面的广播接收器
+        unregisterReceiver(mDesktopRecevier);
     }
 
     // 开始播放电影
@@ -162,6 +184,47 @@ public class MovieDetailActivity extends AppCompatActivity implements OnSeekChan
         if (mv_content.isPlaying()) { // 电影视图正在播放
             // 获得电影视图当前的播放位置
             mCurrentPosition = mv_content.getCurrentPosition();
+        }
+    }
+
+    private DesktopRecevier mDesktopRecevier; // 声明一个返回桌面的广播接收器对象
+    // 定义一个返回到桌面的广播接收器
+    class DesktopRecevier extends BroadcastReceiver {
+        private final String SYSTEM_DIALOG_REASON_KEY = "reason"; // 键名
+        private final String SYSTEM_DIALOG_REASON_HOME = "homekey"; // 主页键
+        private final String SYSTEM_DIALOG_REASON_TASK = "recentapps"; // 任务键
+
+        // 在收到返回桌面广播时触发
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)) {
+                String reason = intent.getStringExtra(SYSTEM_DIALOG_REASON_KEY);
+                if (!TextUtils.isEmpty(reason)) {
+                    // 如果按下了主页键，则当前窗口进入画中画模式，
+                    // 此处不判断任务键，因为按下任务键有可能想进入分屏模式。
+                    if (reason.equals(SYSTEM_DIALOG_REASON_HOME)) {
+                        enterPicInPic(); // 进入画中画模式
+                    }
+                }
+            }
+        }
+    }
+
+    // 进入画中画模式
+    @TargetApi(Build.VERSION_CODES.O)
+    private void enterPicInPic() {
+        // 只对Android 8.0及以上系统开启画中画
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (!isInPictureInPictureMode()) { // 当前未开启画中画，则开启画中画模式
+                // 创建画中画模式的参数构建器
+                PictureInPictureParams.Builder builder = new PictureInPictureParams.Builder();
+                // 设置宽高比例值，第一个参数表示分子，第二个参数表示分母
+                // 下面的10/5=2，表示画中画窗口的宽度是高度的两倍
+                Rational aspectRatio = new Rational(10,5);
+                // 设置画中画窗口的宽高比例
+                builder.setAspectRatio(aspectRatio);
+                // 进入画中画模式，注意enterPictureInPictureMode是Android8.0之后新增的方法
+                enterPictureInPictureMode(builder.build());
+            }
         }
     }
 
