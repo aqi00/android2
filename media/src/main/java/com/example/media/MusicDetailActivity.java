@@ -18,8 +18,10 @@ import android.animation.Animator;
 import android.animation.Animator.AnimatorListener;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.media.AudioFormat;
 import android.media.AudioManager;
@@ -76,6 +78,17 @@ public class MusicDetailActivity extends AppCompatActivity implements
         app = MainApplication.getInstance();
         initLrc(); // 初始化歌词内容
         playMusic(); // 开始播放音乐
+        initPauseReceiver(); // 初始化音乐暂停/恢复的广播接收器
+    }
+
+    // 初始化音乐暂停/恢复的广播接收器
+    private void initPauseReceiver() {
+        // 创建一个暂停/恢复播放的广播接收器
+        pauseReceiver = new PauseReceiver();
+        // 创建一个意图过滤器，只处理指定事件来源的广播
+        IntentFilter filter = new IntentFilter(getString(R.string.pause_event));
+        // 注册广播接收器，注册之后才能正常接收广播
+        registerReceiver(pauseReceiver, filter);
     }
 
     @Override
@@ -83,6 +96,8 @@ public class MusicDetailActivity extends AppCompatActivity implements
         super.onDestroy();
         // 移除所有的处理器任务
         mHandler.removeCallbacksAndMessages(null);
+        // 注销广播接收器，注销之后就不再接收广播
+        unregisterReceiver(pauseReceiver);
     }
 
     // 初始化歌词内容
@@ -228,7 +243,6 @@ public class MusicDetailActivity extends AppCompatActivity implements
 
     // 在音乐播放进度拖动时触发
     public void onMusicSeek(int current, int seekto) {
-        Log.d(TAG, "current=" + current + ", seekto=" + seekto);
         if (animTranY != null) {
             animTranY.cancel(); // 歌词滚动动画取消播放
         }
@@ -296,5 +310,21 @@ public class MusicDetailActivity extends AppCompatActivity implements
 
     // 在调节音量时触发
     public void onVolumeAdjust(int volume) {}
+
+    // 声明一个暂停/恢复播放的广播接收器
+    private PauseReceiver pauseReceiver;
+    // 定义一个广播接收器，用于处理音乐的暂停/恢复播放事件
+    public class PauseReceiver extends BroadcastReceiver {
+        // 一旦接收到暂停/恢复播放的广播，马上触发接收器的onReceive方法
+        public void onReceive(Context context, Intent intent) {
+            if (intent != null) {
+                if (animTranY.isPaused()) { // 歌词动画暂停滚动
+                    animTranY.resume(); // 恢复滚动歌词
+                } else { // 歌词动画正在滚动
+                    animTranY.pause(); // 暂停滚动歌词
+                }
+            }
+        }
+    }
 
 }

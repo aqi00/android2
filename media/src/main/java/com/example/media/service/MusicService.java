@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -38,7 +39,7 @@ public class MusicService extends Service {
             app = MainApplication.getInstance();
         }
         // 从资源文件中获取“暂停/继续”事件的标识串
-        PAUSE_EVENT = getResources().getString(R.string.pause_event);
+        PAUSE_EVENT = getString(R.string.pause_event);
         // 创建一个暂停/恢复播放的广播接收器
         pauseReceiver = new PauseReceiver();
         // 创建一个意图过滤器，只处理指定事件来源的广播
@@ -114,7 +115,7 @@ public class MusicService extends Service {
         @Override
         public void run() {
             int process = 0;
-            if (isPlaying && app.mMediaPlayer.isPlaying()) { // 正在播放，则刷新播放进度
+            if (app.mMediaPlayer.getDuration() > 0) { // 正在播放，则刷新播放进度
                 process = app.mMediaPlayer.getCurrentPosition() * 100 / app.mMediaPlayer.getDuration();
             }
             // 延迟1秒后再次启动音乐播放的刷新任务
@@ -158,6 +159,10 @@ public class MusicService extends Service {
                 R.string.app_name, intent2, PendingIntent.FLAG_UPDATE_CURRENT);
         // 创建一个通知消息的构造器
         Notification.Builder builder = new Notification.Builder(ctx);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Android 8.0开始必须给每个通知分配对应的渠道
+            builder = new Notification.Builder(ctx, getString(R.string.app_name));
+        }
         builder.setContentIntent(clickIntent) // 设置内容的点击意图
                 .setContent(notify_music) // 设置内容视图
                 .setTicker(song) // 设置状态栏里面的提示文本
@@ -173,7 +178,11 @@ public class MusicService extends Service {
         // 一旦接收到暂停/恢复播放的广播，马上触发接收器的onReceive方法
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
-                isPlaying = !isPlaying;
+                if (app.mMediaPlayer.isPlaying()) { // 播放器正在播放
+                    app.mMediaPlayer.pause(); // 播放器暂停播放
+                } else { // 播放器不在播放
+                    app.mMediaPlayer.start(); // 播放器开始播放
+                }
             }
         }
     }

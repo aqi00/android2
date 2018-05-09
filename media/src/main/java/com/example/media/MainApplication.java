@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.projection.MediaProjectionManager;
+import android.os.Build;
+
+import com.example.media.util.NotifyUtil;
 
 public class MainApplication extends Application {
     // 声明一个当前应用的静态实例
@@ -28,6 +31,10 @@ public class MainApplication extends Application {
         mApp = this;
         // 创建一个媒体播放器
         mMediaPlayer = new MediaPlayer();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Android 8.0开始必须给每个通知分配对应的渠道
+            NotifyUtil.createNotifyChannel(this, getString(R.string.app_name));
+        }
     }
 
     public Intent getResultIntent() {

@@ -218,8 +218,8 @@ public class MovieDetailActivity extends AppCompatActivity implements OnSeekChan
                 // 创建画中画模式的参数构建器
                 PictureInPictureParams.Builder builder = new PictureInPictureParams.Builder();
                 // 设置宽高比例值，第一个参数表示分子，第二个参数表示分母
-                // 下面的10/5=2，表示画中画窗口的宽度是高度的两倍
-                Rational aspectRatio = new Rational(10,5);
+                // 下面的16/9为画中画窗口的宽度/高度
+                Rational aspectRatio = new Rational(16,9);
                 // 设置画中画窗口的宽高比例
                 builder.setAspectRatio(aspectRatio);
                 // 进入画中画模式，注意enterPictureInPictureMode是Android8.0之后新增的方法

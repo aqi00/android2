@@ -53,7 +53,7 @@ public class VideoController extends RelativeLayout implements OnClickListener, 
         tv.setTextSize(14);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
-        // 该视图在上级视图的垂直居中
+        // 该视图在上级布局的垂直居中
         params.addRule(RelativeLayout.CENTER_VERTICAL);
         tv.setLayoutParams(params);
         return tv;
@@ -64,7 +64,7 @@ public class VideoController extends RelativeLayout implements OnClickListener, 
         // 下面初始化一个用于播放控制（暂停/恢复）的图像视图
         mImagePlay = new ImageView(mContext);
         RelativeLayout.LayoutParams imageParams = new RelativeLayout.LayoutParams(dip_40, dip_40);
-        // 该视图在上级视图的垂直居中
+        // 该视图在上级布局的垂直居中
         imageParams.addRule(RelativeLayout.CENTER_VERTICAL);
         mImagePlay.setLayoutParams(imageParams);
         mImagePlay.setId(mBeginViewId);
@@ -80,7 +80,7 @@ public class VideoController extends RelativeLayout implements OnClickListener, 
         // 下面初始化一个用于展示播放时长的文本视图
         mTotalTime = newTextView(mContext, mBeginViewId + 2);
         RelativeLayout.LayoutParams totalParams = (LayoutParams) mTotalTime.getLayoutParams();
-        // 该视图与上级视图的右侧对齐
+        // 该视图与上级布局的右侧对齐
         totalParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         mTotalTime.setLayoutParams(totalParams);
         // 创建一个新的拖动条
@@ -88,7 +88,7 @@ public class VideoController extends RelativeLayout implements OnClickListener, 
         RelativeLayout.LayoutParams seekParams = new RelativeLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         totalParams.setMargins(dip_10, 0, dip_10, 0);
-        // 拖动条在上级视图的垂直居中
+        // 拖动条在上级布局的垂直居中
         seekParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         // 拖动条位于当前时间的右边
         seekParams.addRule(RelativeLayout.RIGHT_OF, mCurrentTime.getId());

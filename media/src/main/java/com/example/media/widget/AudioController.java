@@ -8,6 +8,7 @@ import com.example.media.util.Utils;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -54,7 +55,7 @@ public class AudioController extends RelativeLayout implements OnClickListener, 
         tv.setTextSize(14);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
                 LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
-        // 该视图在上级视图的垂直居中
+        // 该视图在上级布局的垂直居中
         params.addRule(RelativeLayout.CENTER_VERTICAL);
         tv.setLayoutParams(params);
         return tv;
@@ -65,7 +66,7 @@ public class AudioController extends RelativeLayout implements OnClickListener, 
         // 下面初始化一个用于播放控制（暂停/恢复）的图像视图
         mImagePlay = new ImageView(mContext);
         RelativeLayout.LayoutParams imageParams = new RelativeLayout.LayoutParams(dip_40, dip_40);
-        // 该视图在上级视图的垂直居中
+        // 该视图在上级布局的垂直居中
         imageParams.addRule(RelativeLayout.CENTER_VERTICAL);
         mImagePlay.setLayoutParams(imageParams);
         mImagePlay.setId(mBeginViewId);
@@ -80,7 +81,7 @@ public class AudioController extends RelativeLayout implements OnClickListener, 
         // 下面初始化一个用于展示播放时长的文本视图
         mTotalTime = newTextView(mContext, mBeginViewId + 2);
         RelativeLayout.LayoutParams totalParams = (LayoutParams) mTotalTime.getLayoutParams();
-        // 该视图与上级视图的右侧对齐
+        // 该视图与上级布局的右侧对齐
         totalParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         mTotalTime.setLayoutParams(totalParams);
         // 创建一个新的拖动条
@@ -88,7 +89,7 @@ public class AudioController extends RelativeLayout implements OnClickListener, 
         RelativeLayout.LayoutParams seekParams = new RelativeLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         totalParams.setMargins(dip_10, 0, dip_10, 0);
-        // 拖动条在上级视图的垂直居中
+        // 拖动条在上级布局的垂直居中
         seekParams.addRule(RelativeLayout.CENTER_IN_PARENT);
         // 拖动条位于当前时间的右边
         seekParams.addRule(RelativeLayout.RIGHT_OF, mCurrentTime.getId());
@@ -183,7 +184,7 @@ public class AudioController extends RelativeLayout implements OnClickListener, 
     @Override
     public void onClick(View v) {
         if (v.getId() == mImagePlay.getId()) {
-            if (app.mMediaPlayer.getDuration() == 0) { // 播放时长为0，则不进行任何操作
+            if (app.mMediaPlayer.getDuration() <= 0) { // 播放时长为0，则不进行任何操作
                 return;
             }
             if (app.mMediaPlayer.isPlaying()) { // 播放器正在播放
@@ -193,7 +194,8 @@ public class AudioController extends RelativeLayout implements OnClickListener, 
                     mSeekListener.onMusicPause(); // 触发监听器的暂停操作
                 }
             } else { // 播放器不在播放
-                if (mCurrent == 0 && mSeekListener != null) {
+                if ((mCurrent==0 || mCurrent>app.mMediaPlayer.getDuration()-500)
+                        && mSeekListener != null) {
                     mSeekListener.onMusicSeek(0, 0);
                 }
                 app.mMediaPlayer.start(); // 播放器开始播放
