@@ -36,6 +36,8 @@ public class DepartmentClassActivity extends AppCompatActivity {
         setSupportActionBar(tl_head);
         mTitleArray.add("服装");
         mTitleArray.add("电器");
+        // 从布局文件中获取名叫vp_content的翻页视图
+        vp_content = findViewById(R.id.vp_content);
         initTabLayout(); // 初始化标签布局
         initTabViewPager(); // 初始化标签翻页
     }
@@ -54,8 +56,6 @@ public class DepartmentClassActivity extends AppCompatActivity {
 
     // 初始化标签翻页
     private void initTabViewPager() {
-        // 从布局文件中获取名叫vp_content的翻页视图
-        vp_content = findViewById(R.id.vp_content);
         // 构建一个分类信息的翻页适配器
         ClassPagerAdapter adapter = new ClassPagerAdapter(
                 getSupportFragmentManager(), mTitleArray);
