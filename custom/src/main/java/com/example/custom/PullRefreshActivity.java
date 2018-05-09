@@ -39,7 +39,7 @@ public class PullRefreshActivity extends AppCompatActivity implements OnClickLis
                 // 立即开始下拉刷新任务
                 mHandler.post(mRefresh);
             } else { // 已在刷新，则停止下拉刷新
-                btn_pull.setText("开始刷新");
+                btn_pull.setText("开始下拉");
                 ll_header.setVisibility(View.GONE);
             }
             isStarted = !isStarted;

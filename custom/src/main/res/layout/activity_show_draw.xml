@@ -30,7 +30,7 @@
     <com.example.custom.widget.DrawRelativeLayout
         android:id="@+id/drl_content"
         android:layout_width="match_parent"
-        android:layout_height="300dp" >
+        android:layout_height="250dp" >
 
         <Button
             android:id="@+id/btn_center"

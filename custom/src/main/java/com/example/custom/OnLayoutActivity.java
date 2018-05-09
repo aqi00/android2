@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.example.custom.util.Utils;
 import com.example.custom.widget.OffsetLayout;
 
 /**
@@ -36,13 +37,13 @@ public class OnLayoutActivity extends AppCompatActivity {
         sp_offset.setSelection(0);
     }
 
-    private String[] descArray = {"无偏移", "向左偏移100", "向右偏移100", "向上偏移100", "向下偏移100"};
-    private int[] offsetArray = {0, -100, 100, -100, 100};
+    private String[] descArray = {"无偏移", "向左偏移50", "向右偏移50", "向上偏移50", "向下偏移50"};
+    private int[] offsetArray = {0, -50, 50, -50, 50};
 
     class OffsetSelectedListener implements OnItemSelectedListener {
 
         public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-            int offset = offsetArray[arg2];
+            int offset = Utils.dip2px(OnLayoutActivity.this, offsetArray[arg2]);
             if (arg2 == 0 || arg2 == 1 || arg2 == 2) {
                 // 设置偏移布局在水平方向上的偏移量
                 ol_content.setOffsetHorizontal(offset);

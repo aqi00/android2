@@ -10,9 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.example.custom.util.Utils;
+
 public class CircleAnimation extends RelativeLayout {
     private final static String TAG = "CicleAnimation";
-    private RectF mRect = new RectF(100, 10, 400, 310); // 矩形边界
+    private RectF mRect; // 矩形边界
     private int mBeginAngle = 0; // 起始角度
     private int mEndAngle = 270; // 终止角度
     private int mFrontColor = 0xffff0000; // 前景颜色
@@ -34,6 +36,7 @@ public class CircleAnimation extends RelativeLayout {
     public CircleAnimation(Context context) {
         super(context);
         mContext = context;
+        mRect = new RectF(Utils.dip2px(context,30), Utils.dip2px(context,10), Utils.dip2px(context,330), Utils.dip2px(context,310));
     }
 
     // 渲染圆弧动画。渲染操作包括初始化与播放两个动作
