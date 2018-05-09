@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.net.TrafficStats;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -123,6 +124,10 @@ public class TrafficService extends Service {
                 R.string.app_name, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         // 创建一个通知消息的构造器
         Notification.Builder builder = new Notification.Builder(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Android 8.0开始必须给每个通知分配对应的渠道
+            builder = new Notification.Builder(this, getString(R.string.app_name));
+        }
         builder.setContentIntent(clickIntent) // 设置内容的点击意图
                 .setContent(notify_traffic) // 设置内容视图
                 .setTicker("手机安全助手运行中") // 设置状态栏里面的提示文本

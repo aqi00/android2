@@ -6,11 +6,14 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+
+import com.example.custom.util.NotifyUtil;
 
 /**
  * Created by ouyangshen on 2017/10/14.
@@ -46,6 +49,10 @@ public class NotifySimpleActivity extends AppCompatActivity implements OnClickLi
                 R.string.app_name, clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         // 创建一个通知消息的构造器
         Notification.Builder builder = new Notification.Builder(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Android 8.0开始必须给每个通知分配对应的渠道
+            builder = new Notification.Builder(this, getString(R.string.app_name));
+        }
         builder.setContentIntent(contentIntent) // 设置内容的点击意图
                 .setAutoCancel(true) // 设置是否允许自动清除
                 .setSmallIcon(R.drawable.ic_app) // 设置状态栏里的小图标

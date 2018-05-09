@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -46,6 +47,10 @@ public class NotifyCounterActivity extends AppCompatActivity implements OnClickL
                 R.string.app_name, cancelIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         // 创建一个通知消息的构造器
         Notification.Builder builder = new Notification.Builder(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Android 8.0开始必须给每个通知分配对应的渠道
+            builder = new Notification.Builder(this, getString(R.string.app_name));
+        }
         builder.setDeleteIntent(deleteIntent) // 设置内容的清除意图
                 .setAutoCancel(true) // 设置是否允许自动清除
                 .setUsesChronometer(true) // 设置是否显示计数器
