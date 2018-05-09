@@ -2,6 +2,7 @@ package com.example.group;
 
 import com.example.group.adapter.LifeRecyclerAdapter;
 import com.example.group.bean.LifeItem;
+import com.example.group.util.Utils;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -54,8 +55,8 @@ public class ScrollAlipayActivity extends AppCompatActivity implements OnOffsetC
         int offset = Math.abs(verticalOffset);
         // 获取应用栏的整个滑动范围，以此计算当前的位移比例
         int total = appBarLayout.getTotalScrollRange();
-        int alphaIn = offset;
-        int alphaOut = (200 - offset) < 0 ? 0 : 200 - offset;
+        int alphaIn = Utils.px2dip(this, offset) * 2;
+        int alphaOut = (200 - alphaIn) < 0 ? 0 : 200 - alphaIn;
         // 计算淡入时候的遮罩透明度
         int maskColorIn = Color.argb(alphaIn, Color.red(mMaskColor),
                 Color.green(mMaskColor), Color.blue(mMaskColor));
