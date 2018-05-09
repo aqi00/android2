@@ -26,6 +26,7 @@ public class NotifyUtil {
         // 从系统服务中获取通知管理器
         NotificationManager notifyMgr = (NotificationManager)
                 ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+        // 创建指定的通知渠道
         notifyMgr.createNotificationChannel(channel);
     }
 
