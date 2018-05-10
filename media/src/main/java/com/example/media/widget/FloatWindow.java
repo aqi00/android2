@@ -100,7 +100,8 @@ public class FloatWindow extends View {
     // 关闭悬浮窗
     public void close() {
         if (mContentView != null) {
-            wm.removeView(mContentView); // 移除自定义的窗口布局
+            // 移除自定义的窗口布局
+            wm.removeView(mContentView);
             isShowing = false;
         }
     }
