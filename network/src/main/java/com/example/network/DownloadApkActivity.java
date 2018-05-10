@@ -61,6 +61,8 @@ public class DownloadApkActivity extends AppCompatActivity {
                 return;
             }
             sp_apk_url.setEnabled(false);
+            tv_apk_result.setText("正在下载" + PackageInfo.mNameArray[arg2]
+                    + "的安装包，请到通知栏查看下载进度");
             // 根据安装包的下载地址构建一个Uri对象
             Uri uri = Uri.parse(PackageInfo.mUrlArray[arg2]);
             // 创建一个下载请求对象，指定从哪个网络地址下载文件
