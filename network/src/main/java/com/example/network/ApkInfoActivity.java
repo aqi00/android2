@@ -20,6 +20,7 @@ import com.aqi00.lib.dialog.FileSelectFragment.FileSelectCallbacks;
 import com.example.network.adapter.ApkInfoAdapter;
 import com.example.network.bean.ApkInfo;
 import com.example.network.util.ApkUtil;
+import com.example.network.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -93,8 +94,9 @@ public class ApkInfoActivity extends AppCompatActivity implements
         // 下面通过提醒对话框展示APK文件的详细信息
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle("APK文件信息");
-        String desc = String.format("文件名称：%s\n包名：%s\n版本号：%d\n版本名称：%s\n文件路径：%s",
-                info.file_name, newInfo.package_name, newInfo.version_code, newInfo.version_name, newInfo.file_path);
+        String desc = String.format("文件名称：%s\n包名：%s\n版本号：%d\n版本名称：%s\n文件路径：%s\n文件大小：%s",
+                info.file_name, newInfo.package_name, newInfo.version_code, newInfo.version_name,
+                newInfo.file_path, StringUtil.formatData(newInfo.file_size));
         builder.setMessage(desc);
         builder.setPositiveButton("确定", null);
         builder.create().show();
