@@ -156,7 +156,7 @@ public class MobileAssistantActivity extends Activity implements
     private void showDayAnimation() {
         rl_day.removeAllViews();
         int diameter = Math.min(rl_day.getWidth(), rl_day.getHeight()) - line_width * 2;
-        String desc = "今日已用流量" + StringUtil.formatTraffic(traffic_day);
+        String desc = "今日已用流量" + StringUtil.formatData(traffic_day);
         // 创建日流量的圆弧动画
         CircleAnimation dayAnimation = new CircleAnimation(MobileAssistantActivity.this);
         // 设置日流量动画的四周边界
@@ -170,19 +170,19 @@ public class MobileAssistantActivity extends Activity implements
             dayAnimation.setAngle(0, end_angle);
             dayAnimation.setFront(Color.RED, line_width, Style.STROKE);
             desc = String.format("%s\n超出限额%s", desc,
-                    StringUtil.formatTraffic(traffic_day - limit_day * 1024 * 1024));
+                    StringUtil.formatData(traffic_day - limit_day * 1024 * 1024));
         } else if (trafficM > limit_day) { // 超出一倍限额，则展示橙色圆弧进度
             int end_angle = (int) ((trafficM > limit_day * 2) ? 360 : (trafficM - limit_day) * 360 / limit_day);
             dayAnimation.setAngle(0, end_angle);
             dayAnimation.setFront(0xffff9900, line_width, Style.STROKE);
             desc = String.format("%s\n超出限额%s", desc,
-                    StringUtil.formatTraffic(traffic_day - limit_day * 1024 * 1024));
+                    StringUtil.formatData(traffic_day - limit_day * 1024 * 1024));
         } else { // 未超出限额，则展示绿色圆弧进度
             int end_angle = (int) (trafficM * 360 / limit_day);
             dayAnimation.setAngle(0, end_angle);
             dayAnimation.setFront(Color.GREEN, line_width, Style.STROKE);
             desc = String.format("%s\n剩余流量%s", desc,
-                    StringUtil.formatTraffic(limit_day * 1024 * 1024 - traffic_day));
+                    StringUtil.formatData(limit_day * 1024 * 1024 - traffic_day));
         }
         rl_day.addView(dayAnimation);
         // 渲染日流量的圆弧动画

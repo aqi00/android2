@@ -40,10 +40,10 @@ public class TrafficInfoActivity extends AppCompatActivity {
         public void run() {
             String desc = String.format("当前总共接收流量：%s\n　　其中接收数据流量：%s" +
                             "\n当前总共发送流量：%s\n　　其中发送数据流量：%s",
-                    StringUtil.formatTraffic(TrafficStats.getTotalRxBytes()), // 获取总共接收的流量数据
-                    StringUtil.formatTraffic(TrafficStats.getMobileRxBytes()), // 获取数据流量的接收数据
-                    StringUtil.formatTraffic(TrafficStats.getTotalTxBytes()), // 获取总共发送的流量数据
-                    StringUtil.formatTraffic(TrafficStats.getMobileTxBytes())); // 获取数据流量的发送数据
+                    StringUtil.formatData(TrafficStats.getTotalRxBytes()), // 获取总共接收的流量数据
+                    StringUtil.formatData(TrafficStats.getMobileRxBytes()), // 获取数据流量的接收数据
+                    StringUtil.formatData(TrafficStats.getTotalTxBytes()), // 获取总共发送的流量数据
+                    StringUtil.formatData(TrafficStats.getMobileTxBytes())); // 获取数据流量的发送数据
             tv_traffic.setText(desc);
             // 获取已安装的应用信息队列
             ArrayList<AppInfo> appinfoList = AppUtil.getAppInfo(TrafficInfoActivity.this, 1);

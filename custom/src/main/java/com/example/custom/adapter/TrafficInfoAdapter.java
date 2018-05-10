@@ -62,7 +62,7 @@ public class TrafficInfoAdapter extends BaseAdapter {
         }
         holder.tv_label.setText(item.label); // 显示应用的名称
         holder.tv_package_name.setText(item.package_name); // 显示应用的包名
-        holder.tv_traffic.setText(StringUtil.formatTraffic(item.traffic)); // 显示应用的流量
+        holder.tv_traffic.setText(StringUtil.formatData(item.traffic)); // 显示应用的流量
         return convertView;
     }
 

@@ -91,7 +91,7 @@ public class TrafficService extends Service {
             }
             traffic_day += item.traffic;
         }
-        String desc = "今日已用流量" + StringUtil.formatTraffic(traffic_day);
+        String desc = "今日已用流量" + StringUtil.formatData(traffic_day);
 
         int progress;
         int layoutId = R.layout.notify_traffic_green;
