@@ -221,7 +221,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="7.5 材质设计" />
+                android:text="7.5 材质设计库" />
 
             <LinearLayout
                 android:layout_width="match_parent"
