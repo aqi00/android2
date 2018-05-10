@@ -27,7 +27,7 @@ public class RadioHorizontalActivity extends AppCompatActivity implements OnChec
         //rg_sex.setOnCheckedChangeListener(new RadioListener());
     }
 
-    @Override
+    // 在用户点击组内的单选按钮时触发
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         if (checkedId == R.id.rb_male) {
             tv_sex.setText("哇哦，你是个帅气的男孩");
@@ -38,7 +38,7 @@ public class RadioHorizontalActivity extends AppCompatActivity implements OnChec
 
     // 定义一个单选监听器，它实现了接口RadioGroup.OnCheckedChangeListener
     class RadioListener implements RadioGroup.OnCheckedChangeListener{
-        // 单选事件的处理方法
+        // 在用户点击组内的单选按钮时触发
         public void onCheckedChanged(RadioGroup group, int checkedId) {
             Toast.makeText(RadioHorizontalActivity.this, "您选中了控件"+checkedId, Toast.LENGTH_LONG).show();
         }

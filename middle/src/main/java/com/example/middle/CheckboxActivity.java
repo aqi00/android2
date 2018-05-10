@@ -40,7 +40,7 @@ public class CheckboxActivity extends AppCompatActivity implements OnCheckedChan
 
     // 定义一个勾选监听器，它实现了接口CompoundButton.OnCheckedChangeListener
     private class CheckListener implements CompoundButton.OnCheckedChangeListener{
-        // 勾选事件的处理方法
+        // 在用户点击复选框时触发
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             String desc = String.format("您勾选了控件%d，状态为%b", buttonView.getId(), isChecked);
             Toast.makeText(CheckboxActivity.this, desc, Toast.LENGTH_LONG).show();

@@ -24,7 +24,7 @@ public class RadioVerticalActivity extends AppCompatActivity implements OnChecke
         rg_marry.setOnCheckedChangeListener(this);
     }
 
-    @Override
+    // 在用户点击组内的单选按钮时触发
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         if (checkedId == R.id.rb_married) {
             tv_marry.setText("哇哦，祝你早生贵子");

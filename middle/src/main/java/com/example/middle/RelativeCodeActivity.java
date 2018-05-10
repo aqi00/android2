@@ -75,7 +75,7 @@ public class RelativeCodeActivity extends AppCompatActivity implements OnClickLi
         v.setLayoutParams(rl_params);
         // 设置该视图的长按监听器
         v.setOnLongClickListener(new OnLongClickListener() {
-            @Override
+            // 在用户长按该视图时触发
             public boolean onLongClick(View vv) {
                 // 一旦监听到长按事件，就从相对布局中删除该视图
                 rl_content.removeView(vv);

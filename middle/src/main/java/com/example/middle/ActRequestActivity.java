@@ -44,7 +44,7 @@ public class ActRequestActivity extends AppCompatActivity implements OnClickList
         }
     }
 
-    @Override
+    // 从后一个页面携带参数返回当前页面时触发
     protected void onActivityResult(int requestCode, int resultCode, Intent data) { // 接收返回数据
         if (data != null) {
             // 从意图中取出名叫response_time的字符串

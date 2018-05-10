@@ -206,6 +206,7 @@ public class LoginMainActivity extends AppCompatActivity implements OnClickListe
         }
     }
 
+    // 从后一个页面携带参数返回当前页面时触发
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == mRequestCode && data != null) {
