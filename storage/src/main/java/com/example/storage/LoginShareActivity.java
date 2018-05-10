@@ -140,16 +140,16 @@ public class LoginShareActivity extends AppCompatActivity implements OnClickList
             mMaxLength = ViewUtil.getMaxLength(v);
         }
 
-        @Override
+        // 在编辑框的输入文本变化前触发
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
 
-        @Override
+        // 在编辑框的输入文本变化时触发
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             mStr = s;
         }
 
-        @Override
+        // 在编辑框的输入文本变化后触发
         public void afterTextChanged(Editable s) {
             if (TextUtils.isEmpty(mStr))
                 return;
@@ -206,7 +206,7 @@ public class LoginShareActivity extends AppCompatActivity implements OnClickList
         }
     }
 
-    @Override
+    // 从后一个页面携带参数返回当前页面时触发
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == mRequestCode && data != null) {
             // 用户密码已改为新密码，故更新密码变量
