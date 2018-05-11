@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -12,6 +13,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
+
+import com.example.mixture.util.Utils;
 
 @SuppressLint("ClickableViewAccessibility")
 public class ViewSlider extends FrameLayout implements BookView.OnScrollListener {
@@ -68,10 +71,15 @@ public class ViewSlider extends FrameLayout implements BookView.OnScrollListener
         MarginLayoutParams params = new LinearLayout.LayoutParams(
                 mWidth, LayoutParams.WRAP_CONTENT);
         page.setLayoutParams(params); // 设置书页视图的布局参数
+        Bitmap bitmap = BitmapFactory.decodeFile(mPathArray.get(position));
+        int iv_height = bitmap.getHeight() < Utils.dip2px(mContext, 300)
+                ? Utils.dip2px(mContext, 300) : bitmap.getHeight();
+        MarginLayoutParams iv_params = new LinearLayout.LayoutParams(
+                mWidth, iv_height);
         ImageView iv = new ImageView(mContext);
-        iv.setLayoutParams(params);
+        iv.setLayoutParams(iv_params);
         iv.setScaleType(ScaleType.FIT_CENTER);
-        iv.setImageBitmap(BitmapFactory.decodeFile(mPathArray.get(position)));
+        iv.setImageBitmap(bitmap);
         page.addView(iv); // 把图像视图添加到书页视图
         page.setUp(isUp); // 设置是否高亮显示
         return page;

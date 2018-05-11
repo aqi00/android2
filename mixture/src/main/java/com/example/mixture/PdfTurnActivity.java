@@ -15,6 +15,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
 import com.example.mixture.util.FileUtil;
+import com.example.mixture.util.Utils;
 
 import java.util.ArrayList;
 
@@ -57,8 +58,10 @@ public class PdfTurnActivity extends AppCompatActivity {
         if (imgArray != null && imgArray.size() > 0) {
             // 从指定路径的图片文件中获取位图数据
             Bitmap bitmap = BitmapFactory.decodeFile(imgArray.get(0));
+            int iv_height = bitmap.getHeight() < Utils.dip2px(this, 300)
+                    ? Utils.dip2px(this, 300) : bitmap.getHeight();
             // 在卷曲视图上显示位图图像
-            showImage((int) (bitmap.getHeight() * 1.2));
+            showImage(iv_height);
             bitmap.recycle(); // 回收位图对象
         }
     }
