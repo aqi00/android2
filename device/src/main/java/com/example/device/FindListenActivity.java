@@ -103,18 +103,28 @@ public class FindListenActivity extends AppCompatActivity implements
         }
     }
 
+    private Runnable mDiscoverable = new Runnable() {
+        public void run() {
+            // Android8.0要在已打开蓝牙功能时才会弹出下面的选择窗
+            if (BluetoothUtil.getBlueToothStatus(FindListenActivity.this)) {
+                // 弹出是否允许扫描蓝牙设备的选择对话框
+                Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+                startActivityForResult(intent, mOpenCode);
+            } else {
+                mHandler.postDelayed(this, 1000);
+            }
+        }
+    };
+
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (buttonView.getId() == R.id.ck_bluetooth) {
             if (isChecked) { // 开启蓝牙功能
                 ck_bluetooth.setText("蓝牙开");
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-                    // 弹出是否允许扫描蓝牙设备的选择对话框
-                    Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-                    startActivityForResult(intent, mOpenCode);
-                } else {
+                if (!BluetoothUtil.getBlueToothStatus(this)) {
                     BluetoothUtil.setBlueToothStatus(this, true); // 开启蓝牙功能
                 }
+                mHandler.post(mDiscoverable);
             } else { // 关闭蓝牙功能
                 ck_bluetooth.setText("蓝牙关");
                 cancelDiscovery(); // 取消蓝牙设备的搜索
