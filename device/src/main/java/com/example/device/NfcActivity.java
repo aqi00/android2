@@ -46,6 +46,8 @@ public class NfcActivity extends AppCompatActivity {
             tv_nfc_result.setText("当前手机不支持NFC");
         } else if (!mNfcAdapter.isEnabled()) {
             tv_nfc_result.setText("请先在系统设置中启用NFC功能");
+        } else {
+            tv_nfc_result.setText("当前手机支持NFC");
         }
     }
 

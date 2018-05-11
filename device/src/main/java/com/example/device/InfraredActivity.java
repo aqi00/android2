@@ -40,6 +40,8 @@ public class InfraredActivity extends AppCompatActivity implements OnClickListen
         cim = (ConsumerIrManager) getSystemService(Context.CONSUMER_IR_SERVICE);
         if (!cim.hasIrEmitter()) { // 判断当前设备是否支持红外功能
             tv_infrared.setText("当前手机不支持红外遥控");
+        } else {
+            tv_infrared.setText("当前手机支持红外遥控");
         }
     }
 

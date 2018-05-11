@@ -56,8 +56,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(this, TurnSurfaceActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_camera_info) {
-            Intent intent = new Intent(this, CameraInfoActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkPermission(this, Manifest.permission.CAMERA, R.id.btn_camera_info % 4096)) {
+                PermissionUtil.goActivity(this, CameraInfoActivity.class);
+            }
         } else if (v.getId() == R.id.btn_photograph) {
              if (PermissionUtil.checkPermission(this, Manifest.permission.CAMERA, R.id.btn_photograph % 4096)) {
                  PermissionUtil.goActivity(this, PhotographActivity.class);
@@ -149,7 +150,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == R.id.btn_photograph % 4096) {
+        if (requestCode == R.id.btn_camera_info % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, CameraInfoActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许相机权限才能查看相机信息噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_photograph % 4096) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 PermissionUtil.goActivity(this, PhotographActivity.class);
             } else {
