@@ -39,6 +39,7 @@ import com.example.mixture.widget.InputDialogFragment;
 import com.example.mixture.widget.InputDialogFragment.InputCallbacks;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Set;
 
 /**
@@ -56,6 +57,7 @@ public class BluetoothTransActivity extends AppCompatActivity implements
     private BlueListAdapter mListAdapter; // 声明一个蓝牙设备的列表适配器对象
     private ArrayList<BlueDevice> mDeviceList = new ArrayList<BlueDevice>(); // 蓝牙设备队列
     private int mOpenCode = 1; // 是否允许扫描蓝牙设备的选择对话框返回结果代码
+    private HashMap<String, Integer> mMapState = new HashMap<String, Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +98,11 @@ public class BluetoothTransActivity extends AppCompatActivity implements
         // 获取已经配对的蓝牙设备集合
         Set<BluetoothDevice> bondedDevices = mBluetooth.getBondedDevices();
         for (BluetoothDevice device : bondedDevices) {
-            mDeviceList.add(new BlueDevice(device.getName(), device.getAddress(), device.getBondState()));
+            if (mMapState.containsKey(device.getAddress())) {
+                mDeviceList.add(new BlueDevice(device.getName(), device.getAddress(), mMapState.get(device.getAddress())));
+            } else {
+                mDeviceList.add(new BlueDevice(device.getName(), device.getAddress(), device.getBondState()));
+            }
         }
         if (mListAdapter == null) { // 首次打开页面，则创建一个新的蓝牙设备列表
             mListAdapter = new BlueListAdapter(this, mDeviceList);
@@ -258,13 +264,16 @@ public class BluetoothTransActivity extends AppCompatActivity implements
         for (i = 0; i < mDeviceList.size(); i++) {
             BlueDevice item = mDeviceList.get(i);
             if (item.address.equals(device.getAddress())) {
-                item.state = state;
-                mDeviceList.set(i, item);
+                if (item.state != BlueListAdapter.CONNECTED) {
+                    item.state = state;
+                    mDeviceList.set(i, item);
+                    mMapState.put(item.address, state);
+                }
                 break;
             }
         }
         if (i >= mDeviceList.size()) {
-            mDeviceList.add(new BlueDevice(device.getName(), device.getAddress(), device.getBondState()));
+            mDeviceList.add(new BlueDevice(device.getName(), device.getAddress(), state));
         }
         mListAdapter.notifyDataSetChanged();
     }
