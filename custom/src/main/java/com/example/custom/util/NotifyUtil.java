@@ -20,6 +20,7 @@ public class NotifyUtil {
         // 创建一个默认重要性的通知渠道
         NotificationChannel channel = new NotificationChannel(channelId,
                 "Channel", NotificationManager.IMPORTANCE_DEFAULT);
+        channel.setSound(null, null); // 设置推送通知之时的铃声。null表示静音推送
         channel.enableLights(true); // 设置在桌面图标右上角展示小红点
         channel.setLightColor(Color.RED); // 设置小红点的颜色
         channel.setShowBadge(true); // 在长按桌面图标时显示该渠道的通知
