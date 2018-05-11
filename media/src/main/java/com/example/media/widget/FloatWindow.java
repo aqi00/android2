@@ -3,6 +3,7 @@ package com.example.media.widget;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -80,7 +81,13 @@ public class FloatWindow extends View {
     public void show() {
         if (mContentView != null) {
             // 设置为TYPE_SYSTEM_ALERT类型，才能悬浮在其它页面之上
-            wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                // 注意TYPE_SYSTEM_ALERT从Android8.0开始被舍弃了
+                wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+            } else {
+                // 从Android8.0开始悬浮窗要使用TYPE_APPLICATION_OVERLAY
+                wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+            }
             wmParams.format = PixelFormat.RGBA_8888;
             wmParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
             wmParams.alpha = 1.0f; // 1.0为完全不透明，0.0为完全透明

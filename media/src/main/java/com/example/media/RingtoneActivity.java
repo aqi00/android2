@@ -72,6 +72,10 @@ public class RingtoneActivity extends AppCompatActivity {
 
     class RingSelectedListener implements OnItemSelectedListener {
         public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+            if (mRingtone != null) {
+                // 停止播放铃声
+                mRingtone.stop();
+            }
             // 从铃音文件的URI中获取铃声对象
             mRingtone = RingtoneManager.getRingtone(RingtoneActivity.this, uriArray[arg2]);
             // 开始播放铃声
