@@ -112,9 +112,13 @@ public class BluetoothTransActivity extends AppCompatActivity implements
         if (buttonView.getId() == R.id.ck_bluetooth) {
             if (isChecked) { // 开启蓝牙功能
                 ck_bluetooth.setText("蓝牙开");
-                // 弹出是否允许扫描蓝牙设备的选择对话框
-                Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
-                startActivityForResult(intent, mOpenCode);
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                    // 弹出是否允许扫描蓝牙设备的选择对话框
+                    Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+                    startActivityForResult(intent, mOpenCode);
+                } else {
+                    BluetoothUtil.setBlueToothStatus(this, true); // 开启蓝牙功能
+                }
                 // 下面这行代码为服务端需要，客户端不需要
                 mHandler.postDelayed(mAccept, 1000);
             } else { // 关闭蓝牙功能
@@ -221,7 +225,7 @@ public class BluetoothTransActivity extends AppCompatActivity implements
                 Log.d(TAG, "name=" + device.getName() + ", state=" + device.getBondState());
                 refreshDevice(device, device.getBondState()); // 将发现的蓝牙设备加入到设备列表
             } else if (action.equals(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)) { // 搜索完毕
-                mHandler.removeCallbacks(mRefresh);
+                //mHandler.removeCallbacks(mRefresh); // 需要持续搜索就要注释这行
                 tv_discovery.setText("蓝牙设备搜索完成");
             } else if (action.equals(BluetoothDevice.ACTION_BOND_STATE_CHANGED)) { // 配对状态变更
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
