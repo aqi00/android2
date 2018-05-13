@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="设置闹钟"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <ScrollView
         android:layout_width="match_parent"
