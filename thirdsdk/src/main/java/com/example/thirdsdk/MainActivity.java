@@ -1,11 +1,15 @@
 package com.example.thirdsdk;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
+
+import com.example.thirdsdk.util.PermissionUtil;
 
 /**
  * Created by ouyangshen on 2017/12/18.
@@ -22,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         findViewById(R.id.btn_share_qq).setOnClickListener(this);
         findViewById(R.id.btn_share_wx).setOnClickListener(this);
         findViewById(R.id.btn_alipay).setOnClickListener(this);
-        findViewById(R.id.btn_wxpay).setOnClickListener(this);
         findViewById(R.id.btn_tts_language).setOnClickListener(this);
         findViewById(R.id.btn_tts_read).setOnClickListener(this);
         findViewById(R.id.btn_voice_recognize).setOnClickListener(this);
@@ -34,11 +37,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_map_baidu) {
-            Intent intent = new Intent(this, MapBaiduActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkPermission(this, Manifest.permission.ACCESS_FINE_LOCATION, R.id.btn_map_baidu % 4096)) {
+                PermissionUtil.goActivity(this, MapBaiduActivity.class);
+            }
         } else if (v.getId() == R.id.btn_map_gaode) {
-            Intent intent = new Intent(this, MapGaodeActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkPermission(this, Manifest.permission.ACCESS_FINE_LOCATION, R.id.btn_map_gaode % 4096)) {
+                PermissionUtil.goActivity(this, MapGaodeActivity.class);
+            }
         } else if (v.getId() == R.id.btn_share_qq) {
             Intent intent = new Intent(this, ShareQQActivity.class);
             startActivity(intent);
@@ -56,8 +61,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(this, TtsReadActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_voice_recognize) {
-            Intent intent = new Intent(this, VoiceRecognizeActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkPermission(this, Manifest.permission.RECORD_AUDIO, R.id.btn_voice_recognize % 4096)) {
+                PermissionUtil.goActivity(this, VoiceRecognizeActivity.class);
+            }
         } else if (v.getId() == R.id.btn_voice_compose) {
             Intent intent = new Intent(this, VoiceComposeActivity.class);
             startActivity(intent);
@@ -65,8 +71,38 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(this, RatingBarActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_take_tax) {
-            Intent intent = new Intent(this, TakeTaxActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkPermission(this, Manifest.permission.ACCESS_FINE_LOCATION, R.id.btn_take_tax % 4096)) {
+                PermissionUtil.goActivity(this, TakeTaxActivity.class);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == R.id.btn_map_baidu % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, MapBaiduActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许定位权限才能使用百度地图噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_map_gaode % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, MapGaodeActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许定位权限才能使用高德地图噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_voice_recognize % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, VoiceRecognizeActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许录音权限才能识别语音噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_take_tax % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, TakeTaxActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许定位权限才能打车噢", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

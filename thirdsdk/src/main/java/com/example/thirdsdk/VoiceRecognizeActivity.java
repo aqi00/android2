@@ -41,18 +41,18 @@ public class VoiceRecognizeActivity extends AppCompatActivity implements OnClick
     private RecognizerDialog mRecognizeDialog;
     // 用HashMap存储听写结果
     private HashMap<String, String> mRecognizeResults = new LinkedHashMap<String, String>();
-    private EditText mResultText;
+    private EditText et_recognize_text;
     private SharedPreferences mSharedPreferences;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_recognize);
-        mResultText = findViewById(R.id.xf_recognize_text);
-        findViewById(R.id.xf_recognize_start).setOnClickListener(this);
-        findViewById(R.id.xf_recognize_stop).setOnClickListener(this);
-        findViewById(R.id.xf_recognize_cancel).setOnClickListener(this);
-        findViewById(R.id.xf_recognize_stream).setOnClickListener(this);
-        findViewById(R.id.xf_recognize_setting).setOnClickListener(this);
+        et_recognize_text = findViewById(R.id.et_recognize_text);
+        findViewById(R.id.btn_recognize_start).setOnClickListener(this);
+        findViewById(R.id.btn_recognize_stop).setOnClickListener(this);
+        findViewById(R.id.btn_recognize_cancel).setOnClickListener(this);
+        findViewById(R.id.btn_recognize_stream).setOnClickListener(this);
+        findViewById(R.id.btn_recognize_setting).setOnClickListener(this);
         mSharedPreferences = getSharedPreferences(VoiceSettingsActivity.PREFER_NAME, Activity.MODE_PRIVATE);
         // 初始化识别无UI识别对象，使用SpeechRecognizer对象，可根据回调消息自定义界面；
         mRecognize = SpeechRecognizer.createRecognizer(this, mInitListener);
@@ -72,12 +72,12 @@ public class VoiceRecognizeActivity extends AppCompatActivity implements OnClick
     @Override
     public void onClick(View v) {
         int ret; // 函数调用返回值
-        if (v.getId() == R.id.xf_recognize_setting) { // 进入参数设置页面
+        if (v.getId() == R.id.btn_recognize_setting) { // 进入参数设置页面
             Intent intent = new Intent(this, VoiceSettingsActivity.class);
             intent.putExtra("type", VoiceSettingsActivity.XF_RECOGNIZE);
             startActivity(intent);
-        } else if (v.getId() == R.id.xf_recognize_start) { // 开始听写。如何判断一次听写结束：OnResult isLast=true 或者 onError
-            mResultText.setText(null); // 清空显示内容
+        } else if (v.getId() == R.id.btn_recognize_start) { // 开始听写。如何判断一次听写结束：OnResult isLast=true 或者 onError
+            et_recognize_text.setText(null); // 清空显示内容
             mRecognizeResults.clear();
             // 设置参数
             resetParam();
@@ -96,14 +96,14 @@ public class VoiceRecognizeActivity extends AppCompatActivity implements OnClick
                     showTip("请开始说话…");
                 }
             }
-        } else if (v.getId() == R.id.xf_recognize_stop) {  // 停止听写
+        } else if (v.getId() == R.id.btn_recognize_stop) {  // 停止听写
             mRecognize.stopListening();
             showTip("停止听写");
-        } else if (v.getId() == R.id.xf_recognize_cancel) {  // 取消听写
+        } else if (v.getId() == R.id.btn_recognize_cancel) {  // 取消听写
             mRecognize.cancel();
             showTip("取消听写");
-        } else if (v.getId() == R.id.xf_recognize_stream) {  // 音频流识别
-            mResultText.setText(null);// 清空显示内容
+        } else if (v.getId() == R.id.btn_recognize_stream) {  // 音频流识别
+            et_recognize_text.setText(null);// 清空显示内容
             mRecognizeResults.clear();
             // 设置参数
             resetParam();
@@ -206,8 +206,8 @@ public class VoiceRecognizeActivity extends AppCompatActivity implements OnClick
         for (String key : mRecognizeResults.keySet()) {
             resultBuffer.append(mRecognizeResults.get(key));
         }
-        mResultText.setText(resultBuffer.toString());
-        mResultText.setSelection(mResultText.length());
+        et_recognize_text.setText(resultBuffer.toString());
+        et_recognize_text.setSelection(et_recognize_text.length());
     }
 
     // 听写UI监听器

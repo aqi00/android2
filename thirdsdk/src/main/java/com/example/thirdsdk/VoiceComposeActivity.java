@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -31,19 +32,21 @@ public class VoiceComposeActivity extends AppCompatActivity implements OnClickLi
     private String voicer = "xiaoyan";
     private String[] mCloudVoicersEntries;
     private String[] mCloudVoicersValue;
-    private EditText mResourceText;
+    private EditText et_compose_text;
+    private TextView tv_spinner;
     private SharedPreferences mSharedPreferences;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_compose);
-        mResourceText = findViewById(R.id.xf_compose_text);
-        findViewById(R.id.xf_compose_play).setOnClickListener(this);
-        findViewById(R.id.xf_compose_cancel).setOnClickListener(this);
-        findViewById(R.id.xf_compose_pause).setOnClickListener(this);
-        findViewById(R.id.xf_compose_resume).setOnClickListener(this);
-        findViewById(R.id.xf_compose_setting).setOnClickListener(this);
-        findViewById(R.id.xf_compose_person).setOnClickListener(this);
+        et_compose_text = findViewById(R.id.et_compose_text);
+        tv_spinner = findViewById(R.id.tv_spinner);
+        tv_spinner.setOnClickListener(this);
+        findViewById(R.id.btn_compose_play).setOnClickListener(this);
+        findViewById(R.id.btn_compose_cancel).setOnClickListener(this);
+        findViewById(R.id.btn_compose_pause).setOnClickListener(this);
+        findViewById(R.id.btn_compose_resume).setOnClickListener(this);
+        findViewById(R.id.btn_compose_setting).setOnClickListener(this);
         mSharedPreferences = getSharedPreferences(VoiceSettingsActivity.PREFER_NAME, MODE_PRIVATE);
 
         // 初始化合成对象
@@ -51,6 +54,7 @@ public class VoiceComposeActivity extends AppCompatActivity implements OnClickLi
         // 云端发音人名称列表
         mCloudVoicersEntries = getResources().getStringArray(R.array.voicer_cloud_entries);
         mCloudVoicersValue = getResources().getStringArray(R.array.voicer_cloud_values);
+        tv_spinner.setText(mCloudVoicersEntries[0]);
     }
 
     @Override
@@ -63,13 +67,13 @@ public class VoiceComposeActivity extends AppCompatActivity implements OnClickLi
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.xf_compose_setting) {
+        if (v.getId() == R.id.btn_compose_setting) {
             Intent intent = new Intent(this, VoiceSettingsActivity.class);
             intent.putExtra("type", VoiceSettingsActivity.XF_COMPOSE);
             startActivity(intent);
-        } else if (v.getId() == R.id.xf_compose_play) {  // 开始合成
+        } else if (v.getId() == R.id.btn_compose_play) {  // 开始合成
             // 收到onCompleted 回调时，合成结束、生成合成音频。合成的音频格式：只支持pcm格式
-            String text = mResourceText.getText().toString();
+            String text = et_compose_text.getText().toString();
             // 设置参数
             setParam();
             int code = mCompose.startSpeaking(text, mComposeListener);
@@ -80,13 +84,13 @@ public class VoiceComposeActivity extends AppCompatActivity implements OnClickLi
 			// text:要合成的文本，uri:需要保存的音频全路径，listener:回调接口
 //			String path = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString()+"/compose.pcm";
 //			int code = mCompose.synthesizeToUri(text, path, mComposeListener);
-        } else if (v.getId() == R.id.xf_compose_cancel) {  // 取消合成
+        } else if (v.getId() == R.id.btn_compose_cancel) {  // 取消合成
             mCompose.stopSpeaking();
-        } else if (v.getId() == R.id.xf_compose_pause) {  // 暂停播放
+        } else if (v.getId() == R.id.btn_compose_pause) {  // 暂停播放
             mCompose.pauseSpeaking();
-        } else if (v.getId() == R.id.xf_compose_resume) {  // 继续播放
+        } else if (v.getId() == R.id.btn_compose_resume) {  // 继续播放
             mCompose.resumeSpeaking();
-        } else if (v.getId() == R.id.xf_compose_person) {  // 选择发音人
+        } else if (v.getId() == R.id.tv_spinner) {  // 选择发音人
             showPresonSelectDialog();
         }
     }
@@ -100,12 +104,13 @@ public class VoiceComposeActivity extends AppCompatActivity implements OnClickLi
                         selectedNum, // 默认的选项
                         new DialogInterface.OnClickListener() { // 点击单选框后的处理
                             public void onClick(DialogInterface dialog, int which) { // 点击了哪一项
+                                tv_spinner.setText(mCloudVoicersEntries[which]);
                                 voicer = mCloudVoicersValue[which];
                                 if ("catherine".equals(voicer) || "henry".equals(voicer) || "vimary".equals(voicer)
                                         || "Mariane".equals(voicer) || "Allabent".equals(voicer) || "Gabriela".equals(voicer) || "Abha".equals(voicer) || "XiaoYun".equals(voicer)) {
-                                    mResourceText.setText(R.string.compose_source_en);
+                                    et_compose_text.setText(R.string.compose_source_en);
                                 } else {
-                                    mResourceText.setText(R.string.compose_source);
+                                    et_compose_text.setText(R.string.compose_source);
                                 }
                                 selectedNum = which;
                                 dialog.dismiss();

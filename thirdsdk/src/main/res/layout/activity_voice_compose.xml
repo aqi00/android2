@@ -19,7 +19,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/xf_compose_setting"
+            android:id="@+id/btn_compose_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -30,7 +30,7 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/xf_compose_text"
+        android:id="@+id/et_compose_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -42,20 +42,31 @@
         android:textSize="20sp"
         android:textColor="@color/black" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_height="40dp" >
 
-        <Button
-            android:id="@+id/xf_compose_person"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="发音人"
-            android:textSize="17sp"
-            android:textColor="@color/black" />
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tv_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:text="请选择发音人 "
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tv_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/tv_dialog"
+            android:gravity="center"
+            android:drawableRight="@drawable/arrow_down"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,7 +75,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/xf_compose_play"
+            android:id="@+id/btn_compose_play"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -73,11 +84,11 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/xf_compose_cancel"
+            android:id="@+id/btn_compose_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="取消"
+            android:text="取消合成"
             android:textSize="17sp"
             android:textColor="@color/black" />
     </LinearLayout>
@@ -88,7 +99,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/xf_compose_pause"
+            android:id="@+id/btn_compose_pause"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -97,7 +108,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/xf_compose_resume"
+            android:id="@+id/btn_compose_resume"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

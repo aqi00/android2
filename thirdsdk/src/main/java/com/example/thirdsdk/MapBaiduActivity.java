@@ -70,7 +70,7 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
         OnMapClickListener, OnGetPoiSearchResultListener,
         OnGetSuggestionResultListener {
     private static final String TAG = "MapBaiduActivity";
-    private TextView scope_desc, loc_position;
+    private TextView tv_scope_desc, tv_loc_position;
     private int search_method;
     private String[] searchArray = {"城市中搜索", "在周边搜索"};
     private int SEARCH_CITY = 0;
@@ -98,12 +98,12 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
         public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
             search_method = arg2;
             if (search_method == SEARCH_CITY) {
-                scope_desc.setText("市内找");
+                tv_scope_desc.setText("市内找");
             } else if (search_method == SEARCH_NEARBY) {
-                scope_desc.setText("米内找");
+                tv_scope_desc.setText("米内找");
             }
-            mScope.setText("");
-            mKey.setText("");
+            et_city.setText("");
+            et_searchkey.setText("");
         }
 
         public void onNothingSelected(AdapterView<?> arg0) {}
@@ -115,8 +115,8 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
         // 初始化百度地图SDK
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_map_baidu);
-        scope_desc = findViewById(R.id.scope_desc);
-        loc_position = findViewById(R.id.loc_position);
+        tv_scope_desc = findViewById(R.id.tv_scope_desc);
+        tv_loc_position = findViewById(R.id.tv_loc_position);
         setMethodSpinner(this, R.id.sp_poi_method, SEARCH_CITY);
         initLocation();
         initMap();
@@ -124,13 +124,13 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.search) {
+        if (v.getId() == R.id.btn_search) {
             searchButtonProcess(v);
-        } else if (v.getId() == R.id.map_next_data) {
+        } else if (v.getId() == R.id.btn_next_data) {
             goToNextPage(v);
-        } else if (v.getId() == R.id.map_clear_data) {
-            mScope.setText("");
-            mKey.setText("");
+        } else if (v.getId() == R.id.btn_clear_data) {
+            et_city.setText("");
+            et_searchkey.setText("");
             // 清除所有图层
             mMapView.getMap().clear();
             posArray.clear();
@@ -181,8 +181,8 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
     // 以下主要是POI搜索用到的代码
     private PoiSearch mPoiSearch = null;
     private SuggestionSearch mSuggestionSearch = null;
-    private AutoCompleteTextView mKey = null;
-    private EditText mScope = null;
+    private AutoCompleteTextView et_searchkey = null;
+    private EditText et_city = null;
     private ArrayAdapter<String> sugAdapter = null;
     private int load_Index = 0;
 
@@ -191,16 +191,16 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
         mPoiSearch.setOnGetPoiSearchResultListener(this);
         mSuggestionSearch = SuggestionSearch.newInstance();
         mSuggestionSearch.setOnGetSuggestionResultListener(this);
-        mScope = findViewById(R.id.poi_city);
-        mKey = findViewById(R.id.poi_searchkey);
-        findViewById(R.id.search).setOnClickListener(this);
-        findViewById(R.id.map_next_data).setOnClickListener(this);
-        findViewById(R.id.map_clear_data).setOnClickListener(this);
+        et_city = findViewById(R.id.et_city);
+        et_searchkey = findViewById(R.id.et_searchkey);
+        findViewById(R.id.btn_search).setOnClickListener(this);
+        findViewById(R.id.btn_next_data).setOnClickListener(this);
+        findViewById(R.id.btn_clear_data).setOnClickListener(this);
         sugAdapter = new ArrayAdapter<String>(this, R.layout.item_select);
-        mKey.setAdapter(sugAdapter);
+        et_searchkey.setAdapter(sugAdapter);
 
         // 当输入关键字变化时，动态更新建议列表
-        mKey.addTextChangedListener(new TextWatcher() {
+        et_searchkey.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void afterTextChanged(Editable arg0) {}
@@ -213,7 +213,7 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
                 if (cs.length() <= 0) {
                     return;
                 }
-                String city = mScope.getText().toString();
+                String city = et_city.getText().toString();
                 // 使用建议搜索服务获取建议列表，结果在onGetSuggestionResult中更新
                 mSuggestionSearch.requestSuggestion((new SuggestionSearchOption())
                                 .keyword(cs.toString()).city(city));
@@ -236,17 +236,17 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
 
     // 影响搜索按钮点击事件
     public void searchButtonProcess(View v) {
-        Log.d(TAG, "editCity=" + mScope.getText().toString()
-                + ", editSearchKey=" + mKey.getText().toString()
+        Log.d(TAG, "editCity=" + et_city.getText().toString()
+                + ", editSearchKey=" + et_searchkey.getText().toString()
                 + ", load_Index=" + load_Index);
-        String keyword = mKey.getText().toString();
+        String keyword = et_searchkey.getText().toString();
         if (search_method == SEARCH_CITY) {
-            String city = mScope.getText().toString();
+            String city = et_city.getText().toString();
             mPoiSearch.searchInCity((new PoiCitySearchOption()).city(city)
                     .keyword(keyword).pageNum(load_Index));
         } else if (search_method == SEARCH_NEARBY) {
             LatLng position = new LatLng(mLatitude, mLongitude);
-            int radius = Integer.parseInt(mScope.getText().toString());
+            int radius = Integer.parseInt(et_city.getText().toString());
             mPoiSearch.searchNearby((new PoiNearbySearchOption())
                     .location(position).keyword(keyword).radius(radius)
                     .pageNum(load_Index));
@@ -359,7 +359,7 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
                     location.getDistrict(), location.getStreet(),
                     location.getStreetNumber(), location.getAddrStr(),
                     location.getTime());
-            loc_position.setText(position);
+            tv_loc_position.setText(position);
             MyLocationData locData = new MyLocationData.Builder()
                     .accuracy(location.getRadius())
                     // 此处设置开发者获取到的方向信息，顺时针0-360

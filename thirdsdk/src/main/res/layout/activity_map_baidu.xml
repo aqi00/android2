@@ -18,7 +18,7 @@
             android:spinnerMode="dialog" />
         
         <Button
-            android:id="@+id/search"
+            android:id="@+id/btn_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -27,7 +27,7 @@
             android:textSize="17sp" />
 
         <Button
-            android:id="@+id/map_next_data"
+            android:id="@+id/btn_next_data"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -51,7 +51,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/poi_city"
+            android:id="@+id/et_city"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -61,7 +61,7 @@
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/scope_desc"
+            android:id="@+id/tv_scope_desc"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -71,7 +71,7 @@
             android:textSize="17sp" />
 
         <AutoCompleteTextView
-            android:id="@+id/poi_searchkey"
+            android:id="@+id/et_searchkey"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="10"
@@ -87,7 +87,7 @@
         android:orientation="horizontal" >
         
         <Button
-            android:id="@+id/map_clear_data"
+            android:id="@+id/btn_clear_data"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -96,7 +96,7 @@
             android:textSize="17sp" />
         
         <TextView
-            android:id="@+id/loc_position"
+            android:id="@+id/tv_loc_position"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"

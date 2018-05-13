@@ -19,7 +19,7 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/xf_recognize_setting"
+            android:id="@+id/btn_recognize_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -30,7 +30,7 @@
     </RelativeLayout>
 
     <EditText
-        android:id="@+id/xf_recognize_text"
+        android:id="@+id/et_recognize_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -47,38 +47,38 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/xf_recognize_start"
+            android:id="@+id/btn_recognize_start"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="开始"
+            android:text="开始识别"
             android:textSize="17sp"
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/xf_recognize_stop"
+            android:id="@+id/btn_recognize_stop"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="停止"
+            android:text="停止识别"
             android:textSize="17sp"
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/xf_recognize_cancel"
+            android:id="@+id/btn_recognize_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="取消"
+            android:text="取消识别"
             android:textSize="17sp"
             android:textColor="@color/black" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/xf_recognize_stream"
+        android:id="@+id/btn_recognize_stream"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="音频流识别"
+        android:text="识别音频流"
         android:textSize="17sp"
         android:textColor="@color/black" />
 
