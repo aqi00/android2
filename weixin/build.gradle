@@ -24,7 +24,10 @@ android {
             //signingConfig signingConfigs.debug
         }
     }
+
+    // Android6.0之后需要添加如下一行才能支持Apache HTTP库
     useLibrary 'org.apache.http.legacy'
+
     signingConfigs {
         //调试使用
         debug {
