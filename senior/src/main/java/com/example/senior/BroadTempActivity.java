@@ -9,8 +9,10 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.widget.LinearLayout;
 
 import com.example.senior.adapter.BroadcastPagerAdapter;
@@ -29,6 +31,22 @@ public class BroadTempActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_broadcast_temp);
         ll_brd_temp = findViewById(R.id.ll_brd_temp);
+        initPagerStrip(); // 初始化翻页标题栏
+        initViewPager(); // 初始化翻页视图
+    }
+
+    // 初始化翻页标题栏
+    private void initPagerStrip() {
+        // 从布局视图中获取名叫pts_tab的翻页标题栏
+        PagerTabStrip pts_tab = findViewById(R.id.pts_tab);
+        // 设置翻页标题栏的文本大小
+        pts_tab.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        // 设置翻页标题栏的文本颜色
+        pts_tab.setTextColor(Color.BLACK);
+    }
+
+    // 初始化翻页视图
+    private void initViewPager() {
         ArrayList<GoodsInfo> goodsList = GoodsInfo.getDefaultList();
         // 构建一个手机商品的碎片翻页适配器
         BroadcastPagerAdapter adapter = new BroadcastPagerAdapter(getSupportFragmentManager(), goodsList);

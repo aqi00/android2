@@ -6,7 +6,7 @@
     <ImageView
         android:id="@+id/iv_pic"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="360dp"
         android:scaleType="fitCenter" />
 
     <TextView
