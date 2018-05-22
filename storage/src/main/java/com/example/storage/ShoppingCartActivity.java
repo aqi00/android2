@@ -330,32 +330,6 @@ public class ShoppingCartActivity extends Activity implements OnClickListener {
         return tv_new;
     }
 
-    // 声明一个手机商品的名称数组
-    private String[] mNameArray = {
-            "iphone7", "Mate8", "小米5", "vivo X6S", "OPPO R9plus", "魅族Pro6"
-    };
-    // 声明一个手机商品的描述数组
-    private String[] mDescArray = {
-            "Apple iPhone 7 128GB 玫瑰金色 移动联通电信4G手机",
-            "华为 HUAWEI Mate8 3GB+32GB版 移动联通4G手机（月光银）",
-            "小米手机5 全网通 高配版 3GB内存 64GB 白色",
-            "vivo X6S 金色 全网通4G 双卡双待 4GB+64GB",
-            "OPPO R9plus 4GB+64GB内存版 金色 全网通4G手机 双卡双待",
-            "魅族Pro6全网通公开版 4+32GB 银白色 移动联通电信4G手机 双卡双待"
-    };
-    // 声明一个手机商品的价格数组
-    private float[] mPriceArray = {5888, 2499, 1799, 2298, 2499, 2199};
-    // 声明一个手机商品的小图数组
-    private int[] mThumbArray = {
-            R.drawable.iphone_s, R.drawable.huawei_s, R.drawable.xiaomi_s,
-            R.drawable.vivo_s, R.drawable.oppo_9p_s, R.drawable.meizu_s
-    };
-    // 声明一个手机商品的大图数组
-    private int[] mPicArray = {
-            R.drawable.iphone, R.drawable.huawei, R.drawable.xiaomi,
-            R.drawable.vivo, R.drawable.oppo_9p, R.drawable.meizu
-    };
-
     private String mFirst = "true"; // 是否首次打开
     // 模拟网络数据，初始化数据库中的商品信息
     private void downloadGoods() {
@@ -365,22 +339,20 @@ public class ShoppingCartActivity extends Activity implements OnClickListener {
         String path = MainApplication.getInstance().getExternalFilesDir(
                 Environment.DIRECTORY_DOWNLOADS).toString() + "/";
         if (mFirst.equals("true")) { // 如果是首次打开
-            for (int i = 0; i < mNameArray.length; i++) {
-                GoodsInfo info = new GoodsInfo();
-                info.name = mNameArray[i];
-                info.desc = mDescArray[i];
-                info.price = mPriceArray[i];
+            ArrayList<GoodsInfo> goodsList = GoodsInfo.getDefaultList();
+            for (int i = 0; i < goodsList.size(); i++) {
+                GoodsInfo info = goodsList.get(i);
                 // 往商品数据库插入一条该商品的记录
                 long rowid = mGoodsHelper.insert(info);
                 info.rowid = rowid;
                 // 往全局内存写入商品小图
-                Bitmap thumb = BitmapFactory.decodeResource(getResources(), mThumbArray[i]);
+                Bitmap thumb = BitmapFactory.decodeResource(getResources(), info.thumb);
                 MainApplication.getInstance().mIconMap.put(rowid, thumb);
                 String thumb_path = path + rowid + "_s.jpg";
                 FileUtil.saveImage(thumb_path, thumb);
                 info.thumb_path = thumb_path;
                 // 往SD卡保存商品大图
-                Bitmap pic = BitmapFactory.decodeResource(getResources(), mPicArray[i]);
+                Bitmap pic = BitmapFactory.decodeResource(getResources(), info.pic);
                 String pic_path = path + rowid + ".jpg";
                 FileUtil.saveImage(pic_path, pic);
                 pic.recycle();
