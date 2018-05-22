@@ -29,19 +29,6 @@
             android:textColor="@color/black" />
     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/et_compose_text"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="top|left"
-        android:layout_margin="5dp"
-        android:padding="5dp"
-        android:background="@drawable/editext_selector"
-        android:text="@string/compose_source"
-        android:textSize="20sp"
-        android:textColor="@color/black" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp" >
@@ -65,8 +52,20 @@
             android:drawableRight="@drawable/arrow_down"
             android:textColor="@color/black"
             android:textSize="17sp" />
-
     </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_compose_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top|left"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:background="@drawable/editext_selector"
+        android:text="@string/compose_source"
+        android:textSize="20sp"
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
