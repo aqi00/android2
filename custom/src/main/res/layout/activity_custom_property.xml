@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:textColor="@color/red"
-            app:textSize="30sp"
+            app:textSize="20sp"
             app:customBackground="@drawable/xiaomi"
             app:customOrientation="vertical"
             app:customGravity="top" />
