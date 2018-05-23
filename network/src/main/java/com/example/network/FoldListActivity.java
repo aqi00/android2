@@ -48,44 +48,44 @@ public class FoldListActivity extends AppCompatActivity {
     // 获取收件箱的队列信息
     private ArrayList<MailItem> getRecvMail() {
         ArrayList<MailItem> mail_list = new ArrayList<MailItem>();
-        mail_list.add(new MailItem("这里是收件箱呀1", "2017年11月15日"));
-        mail_list.add(new MailItem("这里是收件箱呀2", "2017年11月10日"));
-        mail_list.add(new MailItem("这里是收件箱呀3", "2017年11月14日"));
-        mail_list.add(new MailItem("这里是收件箱呀4", "2017年11月11日"));
-        mail_list.add(new MailItem("这里是收件箱呀5", "2017年11月13日"));
+        mail_list.add(new MailItem("这里是收件箱呀1", "2018年5月15日"));
+        mail_list.add(new MailItem("这里是收件箱呀2", "2018年5月10日"));
+        mail_list.add(new MailItem("这里是收件箱呀3", "2018年5月14日"));
+        mail_list.add(new MailItem("这里是收件箱呀4", "2018年5月11日"));
+        mail_list.add(new MailItem("这里是收件箱呀5", "2018年5月13日"));
         return mail_list;
     }
 
     // 获取发件箱的队列信息
     private ArrayList<MailItem> getSentMail() {
         ArrayList<MailItem> mail_list = new ArrayList<MailItem>();
-        mail_list.add(new MailItem("邮件发出去了吗1", "2017年11月15日"));
-        mail_list.add(new MailItem("邮件发出去了吗2", "2017年11月14日"));
-        mail_list.add(new MailItem("邮件发出去了吗3", "2017年11月11日"));
-        mail_list.add(new MailItem("邮件发出去了吗4", "2017年11月13日"));
-        mail_list.add(new MailItem("邮件发出去了吗5", "2017年11月10日"));
+        mail_list.add(new MailItem("邮件发出去了吗1", "2018年5月15日"));
+        mail_list.add(new MailItem("邮件发出去了吗2", "2018年5月14日"));
+        mail_list.add(new MailItem("邮件发出去了吗3", "2018年5月11日"));
+        mail_list.add(new MailItem("邮件发出去了吗4", "2018年5月13日"));
+        mail_list.add(new MailItem("邮件发出去了吗5", "2018年5月10日"));
         return mail_list;
     }
 
     // 获取草稿箱的队列信息
     private ArrayList<MailItem> getDraftMail() {
         ArrayList<MailItem> mail_list = new ArrayList<MailItem>();
-        mail_list.add(new MailItem("暂时放在草稿箱吧1", "2017年11月14日"));
-        mail_list.add(new MailItem("暂时放在草稿箱吧2", "2017年11月11日"));
-        mail_list.add(new MailItem("暂时放在草稿箱吧3", "2017年11月15日"));
-        mail_list.add(new MailItem("暂时放在草稿箱吧4", "2017年11月10日"));
-        mail_list.add(new MailItem("暂时放在草稿箱吧5", "2017年11月13日"));
+        mail_list.add(new MailItem("暂时放在草稿箱吧1", "2018年5月14日"));
+        mail_list.add(new MailItem("暂时放在草稿箱吧2", "2018年5月11日"));
+        mail_list.add(new MailItem("暂时放在草稿箱吧3", "2018年5月15日"));
+        mail_list.add(new MailItem("暂时放在草稿箱吧4", "2018年5月10日"));
+        mail_list.add(new MailItem("暂时放在草稿箱吧5", "2018年5月13日"));
         return mail_list;
     }
 
     // 获取废件箱的队列信息
     private ArrayList<MailItem> getRecycleMail() {
         ArrayList<MailItem> mail_list = new ArrayList<MailItem>();
-        mail_list.add(new MailItem("怎么被删除了啊1", "2017年11月11日"));
-        mail_list.add(new MailItem("怎么被删除了啊2", "2017年11月13日"));
-        mail_list.add(new MailItem("怎么被删除了啊3", "2017年11月15日"));
-        mail_list.add(new MailItem("怎么被删除了啊4", "2017年11月10日"));
-        mail_list.add(new MailItem("怎么被删除了啊5", "2017年11月14日"));
+        mail_list.add(new MailItem("怎么被删除了啊1", "2018年5月11日"));
+        mail_list.add(new MailItem("怎么被删除了啊2", "2018年5月13日"));
+        mail_list.add(new MailItem("怎么被删除了啊3", "2018年5月15日"));
+        mail_list.add(new MailItem("怎么被删除了啊4", "2018年5月10日"));
+        mail_list.add(new MailItem("怎么被删除了啊5", "2018年5月14日"));
         return mail_list;
     }
 
