@@ -25,10 +25,10 @@ import android.widget.TextView;
 @SuppressLint("DefaultLocale")
 public class ContentProviderActivity extends AppCompatActivity implements OnClickListener {
     private static final String TAG = "ContentProviderActivity";
-    private EditText et_user_name;
-    private EditText et_user_age;
-    private EditText et_user_height;
-    private EditText et_user_weight;
+    private EditText et_name;
+    private EditText et_age;
+    private EditText et_height;
+    private EditText et_weight;
     private TextView tv_read_user;
     private String mUserCount = "";
     private String mUserResult = "";
@@ -37,10 +37,10 @@ public class ContentProviderActivity extends AppCompatActivity implements OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content_provider);
-        et_user_name = findViewById(R.id.et_user_name);
-        et_user_age = findViewById(R.id.et_user_age);
-        et_user_height = findViewById(R.id.et_user_height);
-        et_user_weight = findViewById(R.id.et_user_weight);
+        et_name = findViewById(R.id.et_name);
+        et_age = findViewById(R.id.et_age);
+        et_height = findViewById(R.id.et_height);
+        et_weight = findViewById(R.id.et_weight);
         tv_read_user = findViewById(R.id.tv_read_user);
         findViewById(R.id.btn_add_user).setOnClickListener(this);
         tv_read_user.setOnClickListener(this);
@@ -51,10 +51,10 @@ public class ContentProviderActivity extends AppCompatActivity implements OnClic
     public void onClick(View v) {
         if (v.getId() == R.id.btn_add_user) {
             UserInfo user = new UserInfo();
-            user.name = et_user_name.getText().toString().trim();
-            user.age = Integer.parseInt(et_user_age.getText().toString().trim());
-            user.height = Integer.parseInt(et_user_height.getText().toString().trim());
-            user.weight = Float.parseFloat(et_user_weight.getText().toString().trim());
+            user.name = et_name.getText().toString().trim();
+            user.age = Integer.parseInt(et_age.getText().toString().trim());
+            user.height = Integer.parseInt(et_height.getText().toString().trim());
+            user.weight = Float.parseFloat(et_weight.getText().toString().trim());
             addUser(getContentResolver(), user);
             showUserInfo();
         } else if (v.getId() == R.id.tv_read_user) {
