@@ -41,14 +41,14 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dp"
+                android:layout_height="40dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_vertical"
                     android:text="日程时间："
                     android:textColor="@color/black"
                     android:textSize="17sp" />
@@ -56,22 +56,23 @@
                 <TextView
                     android:id="@+id/schedule_time"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
+                    android:gravity="center_vertical"
                     android:textColor="@color/black"
                     android:textSize="17sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="5dp"
+                android:layout_height="40dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="center_vertical"
                     android:text="提醒间隔："
                     android:textColor="@color/black"
                     android:textSize="17sp" />
@@ -81,18 +82,20 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
+                    android:gravity="center_vertical"
                     android:spinnerMode="dialog" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center_vertical"
                     android:text="日程标题："
                     android:textColor="@color/black"
                     android:textSize="17sp" />
@@ -100,8 +103,9 @@
                 <EditText
                     android:id="@+id/schedule_title"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="3"
+                    android:gravity="center_vertical"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:background="@drawable/editext_selector" />
@@ -114,7 +118,8 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
                     android:text="日程内容："
                     android:textColor="@color/black"
                     android:textSize="17sp" />
