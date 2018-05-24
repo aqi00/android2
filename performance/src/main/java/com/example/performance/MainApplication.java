@@ -61,14 +61,17 @@ public class MainApplication extends Application {
                 change = String.format("%s\n%s : 收到广播：%s", change,
                         DateUtil.getNowTime(), intent.getAction());
                 if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
+                    // 接收到亮屏广播
                     change = String.format("%s\n这是屏幕点亮事件，可在此开启日常操作", change);
                 } else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+                    // 接收到熄屏广播
                     change = String.format("%s\n这是屏幕关闭事件，可在此暂停耗电操作", change);
-                } else if (intent.getAction()
-                        .equals(Intent.ACTION_USER_PRESENT)) {
+                } else if (intent.getAction().equals(Intent.ACTION_USER_PRESENT)) {
+                    // 接收到解锁广播
                     change = String.format("%s\n这是用户解锁事件", change);
                 }
                 Log.d(TAG, change);
+                // 更新屏幕变化事件的文字描述
                 MainApplication.getInstance().setChangeDesc(change);
             }
         }
