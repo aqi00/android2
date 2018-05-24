@@ -34,6 +34,7 @@ import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
 import com.amap.api.services.poisearch.PoiSearch.OnPoiSearchListener;
 import com.amap.api.services.poisearch.PoiSearch.SearchBound;
+import com.example.thirdsdk.util.DateUtil;
 import com.example.thirdsdk.util.MapGaodeUtil;
 
 import android.content.Context;
@@ -344,8 +345,8 @@ public class MapGaodeActivity extends AppCompatActivity implements OnClickListen
             String position = String.format("当前位置：%s|%s|%s|%s|%s|%s|%s",
                     location.getProvince(), location.getCity(),
                     location.getDistrict(), location.getStreet(),
-                    location.getAdCode(), location.getAddress(),
-                    location.getTime());
+                    location.getStreetNum(), location.getAddress(),
+                    DateUtil.formatDate(location.getTime()));
             tv_loc_position.setText(position);
             if (isFirstLoc) { // 首次定位
                 isFirstLoc = false;
@@ -353,6 +354,12 @@ public class MapGaodeActivity extends AppCompatActivity implements OnClickListen
                 CameraUpdate update = CameraUpdateFactory.newLatLngZoom(ll, 12);
                 mMapLayer.moveCamera(update); // 设置地图图层的地理位置与缩放比例
                 mMapView.setVisibility(View.VISIBLE); // 定位到当前城市时再显示图层
+                // 画当前位置
+                BitmapDescriptor bitmapDesc = BitmapDescriptorFactory
+                        .fromResource(R.drawable.icon_locate);
+                MarkerOptions ooMarker = new MarkerOptions().draggable(false)
+                        .visible(true).icon(bitmapDesc).position(ll);
+                mMapLayer.addMarker(ooMarker);
             }
         }
     }
