@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.group.R;
 import com.example.group.bean.GoodsInfo;
+import com.example.group.util.Utils;
 import com.example.group.widget.RecyclerExtras.OnItemClickListener;
 import com.example.group.widget.RecyclerExtras.OnItemLongClickListener;
 
@@ -50,6 +51,13 @@ public class RecyclerCombineAdapter extends RecyclerView.Adapter<ViewHolder> imp
         ItemHolder holder = (ItemHolder) vh;
         holder.iv_pic.setImageResource(mGoodsArray.get(position).pic_id);
         holder.tv_title.setText(mGoodsArray.get(position).title);
+        ViewGroup.LayoutParams iv_param = holder.iv_pic.getLayoutParams();
+        if (position==0 || position==1) {
+            iv_param.height = Utils.dip2px(mContext, 130);
+        } else {
+            iv_param.height = Utils.dip2px(mContext, 60);
+        }
+        holder.iv_pic.setLayoutParams(iv_param);
         // 列表项的点击事件需要自己实现
         holder.ll_item.setOnClickListener(new OnClickListener() {
             @Override
