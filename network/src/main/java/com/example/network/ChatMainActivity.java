@@ -21,6 +21,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -35,6 +37,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -64,6 +67,7 @@ public class ChatMainActivity extends AppCompatActivity implements
     private static int TYPE_PHOTO = 0; // 图片消息
     private static int TYPE_SOUND = 1; // 音频消息
     private static Handler mHandler = new Handler(); // 声明一个处理器对象
+    private static int MEDIA_WIDTH = 150;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -303,7 +307,7 @@ public class ChatMainActivity extends AppCompatActivity implements
         // 以下初始化图片消息的图像视图
         ImageView iv_append = new ImageView(mContext);
         LinearLayout.LayoutParams iv_params = new LinearLayout.LayoutParams(
-                300, LayoutParams.WRAP_CONTENT);
+                Utils.dip2px(mContext, MEDIA_WIDTH), LayoutParams.WRAP_CONTENT);
         iv_append.setId(mBeginViewId++);
         iv_append.setLayoutParams(iv_params);
         iv_append.setScaleType(ScaleType.FIT_CENTER);
@@ -316,13 +320,16 @@ public class ChatMainActivity extends AppCompatActivity implements
         if (isLocalPath && action.equals(ClientThread.RECVPHOTO)) { // 已经接收到对方发来的图片
             // 把指定路径的图片显示在图像视图上面
             iv_append.setImageURI(Uri.parse(mFilePath));
+            // 重新设置图像视图的高度
+            iv_append.setLayoutParams(getImageParam(mFilePath, 0));
         }
         // 把图片消息的图像视图添加到相对布局上
         rl_content.addView(iv_append);
         // 创建一个文本进度圈
         TextProgressCircle tpc_progress = new TextProgressCircle(mContext);
         if (!isLocalPath) { // 不是本地文件
-            RelativeLayout.LayoutParams tpc_params = new RelativeLayout.LayoutParams(200, 200);
+            RelativeLayout.LayoutParams tpc_params = new RelativeLayout.LayoutParams(
+                    Utils.dip2px(mContext, MEDIA_WIDTH), Utils.dip2px(mContext, MEDIA_WIDTH));
             tpc_params.addRule(RelativeLayout.CENTER_IN_PARENT, rl_content.getId());
             tpc_progress.setId(mBeginViewId++);
             tpc_progress.setLayoutParams(tpc_params);
@@ -351,6 +358,23 @@ public class ChatMainActivity extends AppCompatActivity implements
                     type, rl_content.getId(), iv_append.getId(), tpc_progress.getId(), tv_detail.getId()});
             // 延迟100毫秒后启动下载进度的刷新任务
             mHandler.postDelayed(refresh, 100);
+        }
+    }
+
+    // 获取图像视图实际的布局参数
+    private static ViewGroup.LayoutParams getImageParam(String imagePath, int type) {
+        // 从指定路径的图片文件获取位图对象
+        Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
+        // 重新计算图片消息的高度
+        int height = bitmap.getHeight()*MEDIA_WIDTH/bitmap.getWidth();
+        if (type == 0) {
+            LinearLayout.LayoutParams iv_params = new LinearLayout.LayoutParams(
+                    Utils.dip2px(mContext, MEDIA_WIDTH), Utils.dip2px(mContext, height));
+            return iv_params;
+        } else {
+            RelativeLayout.LayoutParams iv_params = new RelativeLayout.LayoutParams(
+                    Utils.dip2px(mContext, MEDIA_WIDTH), Utils.dip2px(mContext, height));
+            return iv_params;
         }
     }
 
@@ -400,19 +424,21 @@ public class ChatMainActivity extends AppCompatActivity implements
             // 向下载管理器发起查询操作，并返回查询结果集的游标
             Cursor cursor = mDownloadManager.query(down_query);
             while (cursor.moveToNext()) {
-                int nameIdx = cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI);
+                int uriIdx = cursor.getColumnIndex(DownloadManager.COLUMN_LOCAL_URI);
                 int totalSizeIdx = cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES);
                 int nowSizeIdx = cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR);
                 // 根据总大小和已下载大小，计算当前的下载进度
                 int progress = (int) (100 * cursor.getLong(nowSizeIdx) / cursor.getLong(totalSizeIdx));
-                if (cursor.getString(nameIdx) == null) {
+                if (cursor.getString(uriIdx) == null) {
                     break;
                 }
                 // 显示文本进度圈
                 tpc_progress.setVisibility(View.VISIBLE);
                 // 设置文本进度圈的当前进度
                 tpc_progress.setProgress(progress, 30);
-                mMediaPath = cursor.getString(nameIdx);
+                // 获取媒体文件的真实路径
+                String fileUri = cursor.getString(uriIdx);
+                mMediaPath = Uri.parse(fileUri).getPath();
                 if (progress == 100) { // 下载完毕
                     isFinished = true;
                 }
@@ -428,6 +454,8 @@ public class ChatMainActivity extends AppCompatActivity implements
                 if (mType == TYPE_PHOTO) { // 图片文件
                     // 把指定路径的图片显示在图像视图上面
                     iv_append.setImageURI(Uri.parse(mMediaPath));
+                    // 重新设置图像视图的高度
+                    iv_append.setLayoutParams(getImageParam(mMediaPath, 1));
                     // 显示图片文件的文件大小
                     tv_detail.setText(Utils.getFileSize(mMediaPath));
                 } else if (mType == TYPE_SOUND) { // 音频文件

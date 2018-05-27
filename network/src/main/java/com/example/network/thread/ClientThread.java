@@ -17,13 +17,12 @@ import android.util.Log;
 @SuppressLint("HandlerLeak")
 public class ClientThread implements Runnable {
     private static final String TAG = "ClientThread";
-    // 以下为Socket服务器的ip和端口，根据实际情况修改
-    private static final String SOCKET_IP = "192.168.252.1";
-    //private static final String SOCKET_IP = "192.168.0.212";
+    // 以下为Socket服务器的IP和端口，根据实际情况修改
+    private static final String SOCKET_IP = "192.168.1.6";
     private static final int SOCKET_PORT = 52000;
-    // 以下是HTTP接口调用的服务地址
-    public static final String REQUEST_URL = "http://192.168.252.1:8080/NetServer";
-    private Context mContext;
+    // 以下是HTTP接口调用的服务地址，根据实际情况修改IP和端口
+    public static final String REQUEST_URL = "http://192.168.1.6:8080/NetServer";
+    private Context mContext; // 声明一个上下文对象
     public Handler mSendHandler; // 声明一个发送处理器对象
     private BufferedReader mReader = null; // 声明一个缓存读取器对象
     private OutputStream mWriter = null; // 声明一个输出流对象
@@ -41,7 +40,7 @@ public class ClientThread implements Runnable {
     public static String SENDPHOTO = "SENDPHOTO"; // 发送图片
     public static String RECVPHOTO = "RECVPHOTO"; // 接收图片
     public static String SENDSOUND = "SENDSOUND"; // 发送音频
-    public static String RECVSOUND = "RECVSOUND"; // 接受音频
+    public static String RECVSOUND = "RECVSOUND"; // 接收音频
 
     public ClientThread(Context context) {
         mContext = context;

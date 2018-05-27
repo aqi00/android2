@@ -44,9 +44,9 @@
     <EditText
         android:id="@+id/et_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:background="@drawable/editext_selector"
-        android:hint="输入"
+        android:hint="请输入聊天内容"
         android:textColor="@color/black"
         android:textSize="15sp" />
 

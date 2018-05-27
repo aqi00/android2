@@ -17,8 +17,8 @@ import android.util.Log;
 @SuppressLint("HandlerLeak")
 public class MessageTransmit implements Runnable {
     private static final String TAG = "MessageTransmit";
-    // 以下为Socket服务器的ip和端口，根据实际情况修改
-    private static final String SOCKET_IP = "192.168.0.212";
+    // 以下为Socket服务器的IP和端口，根据实际情况修改
+    private static final String SOCKET_IP = "192.168.1.6";
     private static final int SOCKET_PORT = 51000;
     private BufferedReader mReader = null; // 声明一个缓存读取器对象
     private OutputStream mWriter = null; // 声明一个输出流对象

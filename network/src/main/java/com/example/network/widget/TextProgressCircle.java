@@ -29,7 +29,7 @@ public class TextProgressCircle extends View {
 
     public TextProgressCircle(Context context, AttributeSet attr) {
         super(context, attr);
-        mTextSize = Utils.dip2px(context, 25);
+        mTextSize = Utils.dip2px(context, 40);
         initPaint();
     }
 
