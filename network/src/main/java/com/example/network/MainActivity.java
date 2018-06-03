@@ -116,8 +116,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(this, FoldListActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_qqchat) {
-            Intent intent = new Intent(this, QQLoginActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, R.id.btn_qqchat % 4096)) {
+                PermissionUtil.goActivity(this, QQLoginActivity.class);
+            }
         }
     }
 
@@ -152,6 +153,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 PermissionUtil.goActivity(this, AppStoreActivity.class);
             } else {
                 Toast.makeText(this, "需要允许SD卡权限才能升级应用噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_qqchat % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, QQLoginActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许SD卡权限才能开始聊天噢", Toast.LENGTH_SHORT).show();
             }
         }
     }
