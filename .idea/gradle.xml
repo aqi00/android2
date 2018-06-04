@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/animation" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/custom" />
+            <option value="$PROJECT_DIR$/device" />
+            <option value="$PROJECT_DIR$/event" />
+            <option value="$PROJECT_DIR$/filedialog" />
+            <option value="$PROJECT_DIR$/group" />
+            <option value="$PROJECT_DIR$/junior" />
+            <option value="$PROJECT_DIR$/media" />
+            <option value="$PROJECT_DIR$/middle" />
+            <option value="$PROJECT_DIR$/mixture" />
+            <option value="$PROJECT_DIR$/network" />
+            <option value="$PROJECT_DIR$/performance" />
+            <option value="$PROJECT_DIR$/senior" />
+            <option value="$PROJECT_DIR$/storage" />
+            <option value="$PROJECT_DIR$/test" />
+            <option value="$PROJECT_DIR$/thirdsdk" />
+            <option value="$PROJECT_DIR$/weixin" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
