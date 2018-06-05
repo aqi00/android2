@@ -16,3 +16,6 @@
 
 四、如何以项目形式导入本书源码
 访问源码的github主页https://github.com/aqi00/android2，单击页面右边的绿色按钮“Clone or download”，浏览器会自动下载压缩文件android2-master.zip，下载完成后解压出来android2-master文件夹。然后打开Android Studio，依次选择菜单“File”——“Open”，在弹出的文件选择对话框里选中android2-master目录，Android Studio就会开始加载整个项目。加载过程如果提示错误“Invalid VCS root mappings”，那么需要依次选择菜单“File”——“Settings”——“Version Control”，删除窗口右上角标红的目录（删除办法：先选择标红的目录名称，再单击右上角的减号按钮“-”）。
+
+五、关于第10章网络通信服务端程序的下载和运行
+服务端程序也已上传到了github，地址是https://github.com/aqi00/net_server。服务端程序基于Eclipse环境、使用Java编码，服务端环境搭建和运行说明详见该github地址的《服务端程序的使用说明.docx》。
