@@ -6,6 +6,7 @@
 1、依次选择菜单“File”——“New”——“New Project”，按提示新建一个项目（即Project）；
 2、项目创建完毕，再依次选择菜单“File”——“New”——“Import Module”，按提示导入具体的demo；
 注意要出现Project级别的build.gradle才可以正常编译。
+另外切记不要把源码目录放在中文路径下面，也就是说，源码的完整目录名称不能带有任何中文字符。计算机的用户名也不能带有中文。
 
 三、关于Android Studio 3.1无法正常导入模块
 先按照上面的第二点导入模块，此时Android Studio没有任何反应，既不重编也不在左侧列表添加新模块。此时要打开项目的settings.gradle，把下面这行：
