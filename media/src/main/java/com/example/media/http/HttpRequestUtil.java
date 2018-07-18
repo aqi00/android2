@@ -125,7 +125,7 @@ public class HttpRequestUtil {
     public static HttpRespData postUrl(HttpReqData req_data) {
         HttpRespData resp_data = new HttpRespData();
         String s_url = req_data.url;
-        if (req_data.params != null) {
+        if (req_data.params != null && !req_data.params.toString().isEmpty()) {
             s_url += "?" + req_data.params.toString();
         }
         Log.d(TAG, "s_url=" + s_url);
