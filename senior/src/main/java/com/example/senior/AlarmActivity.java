@@ -10,6 +10,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -101,5 +103,33 @@ public class AlarmActivity extends AppCompatActivity implements OnClickListener 
             }
         }
     }
+
+    // 适配Android9.0开始
+    @Override
+    public void onStart() {
+        super.onStart();
+        // 从Android9.0开始，系统不再支持静态广播，应用广播只能通过动态注册
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // 创建一个闹钟的广播接收器
+            alarmReceiver = new AlarmReceiver();
+            // 创建一个意图过滤器，只处理指定事件来源的广播
+            IntentFilter filter = new IntentFilter(ALARM_EVENT);
+            // 注册广播接收器，注册之后才能正常接收广播
+            registerReceiver(alarmReceiver, filter);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // 注销广播接收器，注销之后就不再接收广播
+            unregisterReceiver(alarmReceiver);
+        }
+    }
+
+    // 声明一个闹钟的广播接收器
+    private AlarmReceiver alarmReceiver;
+    // 适配Android9.0结束
 
 }

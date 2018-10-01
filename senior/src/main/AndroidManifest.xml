@@ -47,7 +47,7 @@
         <activity android:name=".VibratorActivity" />
         <activity android:name=".ScheduleActivity" />
         <activity android:name=".ScheduleDetailActivity" />
-        
+
         <receiver android:name=".AlarmActivity$AlarmReceiver" >
             <intent-filter>
                 <action android:name="com.example.senior.AlarmActivity.AlarmReceiver" />
