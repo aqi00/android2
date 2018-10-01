@@ -1,13 +1,16 @@
 package com.example.mixture;
 
+import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiManager;
 import android.net.wifi.WifiManager.LocalOnlyHotspotCallback;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
@@ -43,13 +46,22 @@ public class WifiApActivity extends AppCompatActivity implements
         et_wifi_name = findViewById(R.id.et_wifi_name);
         et_wifi_password = findViewById(R.id.et_wifi_password);
         findViewById(R.id.btn_wifi_save).setOnClickListener(this);
-        et_wifi_name.setText(Build.SERIAL);
+        initWifiName();
         et_wifi_password.setText("");
         ck_wifi_switch.setOnCheckedChangeListener(this);
         // 从系统服务中获取无线网络管理器
         mWifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         setWifiConfig(); // 创建初始的WIFI配置信息
         initDesSpinner();
+    }
+
+    @TargetApi(Build.VERSION_CODES.P)
+    private void initWifiName() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            et_wifi_name.setText(Build.getSerial());
+        } else {
+            et_wifi_name.setText(Build.SERIAL);
+        }
     }
 
     // 初始化加密类型下拉框

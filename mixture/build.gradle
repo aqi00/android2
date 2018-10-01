@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.example.mixture"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
@@ -21,7 +21,7 @@ android {
                 // 说明需要生成哪些处理器的so文件
                 // NDK的r17版本开始不再支持ARM5(armeabi)、MIPS、MIPS64这几种so编译
                 //abiFilters "armeabi", "armeabi-v7a"
-                abiFilters "armeabi-v7a"
+                abiFilters "armeabi-v7a", "x86"
                 // 指定C++编译器的版本，比如下面这行用的是C++11
                 //cppFlags "-std=c++11"
             }
@@ -30,10 +30,10 @@ android {
 
     // 下面指定拾取的第一个so库路径，编译时才不会重复链接
     packagingOptions {
-        pickFirst 'lib/armeabi/libjni_mix.so'
         pickFirst 'lib/armeabi-v7a/libjni_mix.so'
-        pickFirst 'lib/armeabi/libvudroid.so'
+        pickFirst 'lib/x86/libjni_mix.so'
         pickFirst 'lib/armeabi-v7a/libvudroid.so'
+        pickFirst 'lib/x86/libvudroid.so'
     }
 
     buildTypes {
@@ -59,6 +59,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
-    implementation "com.android.support:appcompat-v7:27.1.1"
+    implementation "com.android.support:appcompat-v7:28.0.0"
     implementation project(':filedialog')
 }

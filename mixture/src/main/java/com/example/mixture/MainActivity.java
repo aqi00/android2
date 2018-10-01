@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             }
         } else if (v.getId() == R.id.btn_wifi_ap) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                // Android8.0之后开关热点需要定位权限
-                if (PermissionUtil.checkPermission(this, Manifest.permission.ACCESS_FINE_LOCATION, R.id.btn_wifi_ap % 4096)) {
+                // Android8.0之后开关热点需要定位权限。Android9.0之后读取序列号需要号码权限
+                if (PermissionUtil.checkMultiPermission(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_PHONE_STATE}, R.id.btn_wifi_connect % 4096)) {
                     PermissionUtil.goActivity(this, WifiApActivity.class);
                 }
             } else {
