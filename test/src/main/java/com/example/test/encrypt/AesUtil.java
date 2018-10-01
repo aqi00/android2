@@ -36,6 +36,9 @@ public class AesUtil {
     private static byte[] getRawKey(byte[] seed) throws Exception {
         KeyGenerator kgen = KeyGenerator.getInstance(Algorithm);
         // SHA1PRNG 强随机种子算法, 要区别Android 7.0以上版本及Android 4.2以上版本的调用方法
+        // 注意，Android9.0去除了名叫Crypto的密钥提供者，
+        // 因为它仅有的SHA1PRNG算法属于弱加密，导致密码容易遭到破解。
+        // 所以下列代码无法在Android9.0及以上版本运行
         SecureRandom sr;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             // Android 7.0及以上版本的随机种子生成写法
