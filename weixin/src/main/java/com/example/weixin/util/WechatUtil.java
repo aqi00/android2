@@ -14,6 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.net.ssl.SSLContext;
@@ -39,8 +40,6 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
-
-import junit.framework.Assert;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -230,8 +229,6 @@ public class WechatUtil {
     private static final int MAX_DECODE_PICTURE_SIZE = 1920 * 1440;
 
     public static Bitmap extractThumbNail(final String path, final int height, final int width, final boolean crop) {
-        Assert.assertTrue(path != null && !path.equals("") && height > 0 && width > 0);
-
         BitmapFactory.Options options = new BitmapFactory.Options();
 
         try {
@@ -323,8 +320,7 @@ public class WechatUtil {
             int j = md.length;
             char buf[] = new char[j * 2];
             int k = 0;
-            for (int i = 0; i < j; i++) {
-                byte byte0 = md[i];
+            for (byte byte0 : md) {
                 buf[k++] = hexDigits[byte0 >>> 4 & 0xf];
                 buf[k++] = hexDigits[byte0 & 0xf];
             }
@@ -339,9 +335,7 @@ public class WechatUtil {
             return null;
         }
         final List<String> result = new ArrayList<String>();
-        for (String item : src) {
-            result.add(item);
-        }
+        Collections.addAll(result, src);
         return result;
     }
 }
