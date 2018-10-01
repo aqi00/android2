@@ -20,6 +20,7 @@ import android.app.DownloadManager.Request;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -485,5 +486,31 @@ public class ChatMainActivity extends AppCompatActivity implements
             }
         }
     }
+
+    // 适配Android9.0开始
+    @Override
+    public void onStart() {
+        super.onStart();
+        // 从Android9.0开始，系统不再支持静态广播，应用广播只能通过动态注册
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // 创建一个消息到达的广播接收器
+            msgReceiver = new RecvMsgReceiver();
+            // 注册广播接收器，注册之后才能正常接收广播
+            registerReceiver(msgReceiver, new IntentFilter(ClientThread.ACTION_RECV_MSG));
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // 注销广播接收器，注销之后就不再接收广播
+            unregisterReceiver(msgReceiver);
+        }
+    }
+
+    // 声明一个消息到达的广播接收器
+    private RecvMsgReceiver msgReceiver;
+    // 适配Android9.0结束
 
 }

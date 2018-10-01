@@ -15,6 +15,8 @@ import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -183,5 +185,31 @@ public class QQContactActivity extends AppCompatActivity implements
         // 默认展开第一个好友分组，即在线好友分组
         elv_friend.expandGroup(0);
     }
+
+    // 适配Android9.0开始
+    @Override
+    public void onStart() {
+        super.onStart();
+        // 从Android9.0开始，系统不再支持静态广播，应用广播只能通过动态注册
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // 创建一个好友列表的广播接收器
+            listReceiver = new GetListReceiver();
+            // 注册广播接收器，注册之后才能正常接收广播
+            registerReceiver(listReceiver, new IntentFilter(ClientThread.ACTION_GET_LIST));
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // 注销广播接收器，注销之后就不再接收广播
+            unregisterReceiver(listReceiver);
+        }
+    }
+
+    // 声明一个好友列表的广播接收器
+    private GetListReceiver listReceiver;
+    // 适配Android9.0结束
 
 }

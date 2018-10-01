@@ -9,7 +9,9 @@ import android.app.DownloadManager.Request;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -126,5 +128,37 @@ public class DownloadApkActivity extends AppCompatActivity {
             }
         }
     }
+
+    // 适配Android9.0开始
+    @Override
+    public void onStart() {
+        super.onStart();
+        // 从Android9.0开始，系统不再支持静态广播，应用广播只能通过动态注册
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // 创建一个下载完成的广播接收器
+            completeReceiver = new DownloadCompleteReceiver();
+            // 注册广播接收器，注册之后才能正常接收广播
+            registerReceiver(completeReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+            // 创建一个通知栏点击的广播接收器
+            clickReceiver = new NotificationClickReceiver();
+            registerReceiver(clickReceiver, new IntentFilter(DownloadManager.ACTION_NOTIFICATION_CLICKED));
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            // 注销广播接收器，注销之后就不再接收广播
+            unregisterReceiver(completeReceiver);
+            unregisterReceiver(clickReceiver);
+        }
+    }
+
+    // 声明一个下载完成的广播接收器
+    private DownloadCompleteReceiver completeReceiver;
+    // 声明一个下载完成的广播接收器
+    private NotificationClickReceiver clickReceiver;
+    // 适配Android9.0结束
 
 }
