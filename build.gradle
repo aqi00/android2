@@ -2,25 +2,21 @@
 
 buildscript {
     repositories {
-        google()
+        google() // Android Studio 3.0开始需要添加这行
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        //classpath 'com.android.tools.build:gradle:3.1.2'
+        // 下面的版本号就是Android Studio的版本号
+        classpath 'com.android.tools.build:gradle:3.2.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
-ext {
-    supportVersion = "27.0.0"
-}
-
 allprojects {
     repositories {
-        google()
+        google() // Android Studio 3.0开始需要添加这行
         jcenter()
     }
 }
