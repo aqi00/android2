@@ -17,7 +17,9 @@ import android.util.Log;
 // 根据经纬度获取详细地址的线程
 public class GetAddressTask extends AsyncTask<Location, Void, String> {
     private final static String TAG = "GetAddressTask";
-    private String mAddressUrl = "http://maps.google.cn/maps/api/geocode/json?latlng={0},{1}&sensor=true&language=zh-CN";
+    // 谷歌地图从2019年开始必须传入密钥才能根据经纬度获取地址，所以把查询接口改成了国内的天地图
+    //private String mAddressUrl = "http://maps.google.cn/maps/api/geocode/json?latlng={0},{1}&sensor=true&language=zh-CN";
+    private String mAddressUrl = "http://api.tianditu.gov.cn/geocoder?postStr={'lon':%f,'lat':%f,'ver':1}&type=geocode";
 
     public GetAddressTask() {
         super();
@@ -27,7 +29,8 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
     protected String doInBackground(Location... params) {
         Location location = params[0];
         // 把经度和纬度代入到URL地址
-        String url = MessageFormat.format(mAddressUrl, location.getLatitude(), location.getLongitude());
+        //String url = MessageFormat.format(mAddressUrl, location.getLatitude(), location.getLongitude());
+        String url = String.format(mAddressUrl, location.getLongitude(), location.getLatitude());
         // 创建一个HTTP请求对象
         HttpReqData req_data = new HttpReqData(url);
         // 发送HTTP请求信息，并获得HTTP应答对象
@@ -38,11 +41,13 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
         if (resp_data.err_msg.length() <= 0) {
             try {
                 JSONObject obj = new JSONObject(resp_data.content);
-                JSONArray resultArray = obj.getJSONArray("results");
-                if (resultArray.length() > 0) {
-                    JSONObject resultObj = resultArray.getJSONObject(0);
-                    address = resultObj.getString("formatted_address");
-                }
+//                JSONArray resultArray = obj.getJSONArray("results");
+//                if (resultArray.length() > 0) {
+//                    JSONObject resultObj = resultArray.getJSONObject(0);
+//                    address = resultObj.getString("formatted_address");
+//                }
+                JSONObject result = obj.getJSONObject("result");
+                address = result.getString("formatted_address");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
