@@ -6,11 +6,6 @@ public class Arith {
     // 默认除法运算精度
     private static final int DEF_DIV_SCALE = 10;
 
-    // 这个类不能实例化
-    private Arith() {
-        ;
-    }
-
     /**
      * 提供精确的加法运算。
      *
@@ -171,23 +166,4 @@ public class Arith {
         return String.valueOf(b.divide(one, scale, BigDecimal.ROUND_HALF_UP));
     }
 
-    /**
-     * 提供精确的小数位四舍五入处理。
-     *
-     * @param v     需要四舍五入的数字
-     * @param scale 小数点后保留几位
-     * @return 四舍五入后的结果
-     */
-    public static String round(String v, int String, int scale) {
-        if (scale < 0) {
-            throw new IllegalArgumentException(
-                    "The scale must be a positive integer or zero");
-        }
-        BigDecimal b = new BigDecimal(v);
-        BigDecimal one = new BigDecimal("1");
-
-        b.divide(one, scale, BigDecimal.ROUND_HALF_UP);
-
-        return null;
-    }
 }
