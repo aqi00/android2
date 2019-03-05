@@ -34,7 +34,7 @@ public class PullDownRefreshLayout extends LinearLayout implements View.OnTouchL
         super(context, attrs);
         mContext = context;
         // 触发工具栏变色的临界滑动距离
-        mCriticalDistance = Utils.dip2px(mContext, 10);
+        mCriticalDistance = Utils.dip2px(mContext, 40);
         // 获取默认的下拉刷新头部布局
         mLinearLayout = (LinearLayout) LayoutInflater.from(mContext).inflate(R.layout.drag_drop_header, null);
         // 计算下拉刷新头部布局的高度
@@ -83,18 +83,15 @@ public class PullDownRefreshLayout extends LinearLayout implements View.OnTouchL
         // 垂直方向的滚动距离小于临界距离，表示接近初始页面，需要把工具栏和状态栏恢复原样。
         // 否则表示页面正在上拉，需要给工具栏和状态栏变色。
         if (mScrollView.getScrollY() <= mCriticalDistance) {
-            mListener.pullDown();
+            mListener.pullDown(mScrollView.getScrollY()*1.0 / mCriticalDistance);
         } else {
-            mListener.pullUp();
+            mListener.pullUp(mScrollView.getScrollY()*1.0 / mCriticalDistance);
         }
         int action = event.getAction();
         // 按下0，松开1，滑动2
         Log.d(TAG, "getAction=" + event.getAction() + ",getScrollY=" + mScrollView.getScrollY());
         Log.d(TAG, "getRawX()=" + event.getRawX() + ",mOriginX=" + mOriginX + ",getRawY()=" + event.getRawY() + ",mOriginY=" + mOriginY);
-        if (Math.abs(event.getRawX() - mOriginX) > Math.abs(event.getRawY() - mOriginY)) {
-            // 水平方向滚动，不处理
-            return false;
-        } else if (event.getRawY() <= mOriginY) {
+        if (event.getRawY() <= mOriginY) {
             // 往上拉动，不处理
             return false;
         } else if (mScrollView.getScrollY() > 0) {
@@ -142,7 +139,7 @@ public class PullDownRefreshLayout extends LinearLayout implements View.OnTouchL
 
     // 在滚动到顶部时触发
     public void onScrolledToTop() {
-        mListener.pullDown();
+        mListener.pullDown(0);
     }
 
     private PullRefreshListener mListener; // 声明一个下拉刷新的监听器对象
@@ -153,8 +150,8 @@ public class PullDownRefreshLayout extends LinearLayout implements View.OnTouchL
 
     // 定义一个下拉刷新的监听器接口
     public interface PullRefreshListener {
-        void pullUp(); // 正在上拉
-        void pullDown();// 正在下拉
+        void pullUp(double scale); // 正在上拉
+        void pullDown(double scale);// 正在下拉
         void pullRefresh(); // 开始刷新动作
         void hideTitle(); // 隐藏标题栏
         void showTitle(); // 显示标题栏

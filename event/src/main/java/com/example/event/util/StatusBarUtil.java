@@ -69,10 +69,52 @@ public class StatusBarUtil {
             } else {
                 setKitKatStatusBarColor(activity, color);
             }
-            if (color == Color.TRANSPARENT || color == Color.DKGRAY) { // 透明或深灰背景表示要悬浮状态栏
-                removeMarginTop(activity);
-            } else { // 其它背景表示要恢复状态栏
+            if (color == Color.BLACK) { // 黑色背景表示要恢复状态栏
                 addMarginTop(activity);
+            } else { // 其它背景表示要悬浮状态栏
+                removeMarginTop(activity);
+            }
+        }
+    }
+
+    // 设置状态栏的背景色。对于Android4.4、Android5.0、Android7.0以上版本要区分处理
+    public static void setStatusBarColor(Activity activity, int color, boolean isUp) {
+        int statusBarColor = color;
+        if (isUp) { // 上拉页面
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                Window window = activity.getWindow();
+                View decorView = window.getDecorView();
+                int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                decorView.setSystemUiVisibility(option);
+            } else {
+                statusBarColor = 0xFFB0B0B0;
+            }
+        } else { // 下拉页面
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                Window window = activity.getWindow();
+                View decorView = window.getDecorView();
+                int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_VISIBLE;
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                decorView.setSystemUiVisibility(option);
+            }
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                activity.getWindow().setStatusBarColor(statusBarColor);
+                // 底部导航栏颜色也可以由系统设置
+                //activity.getWindow().setNavigationBarColor(statusBarColor);
+            } else {
+                setKitKatStatusBarColor(activity, statusBarColor);
+            }
+            if (color == Color.BLACK) { // 黑色背景表示要恢复状态栏
+                addMarginTop(activity);
+            } else { // 其它背景表示要悬浮状态栏
+                removeMarginTop(activity);
             }
         }
     }

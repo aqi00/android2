@@ -107,24 +107,33 @@ public class PullRefreshActivity extends AppCompatActivity implements
         beginRefresh();
     }
 
+    // 计算标题栏与状态栏的渐变背景色
+    private int getTitleBgColor(double scale) {
+        int alpha = (int) Math.round(scale / 2 * 255);
+        alpha = (alpha > 255) ? 255 : alpha;
+        return Color.argb(alpha, 255, 255, 255);
+    }
+
     // 在往上拉动时触发
-    public void pullUp() {
-        ll_title.setBackgroundResource(R.color.white);
+    public void pullUp(double scale) {
+        int bgColor = getTitleBgColor(scale);
+        ll_title.setBackgroundColor(bgColor);
         ll_title.setVisibility(View.VISIBLE);
         iv_scan.setImageResource(R.drawable.icon_scan_gray);
         iv_msg.setImageResource(R.drawable.icon_msg_gray);
-        // 上拉页面，把状态栏背景改为灰色
-        StatusBarUtil.setStatusBarColor(this, Color.DKGRAY);
+        // 上拉页面，让状态栏背景渐渐变为白色
+        StatusBarUtil.setStatusBarColor(this, bgColor, true);
     }
 
     // 在往下拉动时触发
-    public void pullDown() {
-        ll_title.setBackgroundResource(R.color.transparent);
+    public void pullDown(double scale) {
+        int bgColor = getTitleBgColor(scale);
+        ll_title.setBackgroundColor(bgColor);
         ll_title.setVisibility(View.VISIBLE);
         iv_scan.setImageResource(R.drawable.icon_scan_white);
         iv_msg.setImageResource(R.drawable.icon_msg_white);
-        // 下拉到顶了，把状态栏背景改为透明
-        StatusBarUtil.setStatusBarColor(this, Color.TRANSPARENT);
+        // 下拉到顶了，让状态栏背景渐渐变为透明
+        StatusBarUtil.setStatusBarColor(this, bgColor, false);
     }
 
     @Override
