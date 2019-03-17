@@ -61,10 +61,10 @@ public class TaxResultActivity extends AppCompatActivity implements
 
     // 初始化分享渠道
     private void initShareChannel() {
-        String url = "http://blog.csdn.net/aqi00";
+        String url = "https://blog.csdn.net/aqi00";
         String title = "我用咚咚打车啦";
         String content = "你也来打打车，方便快捷真省心。";
-        String imgage_url = "http://avatar.csdn.net/C/1/5/1_aqi00.jpg";
+        String imgage_url = "https://avatar.csdn.net/C/1/5/1_aqi00.jpg";
         // 下面通过适配器在网格视图上展示几个分享渠道：QQ好友、QQ空间、腾讯微博
         ShareGridAdapter adapter = new ShareGridAdapter(this, mHandler, url,
                 title, content, imgage_url, null);
