@@ -83,9 +83,9 @@ public class StockService extends Service {
             // 创建一个HTTP请求对象
             HttpReqData req_data = new HttpReqData();
             if (mType == SHANGHAI) { // 上证综指
-                req_data.url = "http://hq.sinajs.cn/list=s_sh000001";
+                req_data.url = "https://hq.sinajs.cn/list=s_sh000001";
             } else if (mType == SHENZHEN) { // 深圳成指
-                req_data.url = "http://hq.sinajs.cn/list=s_sz399001";
+                req_data.url = "https://hq.sinajs.cn/list=s_sz399001";
             }
             // 发送HTTP请求信息，并获得HTTP应答对象
             HttpRespData resp_data = HttpRequestUtil.getData(req_data);
