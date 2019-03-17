@@ -17,7 +17,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:padding="5dp"
-            android:text="http://"
+            android:text="https://"
             android:textColor="@color/black"
             android:textSize="17sp" />
 

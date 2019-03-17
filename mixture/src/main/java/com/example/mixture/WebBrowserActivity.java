@@ -71,6 +71,8 @@ public class WebBrowserActivity extends AppCompatActivity implements OnClickList
         settings.setLoadWithOverviewMode(true);
         // 设置自适应屏幕。4.2.2及之前版本自适应时可能会出现表格错乱的情况
         settings.setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+        // 开启会话存储功能
+        settings.setDomStorageEnabled(true);
     }
 
     @Override
@@ -81,7 +83,7 @@ public class WebBrowserActivity extends AppCompatActivity implements OnClickList
                     getSystemService(Context.INPUT_METHOD_SERVICE);
             // 关闭输入法软键盘
             imm.hideSoftInputFromWindow(et_web_url.getWindowToken(), 0);
-            mUrl = "http://" + et_web_url.getText().toString();
+            mUrl = "https://" + et_web_url.getText().toString();
             Log.d(TAG, "url=" + mUrl);
             // 命令网页视图加载指定路径的网页
             wv_web.loadUrl(mUrl);

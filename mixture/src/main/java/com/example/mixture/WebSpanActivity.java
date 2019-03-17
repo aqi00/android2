@@ -170,7 +170,7 @@ public class WebSpanActivity extends AppCompatActivity {
         public void onClick(View widget) {
             wv_spannable.setVisibility(View.VISIBLE);
             // 命令网页视图加载指定路径的网页
-            wv_spannable.loadUrl("http://blog.csdn.net/aqi00");
+            wv_spannable.loadUrl("https://blog.csdn.net/aqi00");
             // 网页视图请求获得焦点
             wv_spannable.requestFocus();
             // 给网页视图设置默认的网页浏览客户端
