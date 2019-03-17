@@ -36,12 +36,12 @@ public class PackageInfo {
             R.drawable.icon_weixin, R.drawable.icon_taobao, R.drawable.icon_qq
     };
     public static String[] mUrlArray = {
-            "http://3g.lenovomm.com/w3g/yydownload/com.qiyi.video/60020",
-            "http://3g.lenovomm.com/w3g/yydownload/com.kugou.android/60020",
-            "http://3g.lenovomm.com/w3g/yydownload/com.mt.mtxx.mtxx/60020",
-            "http://3g.lenovomm.com/w3g/yydownload/com.tencent.mm/60020",
-            "http://3g.lenovomm.com/w3g/yydownload/com.taobao.taobao/60020",
-            "http://3g.lenovomm.com/w3g/yydownload/com.tencent.mobileqq/60020"
+            "https://3g.lenovomm.com/w3g/yydownload/com.qiyi.video/60020",
+            "https://3g.lenovomm.com/w3g/yydownload/com.kugou.android/60020",
+            "https://3g.lenovomm.com/w3g/yydownload/com.mt.mtxx.mtxx/60020",
+            "https://3g.lenovomm.com/w3g/yydownload/com.tencent.mm/60020",
+            "https://3g.lenovomm.com/w3g/yydownload/com.taobao.taobao/60020",
+            "https://3g.lenovomm.com/w3g/yydownload/com.tencent.mobileqq/60020"
     };
     private static String[] mVersionArray = {
             "10.2.0", "9.1.5", "8.4.3.0", "7.0.3", "8.5.10", "7.9.9"
