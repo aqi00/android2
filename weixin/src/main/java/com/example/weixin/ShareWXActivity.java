@@ -36,10 +36,10 @@ public class ShareWXActivity extends AppCompatActivity implements OnClickListene
     public void onClick(View v) {
         if (v.getId() == R.id.btn_share_wx) {
             ShareGridDialog dialog = new ShareGridDialog(this, null);
-            dialog.setUrl("http://blog.csdn.net/aqi00");
+            dialog.setUrl("https://blog.csdn.net/aqi00");
             dialog.setTitle(et_share_title.getText().toString());
             dialog.setContent(et_share_content.getText().toString());
-            dialog.setImgUrl("http://avatar.csdn.net/C/1/5/1_aqi00.jpg");
+            dialog.setImgUrl("https://avatar.csdn.net/C/1/5/1_aqi00.jpg");
             dialog.show();
         }
     }
