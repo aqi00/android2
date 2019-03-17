@@ -23,27 +23,27 @@ public class ImageCacheActivity extends AppCompatActivity implements OnClickList
     private ImageCache mCache; // 声明一个图片缓存对象
     // 这个是单个图像视图随机展示的图片数组。其中前六张图片可以正常访问，后两张图片不能正常访问
     private String[] mPlaceImg = {
-            "http://b258.photo.store.qq.com/psb?/V11ZojBI312o2K/XM9Hdo68BzvH6ZObpYKkjmlD41ALDfuM8YhJ*SeaVmE!/b/dCxrz5koFgAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
-            "http://b247.photo.store.qq.com/psb?/V11ZojBI312o2K/63aY8a4M5quhi.78*krOo7k3Gu3cknuclBJHS3g1fpc!/b/dDXWPZMlBgAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
-            "http://b249.photo.store.qq.com/psb?/V11ZojBI312o2K/JMmveEpaF8rq1MD3fl7j84t1Py2DYodwY29TAbt0dMo!/b/dPYKbJQdBwAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
-            "http://b258.photo.store.qq.com/psb?/V11ZojBI312o2K/OxVcL48FuqzvB1mDPhrHv4g0M6O8ymi6I3T4tQV8q*A!/b/dMfKypk.FgAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
-            "http://b258.photo.store.qq.com/psb?/V11ZojBI312o2K/amX.gon15XsNqLGe6iU5luhsNbnnLd.m3YfgU*Dbfeo!/b/dI930pn0FQAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
-            "http://b247.photo.store.qq.com/psb?/V11ZojBI312o2K/KEutY1ETW*G06pMEZ6iOJ6ydZxfVmTiCRzZCVyErM3s!/b/dEPKPZNJBQAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
-            "http://b258.photo.store.qq.com/psb?/viewer_4",
-            "http://b247.photo.store.qq.com/psb?/viewer_5",
+            "https://b258.photo.store.qq.com/psb?/V11ZojBI312o2K/XM9Hdo68BzvH6ZObpYKkjmlD41ALDfuM8YhJ*SeaVmE!/b/dCxrz5koFgAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
+            "https://b247.photo.store.qq.com/psb?/V11ZojBI312o2K/63aY8a4M5quhi.78*krOo7k3Gu3cknuclBJHS3g1fpc!/b/dDXWPZMlBgAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
+            "https://b249.photo.store.qq.com/psb?/V11ZojBI312o2K/JMmveEpaF8rq1MD3fl7j84t1Py2DYodwY29TAbt0dMo!/b/dPYKbJQdBwAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
+            "https://b258.photo.store.qq.com/psb?/V11ZojBI312o2K/OxVcL48FuqzvB1mDPhrHv4g0M6O8ymi6I3T4tQV8q*A!/b/dMfKypk.FgAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
+            "https://b258.photo.store.qq.com/psb?/V11ZojBI312o2K/amX.gon15XsNqLGe6iU5luhsNbnnLd.m3YfgU*Dbfeo!/b/dI930pn0FQAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
+            "https://b247.photo.store.qq.com/psb?/V11ZojBI312o2K/KEutY1ETW*G06pMEZ6iOJ6ydZxfVmTiCRzZCVyErM3s!/b/dEPKPZNJBQAA&bo=VQOAAgAAAAABB*Q!&rf=viewer_4",
+            "https://b258.photo.store.qq.com/psb?/viewer_4",
+            "https://b247.photo.store.qq.com/psb?/viewer_5",
     };
     // 这个是列表视图统一展示的图片数组
     private String[] mListImg = {
-            "http://b86.photo.store.qq.com/psb?/V11ZojBI3Em2xO/XeY2fKiZrmNHT1V4kA16giHVzucf0pVfR7e6L*0QABE!/b/YSNZUDPQWAAAYpO.SzO.WAAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b85.photo.store.qq.com/psb?/V11ZojBI3Em2xO/UywnWltcpgsSUNjNOeYnTCl1vMrwlh6Eyu7m7gLn7RA!/b/YaEyszJjhwAAYjEuszKIiAAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b85.photo.store.qq.com/psb?/V11ZojBI3Em2xO/EtfxWhkZu23WJMBsUMBOWH9KojgEHl4*22hHvO*600Y!/b/YV.frjLShgAAYseUrjJdhwAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b83.photo.store.qq.com/psb?/V11ZojBI3WKzYh/FhqskU8042PufcDiAs6SBqFkus6.ALpHsx.zZfaRb*g!/b/Yf73gTEhiAAAYrwzjjFXiAAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b83.photo.store.qq.com/psb?/V11ZojBI3WKzYh/x1E0Ae5EdsPyybgCr7o4WFAC.mGVdJAvgiKaVi0f0GM!/b/YYeijDFRhwAAYroMhTEfiAAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b85.photo.store.qq.com/psb?/V11ZojBI25zdM8/Ufh7jH55F7FFSrNzzaiHdbNRRIL*w2Ll8GmswZAoxjU!/b/YbxEuTKJjwAAYnVCuTI.jgAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b84.photo.store.qq.com/psb?/V11ZojBI25zdM8/VIZq51p4QCv6IjWVjOWc7ZRZSXmFUOF7fPv4KNTYrj0!/b/Yaz*FTLNjQAAYo21IzLYjgAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b88.photo.store.qq.com/psb?/V11ZojBI25zdM8/RIjap1R4S7kAdAyWv1XL0lhIu16YJU7g31iKAih4clk!/b/YWbzfzT0KgAAYoSEgTRxKgAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b86.photo.store.qq.com/psb?/V11ZojBI1eIahe/kbMM0zUUeB0eq4E1l1lnO5gtb8wLiRuncZSEkIDjAFI!/b/YcA7SjMkVwAAYhEeRDPYUQAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
-            "http://b89.photo.store.qq.com/psb?/V11ZojBI1eIahe/11pvTKE7QfPi4z4klFXlQzfmkvBRomqzdNQfhF.axOU!/b/YfafGzWNHwAAYpyuHjXSHgAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b86.photo.store.qq.com/psb?/V11ZojBI3Em2xO/XeY2fKiZrmNHT1V4kA16giHVzucf0pVfR7e6L*0QABE!/b/YSNZUDPQWAAAYpO.SzO.WAAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b85.photo.store.qq.com/psb?/V11ZojBI3Em2xO/UywnWltcpgsSUNjNOeYnTCl1vMrwlh6Eyu7m7gLn7RA!/b/YaEyszJjhwAAYjEuszKIiAAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b85.photo.store.qq.com/psb?/V11ZojBI3Em2xO/EtfxWhkZu23WJMBsUMBOWH9KojgEHl4*22hHvO*600Y!/b/YV.frjLShgAAYseUrjJdhwAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b83.photo.store.qq.com/psb?/V11ZojBI3WKzYh/FhqskU8042PufcDiAs6SBqFkus6.ALpHsx.zZfaRb*g!/b/Yf73gTEhiAAAYrwzjjFXiAAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b83.photo.store.qq.com/psb?/V11ZojBI3WKzYh/x1E0Ae5EdsPyybgCr7o4WFAC.mGVdJAvgiKaVi0f0GM!/b/YYeijDFRhwAAYroMhTEfiAAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b85.photo.store.qq.com/psb?/V11ZojBI25zdM8/Ufh7jH55F7FFSrNzzaiHdbNRRIL*w2Ll8GmswZAoxjU!/b/YbxEuTKJjwAAYnVCuTI.jgAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b84.photo.store.qq.com/psb?/V11ZojBI25zdM8/VIZq51p4QCv6IjWVjOWc7ZRZSXmFUOF7fPv4KNTYrj0!/b/Yaz*FTLNjQAAYo21IzLYjgAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b88.photo.store.qq.com/psb?/V11ZojBI25zdM8/RIjap1R4S7kAdAyWv1XL0lhIu16YJU7g31iKAih4clk!/b/YWbzfzT0KgAAYoSEgTRxKgAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b86.photo.store.qq.com/psb?/V11ZojBI1eIahe/kbMM0zUUeB0eq4E1l1lnO5gtb8wLiRuncZSEkIDjAFI!/b/YcA7SjMkVwAAYhEeRDPYUQAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
+            "https://b89.photo.store.qq.com/psb?/V11ZojBI1eIahe/11pvTKE7QfPi4z4klFXlQzfmkvBRomqzdNQfhF.axOU!/b/YfafGzWNHwAAYpyuHjXSHgAA&bo=ngL2AQAAAAABBEg!&rf=viewer_4",
     };
 
     @Override
