@@ -193,9 +193,9 @@ public class ChatMainActivity extends AppCompatActivity implements
         uploadTask.setOnUploadHttpListener(this);
         // 把文件上传线程加入到处理队列
         uploadTask.execute(mUploadUrl, mFilePath);
-//        String url = "http://img1.gtimg.com/fj/pics/hv1/229/130/1835/119354254.png";
+//        String url = "https://img1.gtimg.com/fj/pics/hv1/229/130/1835/119354254.png";
 //        MainApplication.getInstance().sendAction(ClientThread.SENDPHOTO, mOtherId, url);
-//        String url = "http://mp3.haoduoge.com/s/2016-11-14/1479089459.mp3";
+//        String url = "https://mp3.haoduoge.com/s/2016-11-14/1479089459.mp3";
 //        MainApplication.getInstance().sendAction(ClientThread.SENDSOUND, mOtherId, url);
     }
 
@@ -274,7 +274,7 @@ public class ChatMainActivity extends AppCompatActivity implements
     // 在聊天窗口中添加多媒体消息
     private static void showMedia(String action, String deviceId, String title, String url) {
         Log.d(TAG, "showMedia action=" + action + ", url=" + url);
-        boolean isLocalPath = !url.contains("http://");
+        boolean isLocalPath = (!url.contains("http://") && !url.contains("https://"));
         // 我方消息靠右对齐，对方消息靠左对齐
         int gravity = deviceId.equals(Build.SERIAL) ? Gravity.RIGHT : Gravity.LEFT;
         gravity = gravity | Gravity.CENTER_VERTICAL; // 并且垂直居中

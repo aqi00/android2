@@ -14,8 +14,9 @@ import android.util.Log;
 public class GetImageCodeTask extends AsyncTask<Void, Void, String> {
     private final static String TAG = "GetImageCodeTask";
     // 请求图片验证码的服务地址
-    private String mImageCodeUrl = "http://222.77.181.14/ValidateCode.aspx?r=";
-    //private String mImageCodeUrl = "http://220.160.54.47:82/JSPORTLET/radomImage?x=";
+    private String mImageCodeUrl = "http://yx12.fjjcjy.com/Public/Control/GetValidateCode?time=";
+    //private String mImageCodeUrl = "https://222.77.181.14/ValidateCode.aspx?r=";
+    //private String mImageCodeUrl = "https://220.160.54.47:82/JSPORTLET/radomImage?x=";
 
     public GetImageCodeTask() {
         super();
