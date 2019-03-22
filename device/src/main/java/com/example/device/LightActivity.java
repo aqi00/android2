@@ -9,6 +9,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
@@ -34,7 +35,12 @@ public class LightActivity extends AppCompatActivity implements
         if (SwitchUtil.getAutoBrightStatus(this)) {
             ck_bright.setChecked(true);
         }
-        ck_bright.setOnCheckedChangeListener(this);
+        // Android8.0之后普通应用不允许修改系统设置
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            ck_bright.setOnCheckedChangeListener(this);
+        } else {
+            ck_bright.setEnabled(false);
+        }
         tv_light = findViewById(R.id.tv_light);
         // 从系统服务中获取传感管理器对象
         mSensorMgr = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
