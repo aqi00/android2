@@ -1,5 +1,7 @@
 package com.example.animation;
 
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.TargetApi;
@@ -14,7 +16,8 @@ import android.widget.ImageView;
  * Created by ouyangshen on 2017/11/27.
  */
 @TargetApi(Build.VERSION_CODES.KITKAT)
-public class ObjectGroupActivity extends AppCompatActivity implements OnClickListener {
+public class ObjectGroupActivity extends AppCompatActivity implements
+        OnClickListener, AnimatorListener {
     private ImageView iv_object_group; // 声明一个图像视图对象
     private AnimatorSet animSet; // 声明一个属性动画组合对象
     private boolean isPaused = false;
@@ -49,6 +52,7 @@ public class ObjectGroupActivity extends AppCompatActivity implements OnClickLis
         builder.with(anim3).with(anim4).after(anim1).before(anim5);
         animSet.setDuration(4500); // 设置动画的播放时长
         animSet.start(); // 开始播放属性动画
+        animSet.addListener(this); // 给属性动画添加动画事件监听器
     }
 
     @Override
@@ -71,4 +75,20 @@ public class ObjectGroupActivity extends AppCompatActivity implements OnClickLis
         }
     }
 
+    // 在属性动画开始播放时触发
+    public void onAnimationStart(Animator animation) {}
+
+    // 在属性动画结束播放时触发
+    public void onAnimationEnd(Animator animation) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            animSet.setCurrentPlayTime(0); // 设置当前播放的时间点
+            animSet.reverse(); // 从动画尾巴开始倒播至setCurrentPlayTime设置的时间点
+        }
+    }
+
+    // 在属性动画取消播放时触发
+    public void onAnimationCancel(Animator animation) {}
+
+    // 在属性动画重复播放时触发
+    public void onAnimationRepeat(Animator animation) {}
 }
