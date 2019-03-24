@@ -51,13 +51,25 @@ public class MessageTransmit implements Runnable {
         public void handleMessage(Message msg) {
             Log.d(TAG, "handleMessage: " + msg.obj);
             // 换行符相当于回车键，表示我写好了发出去吧
-            String send_msg = msg.obj.toString() + "\n";
-            try {
-                // 往输出流对象中写入数据
-                mWriter.write(send_msg.getBytes("utf8"));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            final String send_msg = msg.obj.toString() + "\n";
+//            try {
+//                // 往输出流对象中写入数据
+//                mWriter.write(send_msg.getBytes("utf8"));
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+            // 即使在Handler中访问网络，也要开启分线程来操作
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        // 往输出流对象中写入数据
+                        mWriter.write(send_msg.getBytes("utf8"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
         }
     };
 
