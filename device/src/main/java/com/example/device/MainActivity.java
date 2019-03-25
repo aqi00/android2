@@ -95,8 +95,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(this, AccelerationActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_light) {
-            Intent intent = new Intent(this, LightActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkWriteSettings(this, R.id.btn_light % 4096)) {
+                PermissionUtil.goActivity(this, LightActivity.class);
+            }
         } else if (v.getId() == R.id.btn_direction) {
             Intent intent = new Intent(this, DirectionActivity.class);
             startActivity(intent);
@@ -185,6 +186,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 PermissionUtil.goActivity(this, LocationActivity.class);
             } else {
                 Toast.makeText(this, "需要允许定位权限才能开始定位噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_light % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, LightActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许设置权限才能调节亮度噢", Toast.LENGTH_SHORT).show();
             }
         } else if (requestCode == R.id.btn_bluetooth % 4096) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
