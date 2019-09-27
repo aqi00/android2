@@ -1,5 +1,6 @@
 package com.example.network.util;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import com.example.network.bean.ApkInfo;
@@ -72,6 +73,7 @@ public class ApkUtil {
             info.package_name = pi.packageName; // 包名
             info.version_name = pi.versionName; // 版本名称
             info.version_code = pi.versionCode; // 版本号
+            info.file_size = (int) (new File(path)).length(); // 文件大小
         }
         return info;
     }

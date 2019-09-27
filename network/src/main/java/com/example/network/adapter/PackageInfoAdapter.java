@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.network.BuildConfig;
 import com.example.network.R;
 import com.example.network.bean.ApkInfo;
 import com.example.network.bean.PackageInfo;
@@ -192,10 +193,22 @@ public class PackageInfoAdapter extends BaseAdapter {
     private String getLocalPath(String packageName, String versionName) {
         String local_path = "";
         for (ApkInfo info : mDownloadedApkList) {
+            Log.d(TAG, "info.package_name="+info.package_name+",info.version_name="+info.version_name);
             if (packageName.equals(info.package_name) && versionName.equals(info.version_name)) {
                 local_path = info.file_path;
             }
         }
+        if (TextUtils.isEmpty(local_path)) {
+            String data_path = Environment.getExternalStorageDirectory().getAbsolutePath()
+                    + "/Android/data/" + BuildConfig.APPLICATION_ID + "/files/Download/" + packageName + ".apk";
+            Log.d(TAG, "data_path="+data_path);
+            ApkInfo apkInfo = ApkUtil.getApkInfo(mContext, data_path);
+            Log.d(TAG, "apkInfo.file_size="+apkInfo.file_size);
+            if (packageName.equals(apkInfo.package_name) && versionName.equals(apkInfo.version_name)) {
+                local_path = apkInfo.file_path;
+            }
+        }
+        Log.d(TAG, "local_path="+local_path);
         return local_path;
     }
 
