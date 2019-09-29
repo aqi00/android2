@@ -1,20 +1,25 @@
 package com.example.storage;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by ouyangshen on 2017/12/4.
@@ -38,12 +43,17 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_check_flow) {
-            //查询数据流量，移动号码的查询方式为发送短信内容“18”给“10086”
-            //电信和联通号码的短信查询方式请咨询当地运营商客服热线
-            //跳到系统的短信发送页面，由用户手工发短信
-            //sendSmsManual("10086", "18");
-            //无需用户操作，自动发送短信
-            sendSmsAuto("10086", "18");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                    ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "请先给当前APP开启短信权限", Toast.LENGTH_LONG).show();
+            } else {
+                //查询数据流量，移动号码的查询方式为发送短信内容“18”给“10086”
+                //电信和联通号码的短信查询方式请咨询当地运营商客服热线
+                //跳到系统的短信发送页面，由用户手工发短信
+                //sendSmsManual("10086", "18");
+                //无需用户操作，自动发送短信
+                sendSmsAuto("10086", "18");
+            }
         } else if (v.getId() == R.id.tv_check_flow) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("收到流量校准短信");
@@ -134,7 +144,7 @@ public class ContentObserverActivity extends AppCompatActivity implements OnClic
             // 依次解析流量校准短信里面的各项流量数值，并拼接流量校准的结果字符串
             String flow = String.format("流量校准结果如下：\n\t总流量为：%s\n\t已使用：%s" +
                             "\n\t剩余：%s", findFlow(content, "总流量为", "，"),
-                    findFlow(content, "已使用", "MB"), findFlow(content, "剩余", "MB"));
+                    findFlow(content, "已使用", "B"), findFlow(content, "剩余", "B"));
             if (tv_check_flow != null) { // 离开该页面时就不再显示流量信息
                 // 把流量校准结果显示到文本视图tv_check_flow上面
                 tv_check_flow.setText(flow);
