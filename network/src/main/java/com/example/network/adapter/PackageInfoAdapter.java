@@ -199,8 +199,7 @@ public class PackageInfoAdapter extends BaseAdapter {
             }
         }
         if (TextUtils.isEmpty(local_path)) {
-            String data_path = Environment.getExternalStorageDirectory().getAbsolutePath()
-                    + "/Android/data/" + BuildConfig.APPLICATION_ID + "/files/Download/" + packageName + ".apk";
+            String data_path = mContext.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS) + "/" + packageName + ".apk";
             Log.d(TAG, "data_path="+data_path);
             ApkInfo apkInfo = ApkUtil.getApkInfo(mContext, data_path);
             Log.d(TAG, "apkInfo.file_size="+apkInfo.file_size);
