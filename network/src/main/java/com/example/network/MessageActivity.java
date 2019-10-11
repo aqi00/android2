@@ -26,7 +26,7 @@ public class MessageActivity extends AppCompatActivity implements OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
-        // 从布局文件中获取名叫tv_control的文本视图
+        // 从布局文件中获取名叫tv_message的文本视图
         tv_message = findViewById(R.id.tv_message);
         // 设置tv_message内部文字的对齐方式为靠左且靠下
         tv_message.setGravity(Gravity.LEFT | Gravity.BOTTOM);
