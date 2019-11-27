@@ -139,8 +139,14 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 inputText = ".";
             }
             if (operator.equals("")) { // 无操作符，则继续拼接前一个操作数
+                if (firstNum.contains(".") && inputText.equals(".")) {
+                    return; // 一个数字不能有两个小数点
+                }
                 firstNum = firstNum + inputText;
             } else { // 有操作符，则继续拼接后一个操作数
+                if (nextNum.contains(".") && inputText.equals(".")) {
+                    return; // 一个数字不能有两个小数点
+                }
                 nextNum = nextNum + inputText;
             }
             showText = showText + inputText;
@@ -164,7 +170,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         } else if (operator.equals("×")) { // 当前是相乘运算
             result = String.valueOf(Arith.mul(firstNum, nextNum));
         } else if (operator.equals("÷")) { // 当前是相除运算
-            if ("0".equals(nextNum)) { // 发现被除数是0
+            if (Double.parseDouble(nextNum) == 0) { // 发现被除数是0
                 // 被除数为0，要弹窗提示用户
                 Toast.makeText(this, "被除数不能为零", Toast.LENGTH_SHORT).show();
                 // 返回false表示运算失败
