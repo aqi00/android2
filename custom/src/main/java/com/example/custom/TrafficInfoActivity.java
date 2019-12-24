@@ -50,6 +50,7 @@ public class TrafficInfoActivity extends AppCompatActivity {
             for (int i = 0; i < appinfoList.size(); i++) {
                 AppInfo item = appinfoList.get(i);
                 // 根据应用编号获取该应用的接收流量数据
+                // Android7之后，TrafficStats类的getUidRxBytes和getUidTxBytes只能查自身的流量。只有当前应用为系统应用之时，才能查其他应用的流量
                 item.traffic = TrafficStats.getUidRxBytes(item.uid);
                 appinfoList.set(i, item);
             }
