@@ -124,7 +124,7 @@ public class CaptureService extends Service implements FloatClickListener {
                 FileUtil.createFile(mImagePath, mImageName);
                 // 把位图对象保存为图片文件
                 FileUtil.saveBitmap(mImagePath + mImageName, bitmap, "PNG", 100);
-                Toast.makeText(CaptureService.this, "截图成功：" + mImagePath + mImageName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(CaptureService.this, "截图成功：" + mImagePath + mImageName, Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(CaptureService.this, "截图失败：未截到屏幕图片", Toast.LENGTH_SHORT).show();
             }

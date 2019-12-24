@@ -96,7 +96,7 @@ public class RecordService extends Service implements FloatClickListener {
         } else { // 不在录屏
             // 给悬浮窗的图像视图设置开始图标
             iv_record.setImageResource(R.drawable.ic_record_begin);
-            Toast.makeText(RecordService.this, "结束录屏：" + mVideoPath + mVideoName, Toast.LENGTH_SHORT).show();
+            Toast.makeText(RecordService.this, "结束录屏：" + mVideoPath + mVideoName, Toast.LENGTH_LONG).show();
         }
     }
 
