@@ -49,7 +49,7 @@ public class DbHelper extends SQLiteOpenHelper {
 	}
 
 	public void delete(int xuhao) {
-		String delete_sql = String.format("delete from %s where id=%d;", mTableName, xuhao);
+		String delete_sql = String.format("delete from %s where _id=%d;", mTableName, xuhao);
 		Log.d(TAG, "delete sql="+delete_sql);
 		mWriteDB.execSQL(delete_sql);
 	}
