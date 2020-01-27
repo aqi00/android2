@@ -40,7 +40,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements OnItemCli
         // 从布局文件中获取名叫rv_photo的循环视图
         rv_photo = findViewById(R.id.rv_photo);
         // 创建一个水平方向的线性布局管理器
-        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayout.HORIZONTAL, false);
+        LinearLayoutManager manager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         // 设置循环视图的布局管理器
         rv_photo.setLayoutManager(manager);
         // 构建一个相片列表的线性适配器
