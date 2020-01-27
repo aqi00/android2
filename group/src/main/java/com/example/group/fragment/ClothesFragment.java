@@ -45,7 +45,7 @@ public class ClothesFragment extends Fragment implements OnRefreshListener {
         // 从布局文件中获取名叫rv_clothes的循环视图
         rv_clothes = mView.findViewById(R.id.rv_clothes);
         // 创建一个垂直方向的瀑布流布局管理器
-        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(3, LinearLayout.VERTICAL);
+        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(3, RecyclerView.VERTICAL);
         // 设置循环视图的布局管理器
         rv_clothes.setLayoutManager(manager);
         // 获取默认的服装信息队列

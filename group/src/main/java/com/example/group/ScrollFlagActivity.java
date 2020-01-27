@@ -43,7 +43,7 @@ public class ScrollFlagActivity extends AppCompatActivity {
         // 从布局文件中获取名叫rv_main的循环视图
         RecyclerView rv_main = findViewById(R.id.rv_main);
         // 创建一个垂直方向的线性布局管理器
-        LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayout.VERTICAL, false);
+        LinearLayoutManager llm = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         // 设置循环视图的布局管理器
         rv_main.setLayoutManager(llm);
         // 构建一个十二生肖的线性适配器

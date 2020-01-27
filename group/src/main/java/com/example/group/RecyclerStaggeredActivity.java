@@ -29,7 +29,7 @@ public class RecyclerStaggeredActivity extends AppCompatActivity {
         RecyclerView rv_staggered = findViewById(R.id.rv_staggered);
         // 创建一个垂直方向的瀑布流布局管理器
         StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(
-                3, LinearLayout.VERTICAL);
+                3, RecyclerView.VERTICAL);
         // 设置循环视图的布局管理器
         rv_staggered.setLayoutManager(manager);
         // 构建一个服装列表的瀑布流适配器

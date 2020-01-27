@@ -53,7 +53,7 @@ public class SwipeRecyclerActivity extends AppCompatActivity implements OnRefres
         // 从布局文件中获取名叫rv_dynamic的循环视图
         rv_dynamic = findViewById(R.id.rv_dynamic);
         // 创建一个垂直方向的线性布局管理器
-        LinearLayoutManager manager = new LinearLayoutManager(this, LinearLayout.VERTICAL, false);
+        LinearLayoutManager manager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         // 设置循环视图的布局管理器
         rv_dynamic.setLayoutManager(manager);
         // 获取默认的所有公众号信息队列

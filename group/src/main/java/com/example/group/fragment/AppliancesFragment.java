@@ -45,7 +45,7 @@ public class AppliancesFragment extends Fragment implements OnRefreshListener {
         // 从布局文件中获取名叫rv_appliances的循环视图
         rv_appliances = mView.findViewById(R.id.rv_appliances);
         // 创建一个垂直方向的瀑布流布局管理器
-        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(3, LinearLayout.VERTICAL);
+        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(3, RecyclerView.VERTICAL);
         // 设置循环视图的布局管理器
         rv_appliances.setLayoutManager(manager);
         // 获取默认的电器信息队列
