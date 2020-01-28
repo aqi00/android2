@@ -106,8 +106,9 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(this, SocketActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_apk_info) {
-            Intent intent = new Intent(this, ApkInfoActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, R.id.btn_apk_info % 4096)) {
+                PermissionUtil.goActivity(this, ApkInfoActivity.class);
+            }
         } else if (v.getId() == R.id.btn_app_store) {
             if (PermissionUtil.checkPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE, R.id.btn_app_store % 4096)) {
                 PermissionUtil.goActivity(this, AppStoreActivity.class);
@@ -147,6 +148,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 PermissionUtil.goActivity(this, UploadHttpActivity.class);
             } else {
                 Toast.makeText(this, "需要允许SD卡权限才能上传文件噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_apk_info % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, ApkInfoActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许SD卡权限才能查找安装包噢", Toast.LENGTH_SHORT).show();
             }
         } else if (requestCode == R.id.btn_app_store % 4096) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
