@@ -32,7 +32,7 @@ public class BroadSystemActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        // 创建一个变更变更的广播接收器
+        // 创建一个分钟变更的广播接收器
         timeReceiver = new TimeReceiver();
         // 创建一个意图过滤器，只处理系统分钟变化的广播
         IntentFilter filter = new IntentFilter(Intent.ACTION_TIME_TICK);
