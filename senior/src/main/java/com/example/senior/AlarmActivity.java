@@ -109,7 +109,7 @@ public class AlarmActivity extends AppCompatActivity implements OnClickListener 
     public void onStart() {
         super.onStart();
         // 从Android9.0开始，系统不再支持静态广播，应用广播只能通过动态注册
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // 创建一个闹钟的广播接收器
             alarmReceiver = new AlarmReceiver();
             // 创建一个意图过滤器，只处理指定事件来源的广播
@@ -122,7 +122,7 @@ public class AlarmActivity extends AppCompatActivity implements OnClickListener 
     @Override
     public void onStop() {
         super.onStop();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // 注销广播接收器，注销之后就不再接收广播
             unregisterReceiver(alarmReceiver);
         }
