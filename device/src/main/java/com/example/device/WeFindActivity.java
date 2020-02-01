@@ -43,9 +43,12 @@ public class WeFindActivity extends AppCompatActivity implements OnClickListener
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.tv_scan) { // 点击了“扫一扫”
-            // 跳到扫描二维码页面
-            Intent intent = new Intent(this, FindScanActivity.class);
-            startActivity(intent);
+            // WeFindActivity内嵌到WeChatActivity中，造成不会在底部弹出权限选择对话框，所以要通过WeChatActivity弹窗
+            // 并且权限选择结果onRequestPermissionsResult要在WeChatActivity里面重写
+            if (PermissionUtil.checkPermission(WeChatActivity.act, Manifest.permission.CAMERA, R.id.tv_scan%4096)) {
+                // 若已获得相机权限，就跳到扫描二维码页面
+                PermissionUtil.goActivity(this, FindScanActivity.class);
+            }
         } else if (v.getId() == R.id.tv_shake) { // 点击了“摇一摇”
             // 跳到博饼中大奖页面
             Intent intent = new Intent(this, FindShakeActivity.class);

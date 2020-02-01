@@ -89,6 +89,12 @@ public class WeChatActivity extends ActivityGroup implements OnClickListener {
             } else {
                 Toast.makeText(this, "需要允许定位权限才能使用咻一咻噢", Toast.LENGTH_SHORT).show();
             }
+        } else if (requestCode == R.id.tv_scan % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                PermissionUtil.goActivity(this, FindScanActivity.class);
+            } else {
+                Toast.makeText(this, "需要允许相机权限才能使用扫一扫噢", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
