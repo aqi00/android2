@@ -20,6 +20,7 @@ public class MarqueeActivity extends AppCompatActivity implements View.OnClickLi
         tv_marquee = findViewById(R.id.tv_marquee);
         // 给tv_marquee设置点击监听器
         tv_marquee.setOnClickListener(this);
+        tv_marquee.requestFocus(); // 强制获得焦点，让跑马灯滚起来
     }
 
     @Override
