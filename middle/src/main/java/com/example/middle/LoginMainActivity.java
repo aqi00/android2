@@ -209,6 +209,7 @@ public class LoginMainActivity extends AppCompatActivity implements OnClickListe
     // 从后一个页面携带参数返回当前页面时触发
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == mRequestCode && data != null) {
             // 用户密码已改为新密码，故更新密码变量
             mPassword = data.getStringExtra("new_password");
