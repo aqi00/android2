@@ -82,9 +82,9 @@ public class ActJumpActivity extends AppCompatActivity implements OnClickListene
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) { // 接收返回数据
+        super.onActivityResult(requestCode, resultCode, data);
         String nextLife = data.getStringExtra("life");
         refreshLife("\n" + nextLife);
         refreshLife("onActivityResult");
-        super.onActivityResult(requestCode, resultCode, data);
     }
 }
