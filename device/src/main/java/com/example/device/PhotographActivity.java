@@ -47,6 +47,7 @@ public class PhotographActivity extends AppCompatActivity implements OnClickList
 
     // 处理Camera拍照页面的返回结果
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
         Log.d(TAG, "onActivityResult. requestCode=" + requestCode + ", resultCode=" + resultCode);
         Bundle resp = intent.getExtras(); // 获取返回的包裹
         String is_null = resp.getString("is_null");
