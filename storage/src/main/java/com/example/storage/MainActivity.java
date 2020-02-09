@@ -1,10 +1,15 @@
 package com.example.storage;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Toast;
+
+import com.example.storage.util.PermissionUtil;
 
 /**
  * Created by ouyangshen on 2017/10/1.
@@ -94,11 +99,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Intent intent = new Intent(this, ContentProviderActivity.class);
             startActivity(intent);
         } else if (v.getId() == R.id.btn_content_resolver) {
-            Intent intent = new Intent(this, ContentResolverActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkMultiPermission(this, new String[] {Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS}, R.id.btn_content_resolver % 65536)) {
+                startActivity(new Intent(this, ContentResolverActivity.class));
+            }
         } else if (v.getId() == R.id.btn_content_observer) {
-            Intent intent = new Intent(this, ContentObserverActivity.class);
-            startActivity(intent);
+            if (PermissionUtil.checkMultiPermission(this, new String[] {Manifest.permission.SEND_SMS, Manifest.permission.READ_SMS}, R.id.btn_content_observer % 65536)) {
+                startActivity(new Intent(this, ContentObserverActivity.class));
+            }
         } else if (v.getId() == R.id.btn_menu_option) {
             Intent intent = new Intent(this, MenuOptionActivity.class);
             startActivity(intent);
@@ -108,6 +115,23 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         } else if (v.getId() == R.id.btn_shopping_cart) {
             Intent intent = new Intent(this, ShoppingCartActivity.class);
             startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == R.id.btn_content_resolver % 65536) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                startActivity(new Intent(this, ContentResolverActivity.class));
+            } else {
+                Toast.makeText(this, "需要允许通讯录权限才能读写联系人噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_content_observer % 65536) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                startActivity(new Intent(this, ContentObserverActivity.class));
+            } else {
+                Toast.makeText(this, "需要允许短信权限才能校准流量噢", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
