@@ -2,9 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 	<!-- 背景图 -->
 	<item android:id="@+android:id/background" android:drawable="@drawable/video_line01" />
-	<!--全部能量图  -->
+	<!-- 全部进度 -->
 	<item android:id="@+android:id/secondaryProgress"
 		android:drawable="@drawable/video_line01" />
-	<!-- 进和能量图 -->
+	<!-- 当前进度 -->
 	<item android:id="@+android:id/progress" android:drawable="@drawable/video_line02" />
 </layer-list>
