@@ -157,7 +157,7 @@ public class DownloadApkActivity extends AppCompatActivity {
 
     // 声明一个下载完成的广播接收器
     private DownloadCompleteReceiver completeReceiver;
-    // 声明一个下载完成的广播接收器
+    // 声明一个通知栏点击的广播接收器
     private NotificationClickReceiver clickReceiver;
     // 适配Android9.0结束
 
