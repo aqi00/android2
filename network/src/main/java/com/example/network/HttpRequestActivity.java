@@ -28,11 +28,13 @@ import android.widget.Toast;
 public class HttpRequestActivity extends AppCompatActivity implements OnAddressListener {
     private final static String TAG = "HttpRequestActivity";
     private TextView tv_location;
-    private String mLocation = "";
+    private String mDesc = "";
     private LocationManager mLocationMgr; // 声明一个定位管理器对象
     private Criteria mCriteria = new Criteria(); // 声明一个定位准则对象
     private Handler mHandler = new Handler(); // 声明一个处理器
     private boolean isLocationEnable = false; // 定位服务是否可用
+    private Location mLocation; // 定位信息
+    private String mAddress = ""; // 详细地址描述
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,7 @@ public class HttpRequestActivity extends AppCompatActivity implements OnAddressL
         String bestProvider = mLocationMgr.getBestProvider(mCriteria, true);
         if (mLocationMgr.isProviderEnabled(bestProvider)) { // 定位提供者当前可用
             tv_location.setText("正在获取" + bestProvider + "定位对象");
-            mLocation = String.format("定位类型=%s", bestProvider);
+            mDesc = String.format("定位类型=%s", bestProvider);
             beginLocation(bestProvider);
             isLocationEnable = true;
         } else { // 定位提供者暂不可用
@@ -77,24 +79,29 @@ public class HttpRequestActivity extends AppCompatActivity implements OnAddressL
         }
     }
 
-    private String mAddress = ""; // 详细地址描述
-
     // 在找到详细地址后触发
     public void onFindAddress(String address) {
         mAddress = address;
+        refreshLocationInfo(); // 刷新定位信息
+    }
+
+    // 刷新定位信息
+    private void refreshLocationInfo() {
+        String desc = String.format("%s\n定位对象信息如下： " +
+                        "\n\t其中时间：%s" + "\n\t其中经度：%f，纬度：%f" +
+                        "\n\t其中高度：%d米，精度：%d米" + "\n\t其中地址：%s",
+                mDesc, DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss"),
+                mLocation.getLongitude(), mLocation.getLatitude(),
+                Math.round(mLocation.getAltitude()), Math.round(mLocation.getAccuracy()), mAddress);
+        Log.d(TAG, desc);
+        tv_location.setText(desc);
     }
 
     // 设置定位结果文本
     private void setLocationText(Location location) {
         if (location != null) {
-            String desc = String.format("%s\n定位对象信息如下： " +
-                            "\n\t其中时间：%s" + "\n\t其中经度：%f，纬度：%f" +
-                            "\n\t其中高度：%d米，精度：%d米" + "\n\t其中地址：%s",
-                    mLocation, DateUtil.getNowDateTime("yyyy-MM-dd HH:mm:ss"),
-                    location.getLongitude(), location.getLatitude(),
-                    Math.round(location.getAltitude()), Math.round(location.getAccuracy()), mAddress);
-            Log.d(TAG, desc);
-            tv_location.setText(desc);
+            mLocation = location;
+            refreshLocationInfo(); // 刷新定位信息
             // 创建一个详细地址查询的线程
             GetAddressTask addressTask = new GetAddressTask();
             // 设置详细地址查询的监听器
@@ -102,7 +109,7 @@ public class HttpRequestActivity extends AppCompatActivity implements OnAddressL
             // 把详细地址查询线程加入到处理队列
             addressTask.execute(location);
         } else {
-            tv_location.setText(mLocation + "\n暂未获取到定位对象");
+            tv_location.setText(mDesc + "\n暂未获取到定位对象");
         }
     }
 
