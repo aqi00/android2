@@ -23,7 +23,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
     implementation "com.android.support:appcompat-v7:28.0.0"
-    //gson库的最新版本号在这里查看 http://www.mvnrepository.com/artifact/com.google.code.gson/gson
-    implementation "com.google.code.gson:gson:2.8.5"
+    //gson库各版本见 https://mvnrepository.com/artifact/com.google.code.gson/gson
+    implementation "com.google.code.gson:gson:2.8.6"
     implementation project(':filedialog')
 }
