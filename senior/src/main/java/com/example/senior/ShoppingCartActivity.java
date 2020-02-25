@@ -128,6 +128,8 @@ public class ShoppingCartActivity extends Activity implements
     private Runnable mPopupMenu = new Runnable() {
         @Override
         public void run() {
+            // 取消lv_cart的点击监听器
+            lv_cart.setOnItemClickListener(null);
             // 取消lv_cart的长按监听器
             lv_cart.setOnItemLongClickListener(null);
             // 注册列表项视图的上下文菜单
@@ -136,6 +138,12 @@ public class ShoppingCartActivity extends Activity implements
             openContextMenu(mCurrentView);
             // 注销列表项视图的上下文菜单
             unregisterForContextMenu(mCurrentView);
+            // 构建购物车商品列表的适配器对象
+            CartAdapter adapter = new CartAdapter(ShoppingCartActivity.this, mCartArray);
+            // 给lv_cart设置商品列表适配器
+            lv_cart.setAdapter(adapter);
+            // 重新设置lv_cart的点击监听器
+            lv_cart.setOnItemClickListener(ShoppingCartActivity.this);
             // 重新设置lv_cart的长按监听器
             lv_cart.setOnItemLongClickListener(ShoppingCartActivity.this);
         }
