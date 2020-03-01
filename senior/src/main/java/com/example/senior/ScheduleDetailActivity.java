@@ -149,9 +149,9 @@ public class ScheduleDetailActivity extends AppCompatActivity implements
             schedule_title.setBackgroundResource(R.drawable.editext_selector);
             schedule_content.setBackgroundResource(R.drawable.editext_selector);
         } else {
-            schedule_time.setBackgroundDrawable(null);
-            schedule_title.setBackgroundDrawable(null);
-            schedule_content.setBackgroundDrawable(null);
+            schedule_time.setBackground(null);
+            schedule_title.setBackground(null);
+            schedule_content.setBackground(null);
         }
         btn_edit.setVisibility(enabled ? View.GONE : View.VISIBLE);
         btn_save.setVisibility(enabled ? View.VISIBLE : View.GONE);

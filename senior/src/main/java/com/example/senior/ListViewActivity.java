@@ -101,7 +101,7 @@ public class ListViewActivity extends AppCompatActivity {
                 lv_planet.setDivider(null);
                 lv_planet.setDividerHeight(dividerHeight);
                 lv_planet.setPadding(0, dividerHeight, 0, dividerHeight);
-                lv_planet.setBackgroundDrawable(drawable);
+                lv_planet.setBackground(drawable);
             }
             lv_planet.setLayoutParams(params);  // 设置lv_planet的布局参数
         }
