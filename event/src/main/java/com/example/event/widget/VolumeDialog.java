@@ -4,8 +4,10 @@ import com.example.event.R;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.media.AudioManager;
 import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class VolumeDialog implements OnSeekBarChangeListener, OnKeyListener {
+    private final static String TAG = "VolumeDialog";
     private Dialog dialog; // 声明一个对话框对象
     private View view; // 声明一个视图对象
     private SeekBar sb_music; // 声明一个拖动条对象
@@ -48,13 +51,20 @@ public class VolumeDialog implements OnSeekBarChangeListener, OnKeyListener {
         dialog.getWindow().setContentView(view);
         // 设置对话框窗口的布局参数
         dialog.getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                // 设置拖动条允许获得焦点
+                sb_music.setFocusable(true);
+                // 设置拖动条在触摸情况下允许获得焦点
+                sb_music.setFocusableInTouchMode(true);
+                // 拖动条请求获得焦点
+                sb_music.requestFocus();
+                // 设置拖动条的按键监听器
+                sb_music.setOnKeyListener(VolumeDialog.this);
+            }
+        });
         dialog.show(); // 显示对话框
-        // 设置拖动条允许获得焦点
-        sb_music.setFocusable(true);
-        // 设置拖动条在触摸情况下允许获得焦点
-        sb_music.setFocusableInTouchMode(true);
-        // 设置拖动条的按键监听器
-        sb_music.setOnKeyListener(this);
     }
 
     // 关闭对话框
@@ -129,15 +139,15 @@ public class VolumeDialog implements OnSeekBarChangeListener, OnKeyListener {
     // 在发生按键动作时触发
     public boolean onKey(View v, int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_VOLUME_UP
-                && event.getAction() == KeyEvent.ACTION_DOWN) { // 按下了音量加键
+                && event.getAction() == KeyEvent.ACTION_UP) { // 按下了音量加键
             adjustVolume(AudioManager.ADJUST_RAISE, false); // 调大音量
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN
-                && event.getAction() == KeyEvent.ACTION_DOWN) { // 按下了音量减键
+                && event.getAction() == KeyEvent.ACTION_UP) { // 按下了音量减键
             adjustVolume(AudioManager.ADJUST_LOWER, false); // 调小音量
             return true;
         } else {
-            return false;
+            return true;
         }
     }
 
