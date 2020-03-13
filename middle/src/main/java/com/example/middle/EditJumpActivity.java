@@ -4,11 +4,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.middle.util.ViewUtil;
 
 /**
  * Created by ouyangshen on 2017/9/24.
@@ -22,12 +27,25 @@ public class EditJumpActivity extends AppCompatActivity implements OnClickListen
         // 从布局文件中获取名叫et_username的用户名编辑框
         EditText et_username = findViewById(R.id.et_username);
         // 从布局文件中获取名叫et_password的密码编辑框
-        EditText et_password = findViewById(R.id.et_password);
-        Button btn_login = findViewById(R.id.btn_login);
+        final EditText et_password = findViewById(R.id.et_password);
+        final Button btn_login = findViewById(R.id.btn_login);
         // 给用户名编辑框添加文本变化监听器
         et_username.addTextChangedListener(new JumpTextWatcher(et_username, et_password));
         // 给密码编辑框添加文本变化监听器
-        et_password.addTextChangedListener(new JumpTextWatcher(et_password, btn_login));
+        //et_password.addTextChangedListener(new JumpTextWatcher(et_password, btn_login));
+        // 给密码编辑框添加编辑动作监听器
+        et_password.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_NEXT) {
+                    ViewUtil.hideOneInputMethod(EditJumpActivity.this, et_password);
+                    btn_login.setFocusable(true); // 允许获得焦点
+                    btn_login.setFocusableInTouchMode(true); // 允许在触摸时获得焦点
+                    btn_login.requestFocus(); // 强制获得焦点
+                }
+                return false;
+            }
+        });
         btn_login.setOnClickListener(this);
     }
 
