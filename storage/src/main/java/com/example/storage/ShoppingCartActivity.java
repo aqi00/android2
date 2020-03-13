@@ -35,6 +35,7 @@ import com.example.storage.database.CartDBHelper;
 import com.example.storage.database.GoodsDBHelper;
 import com.example.storage.util.FileUtil;
 import com.example.storage.util.SharedUtil;
+import com.example.storage.util.Utils;
 
 /**
  * Created by ouyangshen on 2017/10/1.
@@ -253,7 +254,7 @@ public class ShoppingCartActivity extends Activity implements OnClickListener {
             // 添加商品小图
             ImageView iv_thumb = new ImageView(this);
             LinearLayout.LayoutParams iv_params = new LinearLayout.LayoutParams(
-                    0, LayoutParams.WRAP_CONTENT, 2);
+                    0, Utils.dip2px(this, 85), 2);
             iv_thumb.setLayoutParams(iv_params);
             iv_thumb.setScaleType(ScaleType.FIT_CENTER);
             iv_thumb.setImageBitmap(MainApplication.getInstance().mIconMap.get(info.goods_id));
