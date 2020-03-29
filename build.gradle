@@ -2,6 +2,10 @@
 
 buildscript {
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google'}
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven { url 'https://maven.aliyun.com/repository/public'}
         google() // Android Studio 3.0开始需要添加这行
         jcenter()
     }
@@ -16,6 +20,10 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/google'}
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin'}
+        maven { url 'https://maven.aliyun.com/repository/public'}
         google() // Android Studio 3.0开始需要添加这行
         jcenter()
     }
