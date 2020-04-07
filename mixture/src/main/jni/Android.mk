@@ -8,7 +8,7 @@ LOCAL_SRC_FILES := find_name.cpp get_cpu.cpp get_encrypt.cpp get_decrypt.cpp aes
 # 指定C++的编译标志
 LOCAL_CPPFLAGS += -fexceptions
 # 指定要加载的静态库
-LOCAL_WHOLE_STATIC_LIBRARIES += android_support
+#LOCAL_WHOLE_STATIC_LIBRARIES += android_support
 # 指定需要链接的库
 LOCAL_LDLIBS    := -llog
 

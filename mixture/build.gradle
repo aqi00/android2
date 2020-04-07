@@ -21,7 +21,7 @@ android {
                 // 说明需要生成哪些处理器的so文件
                 // NDK的r17版本开始不再支持ARM5(armeabi)、MIPS、MIPS64这几种so编译
                 //abiFilters "armeabi", "armeabi-v7a"
-                abiFilters "armeabi-v7a", "x86"
+                abiFilters "arm64-v8a", "armeabi-v7a", "x86"
                 // 指定C++编译器的版本，比如下面这行用的是C++11
                 //cppFlags "-std=c++11"
             }
@@ -30,8 +30,10 @@ android {
 
     // 下面指定拾取的第一个so库路径，编译时才不会重复链接
     packagingOptions {
+        pickFirst 'lib/arm64-v8a/libjni_mix.so'
         pickFirst 'lib/armeabi-v7a/libjni_mix.so'
         pickFirst 'lib/x86/libjni_mix.so'
+        pickFirst 'lib/arm64-v8a/libvudroid.so'
         pickFirst 'lib/armeabi-v7a/libvudroid.so'
         pickFirst 'lib/x86/libvudroid.so'
     }
