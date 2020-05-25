@@ -49,7 +49,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements OnClickLis
     private boolean bRemember = false; // 是否记住密码
     private String mPassword = "111111"; // 默认密码
     private String mVerifyCode; // 验证码
-    private UserDBHelper mHelper; // 声明一个用户数据库帮助器对象
+    private UserDBHelper mHelper; // 声明一个用户数据库的帮助器对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

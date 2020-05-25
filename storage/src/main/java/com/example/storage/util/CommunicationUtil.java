@@ -63,44 +63,31 @@ public class CommunicationUtil {
     public static void addContacts(ContentResolver resolver, Contact contact) {
         // 构建一个指向系统联系人提供器的Uri对象
         Uri raw_uri = Uri.parse("content://com.android.contacts/raw_contacts");
-        // 创建新的配对
-        ContentValues values = new ContentValues();
-        // 往 raw_contacts 中添加联系人记录，并获取添加后的联系人编号
+        ContentValues values = new ContentValues(); // 创建新的配对
+        // 往 raw_contacts 添加联系人记录，并获取添加后的联系人编号
         long contactId = ContentUris.parseId(resolver.insert(raw_uri, values));
         // 构建一个指向系统联系人数据的Uri对象
         Uri uri = Uri.parse("content://com.android.contacts/data");
-        // 创建新的配对
-        ContentValues name = new ContentValues();
-        // 往配对中添加联系人编号
-        name.put("raw_contact_id", contactId);
-        // 往配对中添加数据类型为“姓名”
+        ContentValues name = new ContentValues(); // 创建新的配对
+        name.put("raw_contact_id", contactId); // 往配对添加联系人编号
+        // 往配对添加“姓名”的数据类型
         name.put("mimetype", "vnd.android.cursor.item/name");
-        // 往配对中添加联系人的姓名
-        name.put("data2", contact.name);
-        // 往 data 中添加联系人的姓名
-        resolver.insert(uri, name);
-        // 创建新的配对
-        ContentValues phone = new ContentValues();
-        // 往配对中添加联系人编号
-        phone.put("raw_contact_id", contactId);
-        // 往配对中添加数据类型为“电话号码”
+        name.put("data2", contact.name); // 往配对添加联系人的姓名
+        resolver.insert(uri, name); // 往提供器添加联系人的姓名记录
+        ContentValues phone = new ContentValues(); // 创建新的配对
+        phone.put("raw_contact_id", contactId); // 往配对添加联系人编号
+        // 往配对添加“电话号码”的数据类型
         phone.put("mimetype", "vnd.android.cursor.item/phone_v2");
-        phone.put("data2", "2");
-        // 往配对中添加联系人的电话号码
-        phone.put("data1", contact.phone);
-        // 往 data 中添加联系人的电话号码
-        resolver.insert(uri, phone);
-        // 创建新的配对
-        ContentValues email = new ContentValues();
-        // 往配对中添加联系人编号
-        email.put("raw_contact_id", contactId);
-        // 往配对中添加数据类型为“电子邮箱”
+        phone.put("data1", contact.phone); // 往配对添加联系人的电话号码
+        phone.put("data2", "2"); // 联系类型。1表示家庭，2表示工作
+        resolver.insert(uri, phone); // 往提供器添加联系人的号码记录
+        ContentValues email = new ContentValues(); // 创建新的配对
+        email.put("raw_contact_id", contactId); // 往配对添加联系人编号
+        // 往配对添加“电子邮箱”的数据类型
         email.put("mimetype", "vnd.android.cursor.item/email_v2");
-        email.put("data2", "2");
-        // 往配对中添加联系人的电子邮箱
-        email.put("data1", contact.email);
-        // 往 data 中添加联系人的电子邮箱
-        resolver.insert(uri, email);
+        email.put("data1", contact.email); // 往配对添加联系人的电子邮箱
+        email.put("data2", "2"); // 联系类型。1表示家庭，2表示工作
+        resolver.insert(uri, email); // 往提供器添加联系人的邮箱记录
     }
 
     // 往手机中一次性添加一个联系人信息（包括主记录、姓名、电话号码、电子邮箱）

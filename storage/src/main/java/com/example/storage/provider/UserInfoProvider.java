@@ -57,7 +57,7 @@ public class UserInfoProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         userDB = UserDBHelper.getInstance(getContext(), 1);
-        return false;
+        return true;
     }
 
     // 根据指定条件查询数据库
