@@ -47,8 +47,7 @@ public class CaptureService extends Service implements FloatClickListener {
     public void onCreate() {
         super.onCreate();
         // 生成截图文件的保存路径
-        mImagePath = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/ScreenShots/";
+        mImagePath = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString() + "/ScreenShots/";
         // 从全局变量中获取媒体投影管理器
         mMpMgr = MainApplication.getInstance().getMpMgr();
         // 获得屏幕的宽度

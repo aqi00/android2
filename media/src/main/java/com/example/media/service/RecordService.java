@@ -55,8 +55,7 @@ public class RecordService extends Service implements FloatClickListener {
     public void onCreate() {
         super.onCreate();
         // 生成录屏文件的保存路径
-        mVideoPath = Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() + "/ScreenRecords/";
+        mVideoPath = getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS).toString() + "/ScreenRecords/";
         // 从全局变量中获取媒体投影管理器
         mMpMgr = MainApplication.getInstance().getMpMgr();
         // 获得屏幕的宽度
