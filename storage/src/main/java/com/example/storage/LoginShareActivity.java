@@ -67,7 +67,7 @@ public class LoginShareActivity extends AppCompatActivity implements OnClickList
         btn_forget.setOnClickListener(this);
         findViewById(R.id.btn_login).setOnClickListener(this);
         initTypeSpinner();
-        // 从share.xml中获取共享参数对象
+        // 从share_login.xml中获取共享参数对象
         mShared = getSharedPreferences("share_login", MODE_PRIVATE);
         // 获取共享参数中保存的手机号码
         String phone = mShared.getString("phone", "");
