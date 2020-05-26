@@ -55,11 +55,13 @@ public class BroadSystemActivity extends AppCompatActivity {
         // 一旦接收到分钟变更的广播，马上触发接收器的onReceive方法
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
-                Bundle bundle = intent.getExtras(); // 获取广播携带的包裹
-                Set<String> key_set = bundle.keySet();
                 String content = "";
-                for (String key : key_set) {
-                    content = String.format("%s\n%s=%s", content, key, bundle.get(key));
+                Bundle bundle = intent.getExtras(); // 获取广播携带的包裹
+                if (bundle != null) {
+                    Set<String> key_set = bundle.keySet();
+                    for (String key : key_set) {
+                        content = String.format("%s\n%s=%s", content, key, bundle.get(key));
+                    }
                 }
                 desc = String.format("%s\n%s 收到一个%s广播, 内容是%s", desc,
                         DateUtil.getNowTime(), intent.getAction(), content);
