@@ -68,7 +68,7 @@ public class GridViewActivity extends AppCompatActivity {
             gv_planet.setHorizontalSpacing(dividerPad);  // 设置gv_planet的水平方向空白
             gv_planet.setVerticalSpacing(dividerPad);  // 设置gv_planet的垂直方向空白
             gv_planet.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);  // 设置gv_planet的拉伸模式
-            gv_planet.setColumnWidth(250);  // 设置gv_planet的每列宽度为250
+            gv_planet.setColumnWidth(Utils.dip2px(GridViewActivity.this, 120));  // 设置每列宽度为120dp
             gv_planet.setPadding(0, 0, 0, 0);  // 设置gv_planet的四周空白
             if (arg2 == 0) {  // 不显示分隔线
                 gv_planet.setBackgroundColor(Color.WHITE);
