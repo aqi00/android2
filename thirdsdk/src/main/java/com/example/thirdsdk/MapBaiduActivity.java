@@ -29,12 +29,14 @@ import com.baidu.mapapi.map.TextOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.overlayutil.PoiOverlay;
 import com.baidu.mapapi.search.core.CityInfo;
+import com.baidu.mapapi.search.core.PoiDetailInfo;
 import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
 import com.baidu.mapapi.search.poi.PoiCitySearchOption;
 import com.baidu.mapapi.search.poi.PoiDetailResult;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
+import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
 import com.baidu.mapapi.search.poi.PoiIndoorResult;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.baidu.mapapi.search.poi.PoiResult;
@@ -136,9 +138,6 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
             posArray.clear();
             isPolygon = false;
         }
-        InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        im.hideSoftInputFromWindow(getCurrentFocus().getApplicationWindowToken(),
-                InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     @Override
@@ -279,6 +278,7 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
         }
     }
 
+    @Override
     public void onGetPoiDetailResult(PoiDetailResult result) {
         if (result.error != SearchResult.ERRORNO.NO_ERROR) {
             Toast.makeText(this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
@@ -292,6 +292,27 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
                             + result.getPrice() + ",type=" + result.getType()
                             + ",tag=" + result.getTag());
             Toast.makeText(this, result.getName() + ": " + result.getAddress(),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onGetPoiDetailResult(PoiDetailSearchResult result) {
+        if (result.error != SearchResult.ERRORNO.NO_ERROR) {
+            Toast.makeText(this, "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
+        } else if (result.getPoiDetailInfoList()==null || result.getPoiDetailInfoList().size()==0) {
+            Toast.makeText(this, "抱歉，POI个数为零", Toast.LENGTH_SHORT).show();
+        } else {
+            PoiDetailInfo detail = result.getPoiDetailInfoList().get(0);
+            Log.d(TAG,
+                    "name=" + detail.getName() + ",address="
+                            + detail.getAddress() + ",detail_url="
+                            + detail.getDetailUrl() + ",shop_hours="
+                            + detail.getShopHours() + ",telephone="
+                            + detail.getTelephone() + ",price="
+                            + detail.getPrice() + ",type=" + detail.getType()
+                            + ",tag=" + detail.getTag());
+            Toast.makeText(this, detail.getName() + ": " + detail.getAddress(),
                     Toast.LENGTH_SHORT).show();
         }
     }
@@ -519,9 +540,8 @@ public class MapBaiduActivity extends AppCompatActivity implements OnClickListen
     }
 
     @Override
-    public boolean onMapPoiClick(MapPoi arg0) {
+    public void onMapPoiClick(MapPoi arg0) {
         addDot(arg0.getPosition());
-        return false;
     }
 
 }

@@ -22,7 +22,6 @@ import com.amap.api.maps2d.model.MarkerOptions;
 import com.amap.api.maps2d.model.PolygonOptions;
 import com.amap.api.maps2d.model.PolylineOptions;
 import com.amap.api.maps2d.model.TextOptions;
-import com.amap.api.maps2d.overlay.PoiOverlay;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.core.PoiItem;
 import com.amap.api.services.core.SuggestionCity;
@@ -54,6 +53,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
+
+import overlay.PoiOverlay;
 
 /**
  * Created by ouyangshen on 2017/12/18.
@@ -124,9 +125,6 @@ public class MapGaodeActivity extends AppCompatActivity implements OnClickListen
             posArray.clear();
             isPolygon = false;
         }
-        InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        im.hideSoftInputFromWindow(getCurrentFocus().getApplicationWindowToken(),
-                InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     @Override

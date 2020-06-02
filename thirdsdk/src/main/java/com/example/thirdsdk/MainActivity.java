@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
         findViewById(R.id.btn_share_qq).setOnClickListener(this);
         findViewById(R.id.btn_share_wx).setOnClickListener(this);
         findViewById(R.id.btn_alipay).setOnClickListener(this);
+        findViewById(R.id.btn_wxpay).setOnClickListener(this);
         findViewById(R.id.btn_tts_language).setOnClickListener(this);
         findViewById(R.id.btn_tts_read).setOnClickListener(this);
         findViewById(R.id.btn_voice_recognize).setOnClickListener(this);
