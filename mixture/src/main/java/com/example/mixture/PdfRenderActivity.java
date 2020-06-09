@@ -9,6 +9,7 @@ import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.pdf.PdfRenderer;
 import android.os.Build;
 import android.os.Bundle;
@@ -136,6 +137,8 @@ public class PdfRenderActivity extends AppCompatActivity implements OnClickListe
                 // 创建该页面的临时位图
                 Bitmap bitmap = Bitmap.createBitmap(page.getWidth(), page.getHeight(),
                         Bitmap.Config.ARGB_8888);
+                // 将临时位图洗白
+                bitmap.eraseColor(Color.WHITE);
                 // 渲染该PDF页面并写入到临时位图
                 page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY);
                 // 把位图对象保存为图片文件
