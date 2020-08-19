@@ -49,7 +49,7 @@ public class LocationSettingActivity extends AppCompatActivity implements OnChec
         ck_mobiledata.setText("数据连接" + ((isMobileOpen)?"开启":"关闭"));
         ck_gps.setOnCheckedChangeListener(this);
         ck_wlan.setOnCheckedChangeListener(this);
-        ck_mobiledata.setOnCheckedChangeListener(this);
+        ck_mobiledata.setEnabled(false); // 数据连接只有系统应用才能开关
     }
 
     @Override
@@ -63,10 +63,6 @@ public class LocationSettingActivity extends AppCompatActivity implements OnChec
             // 设置WLAN功能的开关状态
             SwitchUtil.setWlanStatus(this, isChecked);
             ck_wlan.setText("WLAN功能" + ((isChecked)?"开启":"关闭"));
-        } else if (id == R.id.ck_mobiledata) {
-            // 设置数据连接功能的开关状态
-            SwitchUtil.setMobileDataStatus(this, isChecked);
-            ck_mobiledata.setText("数据连接" + ((isChecked)?"开启":"关闭"));
         }
     }
 

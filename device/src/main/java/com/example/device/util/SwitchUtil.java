@@ -6,16 +6,10 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
 import android.location.LocationManager;
-import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -53,56 +47,21 @@ public class SwitchUtil {
         wm.setWifiEnabled(enabled);
     }
 
-    // 检查是否插了sim卡
-    public static boolean getSimcardStatus(Context ctx) {
-        // 从系统服务中获取电话管理器
-        TelephonyManager tm = (TelephonyManager) ctx.getSystemService(Context.TELEPHONY_SERVICE);
-        if (ActivityCompat.checkSelfPermission(ctx, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            return false;
-        }
-        String serial = tm.getSimSerialNumber();
-        if (TextUtils.isEmpty(serial)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     // 获取数据连接的开关状态
     public static boolean getMobileDataStatus(Context ctx) {
-        // 如果没插sim卡，后面的getMobileDataEnabled也会返回true
-        // 所以这里先判断一下有没有插卡，没插卡就表示无数据连接
-        if (!getSimcardStatus(ctx)) {
-            return false;
-        }
-        // 从系统服务中获取连接管理器
-        ConnectivityManager cm = (ConnectivityManager)
-                ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+        // 从系统服务中获取电话管理器
+        TelephonyManager tm = (TelephonyManager)
+                ctx.getSystemService(Context.TELEPHONY_SERVICE);
         boolean isOpen = false;
         try {
-            String methodName = "getMobileDataEnabled"; // 这是隐藏方法，需要通过反射调用
-            Method method = cm.getClass().getMethod(methodName);
-            isOpen = (Boolean) method.invoke(cm);
+            String methodName = "getDataEnabled"; // 这是隐藏方法，需要通过反射调用
+            Method method = tm.getClass().getMethod(methodName);
+            isOpen = (Boolean) method.invoke(tm);
             Log.d(TAG, "getMobileDataStatus isOpen="+isOpen);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return isOpen;
-    }
-
-    // 打开或关闭数据连接
-    public static void setMobileDataStatus(Context ctx, boolean enabled) {
-        // 从系统服务中获取连接管理器
-        ConnectivityManager cm = (ConnectivityManager)
-                ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-        try {
-            String methodName = "setMobileDataEnabled"; // 这是隐藏方法，需要通过反射调用
-            Method method = cm.getClass().getMethod(methodName, Boolean.TYPE);
-            // method.setAccessible(true);
-            method.invoke(cm, enabled);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     // 设置亮度自动调节的开关
@@ -124,35 +83,5 @@ public class SwitchUtil {
         }
         return screenMode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
     }
-
-//    // Camera对象需要做成单例模式，因为Camera不能重复打开
-//    private static Camera mCamera = null;
-//
-//    // 获取闪光灯/手电筒的开关状态
-//    public static boolean getFlashStatus(Context ctx) {
-//        if (mCamera == null) {
-//            mCamera = Camera.open();
-//        }
-//        Parameters parameters = mCamera.getParameters();
-//        String flashMode = parameters.getFlashMode();
-//        return flashMode.equals(Parameters.FLASH_MODE_TORCH);
-//    }
-//
-//    // 打开或关闭闪光灯/手电筒
-//    public static void setFlashStatus(Context ctx, boolean enabled) {
-//        if (mCamera == null) {
-//            mCamera = Camera.open();
-//        }
-//        Parameters parameters = mCamera.getParameters();
-//        if (enabled) {
-//            parameters.setFlashMode(Parameters.FLASH_MODE_TORCH);// 开启
-//            mCamera.setParameters(parameters);
-//        } else {
-//            parameters.setFlashMode(Parameters.FLASH_MODE_OFF);// 关闭
-//            mCamera.setParameters(parameters);
-//            mCamera.release();
-//            mCamera = null;
-//        }
-//    }
 
 }
