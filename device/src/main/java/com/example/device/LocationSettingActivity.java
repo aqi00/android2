@@ -4,6 +4,7 @@ import com.example.device.util.SwitchUtil;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
@@ -48,7 +49,11 @@ public class LocationSettingActivity extends AppCompatActivity implements OnChec
         ck_mobiledata.setChecked(isMobileOpen);
         ck_mobiledata.setText("数据连接" + ((isMobileOpen)?"开启":"关闭"));
         ck_gps.setOnCheckedChangeListener(this);
-        ck_wlan.setOnCheckedChangeListener(this);
+        if (Build.VERSION.SDK_INT >= 29) { // Android10之后，普通应用不能开关WiFi
+            ck_wlan.setEnabled(false);
+        } else {
+            ck_wlan.setOnCheckedChangeListener(this);
+        }
         ck_mobiledata.setEnabled(false); // 数据连接只有系统应用才能开关
     }
 
