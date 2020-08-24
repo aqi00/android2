@@ -107,8 +107,8 @@ public class DownloadImageActivity extends AppCompatActivity {
             down.setAllowedNetworkTypes(Request.NETWORK_MOBILE | Request.NETWORK_WIFI);
             // 设置不在通知栏显示
             down.setNotificationVisibility(Request.VISIBILITY_HIDDEN);
-            // 设置不在系统下载页面显示
-            down.setVisibleInDownloadsUi(false);
+            // 设置不在系统下载页面显示。该方法其实不管用，因为国产手机不提供下载app
+            //down.setVisibleInDownloadsUi(false);
             // 设置下载文件在本地的保存路径
             down.setDestinationInExternalFilesDir(
                     DownloadImageActivity.this, Environment.DIRECTORY_DCIM, arg2 + ".jpg");

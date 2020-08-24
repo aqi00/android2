@@ -78,8 +78,8 @@ public class DownloadApkActivity extends AppCompatActivity {
                     | Request.NETWORK_WIFI);
             // 设置通知栏在下载进行时与完成后都可见
             down.setNotificationVisibility(Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            // 设置要在系统下载页面显示
-            down.setVisibleInDownloadsUi(true);
+            // 设置要在系统下载页面显示。该方法其实不管用，因为国产手机不提供下载app
+            //down.setVisibleInDownloadsUi(true);
             // 设置下载文件在本地的保存路径
             down.setDestinationInExternalFilesDir(
                     DownloadApkActivity.this, Environment.DIRECTORY_DOWNLOADS, arg2 + ".apk");
