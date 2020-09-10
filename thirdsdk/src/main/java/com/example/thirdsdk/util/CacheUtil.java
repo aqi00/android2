@@ -14,6 +14,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
 
 @SuppressLint("DefaultLocale")
@@ -56,6 +57,9 @@ public class CacheUtil {
             }
             is.close();
             fos.close();
+            Bitmap origin_bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+            Bitmap scale_bitmap = BitmapUtil.zoomImage(origin_bitmap, 120, 120);
+            BitmapUtil.saveBitmap(file.getAbsolutePath(), scale_bitmap, "jpg", 80);
             return file.getAbsolutePath();
         }
         return null;

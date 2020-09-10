@@ -44,7 +44,7 @@ public class ShareGridAdapter extends BaseAdapter implements OnItemClickListener
     private static String mImageUrl;
     private ArrayList<ShareChanels> mChannelList;
 
-    private final String QQ_APPID = "100330589"; // 这里替换为开发者在QQ互联平台申请的应用id
+    private final String QQ_APPID = "1105789090"; // 这里替换为开发者在QQ互联平台申请的应用id
     private static Tencent mTencent;
     private int QQ = 0; // QQ好友
     private int QZONE = 1; // QQ空间
