@@ -64,6 +64,17 @@ public class RecordService extends Service implements FloatClickListener {
         mScreenHeight = Utils.getScreenHeight(this);
         // 获得屏幕每英寸中的像素数
         mScreenDensity = Utils.getScreenDensityDpi(this);
+        Log.d(TAG, "mScreenWidth="+mScreenWidth+", mScreenHeight="+mScreenHeight);
+        if (mScreenWidth >= 1000) { // 视频宽高太大会报错
+            mScreenWidth = mScreenWidth/2;
+            mScreenHeight = mScreenHeight/2;
+        }
+        if (mScreenWidth % 2 != 0) { // 视频宽度必须为偶数
+            mScreenWidth--;
+        }
+        if (mScreenHeight % 2 != 0) { // 视频高度必须为偶数
+            mScreenHeight--;
+        }
         if (mFloatWindow == null) {
             // 创建一个新的悬浮窗
             mFloatWindow = new FloatWindow(MainApplication.getInstance());
