@@ -20,14 +20,14 @@ import android.widget.VideoView;
 public class MediaControllerActivity extends AppCompatActivity implements
         OnClickListener, FileSelectCallbacks {
     private static final String TAG = "MediaControllerActivity";
-    private LinearLayout ll_play; // 声明一个用于视频播放的线性视图对象
+    private LinearLayout ll_play; // 声明一个用于视频播放的线性布局对象
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_controller);
         findViewById(R.id.btn_open).setOnClickListener(this);
-        // 从布局文件中获取名叫ll_play的线性视图
+        // 从布局文件中获取名叫ll_play的线性布局
         ll_play = findViewById(R.id.ll_play);
     }
 
@@ -59,7 +59,7 @@ public class MediaControllerActivity extends AppCompatActivity implements
         mc_play.setKeepScreenOn(true);
         // 给视频视图设置相关联的媒体控制条
         vv_content.setMediaController(mc_play);
-        // 把视频视图添加到线性视图上
+        // 把视频视图添加到线性布局上
         ll_play.addView(vv_content);
         // 视频视图开始播放
         vv_content.start();
