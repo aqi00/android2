@@ -229,7 +229,7 @@ public class PackageInfoAdapter extends BaseAdapter {
         public void run() {
             Log.d(TAG, "DownloadTask run downloadId=" + downloadId);
             boolean isFinished = false;
-            // 创建一个下载查询对象，按照下载编号进行过滤
+            // 创建一个下载查询对象，按照下载编号过滤
             Query down_query = new Query();
             // 设置下载查询对象的编号过滤器
             down_query.setFilterById(downloadId);
