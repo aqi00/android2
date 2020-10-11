@@ -31,7 +31,7 @@ public class AlertActivity extends AppCompatActivity implements OnClickListener 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             // 给建造器设置对话框的标题文本
             builder.setTitle("尊敬的用户");
-            // 给建造器设置对话框的信息文本
+            // 给建造器设置对话框的内容文本
             builder.setMessage("你真的要卸载我吗？");
             // 给建造器设置对话框的肯定按钮文本及其点击监听器
             builder.setPositiveButton("残忍卸载", new DialogInterface.OnClickListener() {
