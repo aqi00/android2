@@ -42,7 +42,7 @@ public class PullDownRefreshLayout extends LinearLayout implements View.OnTouchL
         Log.d(TAG, "realWidth=" + mLinearLayout.getMeasuredWidth() + ",realHeight=" + mLinearLayout.getMeasuredHeight());
         // 间隔是负值，表示不但不远离，反而插了进去
         mLinearLayout.setPadding(0, -1 * mLayoutHeight, 0, 0);
-        // 立刻刷新线性视图
+        // 立刻刷新线性布局
         mLinearLayout.invalidate();
         // 把下拉刷新头部布局添加到最前面
         addView(mLinearLayout, 0);
@@ -112,7 +112,7 @@ public class PullDownRefreshLayout extends LinearLayout implements View.OnTouchL
             Log.d(TAG, "ACTION_MOVE dragOffset=" + dragOffset + ",offsetY=" + offsetY + ",event.getRawY()=" + event.getRawY());
             // 下拉刷新的头部布局露出庐山真面目啦
             mLinearLayout.setPadding(0, dragOffset, 0, 0);
-            // 立刻刷新线性视图
+            // 立刻刷新线性布局
             mLinearLayout.invalidate();
         } else if (action == MotionEvent.ACTION_UP) { // 手指松开
             // 下拉距离太短，则直接将页面恢复原状。只有下拉距离足够长，才会触发页面刷新动作
@@ -127,9 +127,9 @@ public class PullDownRefreshLayout extends LinearLayout implements View.OnTouchL
 
     // 恢复主页面
     private void resumePage() {
-        // 设置线性视图上方的空白距离
+        // 设置线性布局上方的空白距离
         mLinearLayout.setPadding(0, (-1 * mLayoutHeight), 0, 0);
-        // 立刻刷新线性视图
+        // 立刻刷新线性布局
         mLinearLayout.invalidate();
         mListener.showTitle();
     }
