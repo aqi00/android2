@@ -252,7 +252,7 @@ public class LoginSQLiteActivity extends AppCompatActivity implements OnClickLis
         builder.setNegativeButton("我再看看", null);
         AlertDialog alert = builder.create();
         alert.show();
-        // 如果勾选了“记住密码”，则把手机号码和密码保存为数据库的用户表记录
+        // 如果勾选了“记住密码”，就把手机号码和密码保存为数据库的用户表记录
         if (bRemember) {
             // 创建一个用户信息实体类
             UserInfo info = new UserInfo();

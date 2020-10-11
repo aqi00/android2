@@ -180,7 +180,7 @@ public class ShoppingChannelActivity extends AppCompatActivity implements OnClic
             ll_goods.addView(ll_bottom);
             // 把商品项添加到该行上
             ll_row.addView(ll_goods);
-            // 每行放两个商品项，所以放满两个商品后，就要重新创建下一行的线性视图
+            // 每行放两个商品项，所以放满两个商品后，就要重新创建下一行的线性布局
             if (i % 2 == 1) {
                 ll_channel.addView(ll_row);
                 ll_row = newLinearLayout(LinearLayout.HORIZONTAL, 0);
@@ -193,7 +193,7 @@ public class ShoppingChannelActivity extends AppCompatActivity implements OnClic
         }
     }
 
-    // 创建一个线性视图的框架
+    // 创建一个线性布局的框架
     private LinearLayout newLinearLayout(int orientation, int weight) {
         LinearLayout ll_new = new LinearLayout(this);
         ll_new.setLayoutParams((weight == 0) ? mFullParams : mHalfParams);

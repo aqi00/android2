@@ -230,9 +230,9 @@ public class ShoppingCartActivity extends Activity implements OnClickListener {
         if (mCartArray == null || mCartArray.size() <= 0) {
             return;
         }
-        // 移除线性视图ll_cart下面的所有子视图
+        // 移除线性布局ll_cart下面的所有子视图
         ll_cart.removeAllViews();
-        // 创建一个标题行的线性视图ll_row
+        // 创建一个标题行的线性布局ll_row
         LinearLayout ll_row = newLinearLayout(LinearLayout.HORIZONTAL, LayoutParams.WRAP_CONTENT);
         ll_row.addView(newTextView(0, 2, Gravity.CENTER, "图片", Color.BLACK, 15));
         ll_row.addView(newTextView(0, 3, Gravity.CENTER, "名称", Color.BLACK, 15));
@@ -247,9 +247,9 @@ public class ShoppingCartActivity extends Activity implements OnClickListener {
             GoodsInfo goods = mGoodsHelper.queryById(info.goods_id);
             Log.d(TAG, "name=" + goods.name + ",price=" + goods.price + ",desc=" + goods.desc);
             mGoodsMap.put(info.goods_id, goods);
-            // 创建该商品行的水平线性视图，从左到右依次为商品小图、商品名称与描述、商品数量、商品单价、商品总价。
+            // 创建该商品行的水平线性布局，从左到右依次为商品小图、商品名称与描述、商品数量、商品单价、商品总价。
             ll_row = newLinearLayout(LinearLayout.HORIZONTAL, LayoutParams.WRAP_CONTENT);
-            // 设置该线性视图的编号
+            // 设置该线性布局的编号
             ll_row.setId(mBeginViewId + i);
             // 添加商品小图
             ImageView iv_thumb = new ImageView(this);
@@ -300,7 +300,7 @@ public class ShoppingCartActivity extends Activity implements OnClickListener {
         tv_total_price.setText("" + total_price);
     }
 
-    // 创建一个线性视图的框架
+    // 创建一个线性布局的框架
     private LinearLayout newLinearLayout(int orientation, int height) {
         LinearLayout ll_new = new LinearLayout(this);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(

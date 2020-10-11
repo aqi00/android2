@@ -27,7 +27,7 @@ public class ShareReadActivity extends AppCompatActivity {
         // 从share.xml中获取共享参数对象
         SharedPreferences shared = getSharedPreferences("share", MODE_PRIVATE);
         String desc = "共享参数中保存的信息如下：";
-        // 获取共享参数中保存的所有映射配对信息
+        // 获取共享参数保存的所有映射配对信息
         Map<String, Object> mapParam = (Map<String, Object>) shared.getAll();
         // 遍历该映射对象，并将配对信息形成描述文字
         for (Map.Entry<String, Object> item_map : mapParam.entrySet()) {

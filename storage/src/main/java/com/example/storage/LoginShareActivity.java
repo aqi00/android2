@@ -69,9 +69,9 @@ public class LoginShareActivity extends AppCompatActivity implements OnClickList
         initTypeSpinner();
         // 从share_login.xml中获取共享参数对象
         mShared = getSharedPreferences("share_login", MODE_PRIVATE);
-        // 获取共享参数中保存的手机号码
+        // 获取共享参数保存的手机号码
         String phone = mShared.getString("phone", "");
-        // 获取共享参数中保存的密码
+        // 获取共享参数保存的密码
         String password = mShared.getString("password", "");
         et_phone.setText(phone); // 给手机号码编辑框填写上次保存的手机号
         et_password.setText(password); // 给密码编辑框填写上次保存的密码
@@ -239,7 +239,7 @@ public class LoginShareActivity extends AppCompatActivity implements OnClickList
         builder.setNegativeButton("我再看看", null);
         AlertDialog alert = builder.create();
         alert.show();
-        // 如果勾选了“记住密码”，则把手机号码和密码都保存到共享参数中
+        // 如果勾选了“记住密码”，就把手机号码和密码都保存到共享参数中
         if (bRemember) {
             SharedPreferences.Editor editor = mShared.edit(); // 获得编辑器的对象
             editor.putString("phone", et_phone.getText().toString()); // 添加名叫phone的手机号码

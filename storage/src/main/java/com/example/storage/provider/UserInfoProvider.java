@@ -43,7 +43,7 @@ public class UserInfoProvider extends ContentProvider {
             // 向指定的表插入数据，返回记录的行号
             long rowId = db.insert(UserInfoContent.TABLE_NAME, null, values);
             if (rowId > 0) { // 判断插入是否执行成功
-                // 如果添加成功，利用新记录的行号生成新的地址
+                // 如果添加成功，就利用新记录的行号生成新的地址
                 newUri = ContentUris.withAppendedId(UserInfoContent.CONTENT_URI, rowId);
                 // 通知监听器，数据已经改变
                 getContext().getContentResolver().notifyChange(newUri, null);
