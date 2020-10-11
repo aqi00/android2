@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp">
 
-        <!-- 水平方向的线性视图，两个子视图的颜色分别为青色和黄色 -->
+        <!-- 水平方向的线性布局，两个子视图的颜色分别为青色和黄色 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- 垂直方向的线性视图，两个子视图的颜色分别为绿色和橙色 -->
+        <!-- 垂直方向的线性布局，两个子视图的颜色分别为绿色和橙色 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
