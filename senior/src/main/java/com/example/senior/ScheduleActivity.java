@@ -34,7 +34,7 @@ public class ScheduleActivity extends AppCompatActivity {
     public static String ACTION_SHOW_FESTIVAL = "com.example.senior.ACTION_SHOW_FESTIVAL";
     // 声明一个节日图片参数的标识串
     public static String EXTRA_FESTIVAL_RES = "festival_res";
-    private LinearLayout ll_schedule; // 声明一个日程表区域的线性视图对象
+    private LinearLayout ll_schedule; // 声明一个日程表区域的线性布局对象
     private ViewPager vp_schedule; // 声明一个翻页视图对象
     private int mSelectedWeek; // 当前选中的星期
     private int mFestivalResid = 0; // 节日图片的资源编号

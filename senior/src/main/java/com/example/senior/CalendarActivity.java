@@ -22,8 +22,8 @@ import android.widget.TextView;
 @SuppressLint("SetTextI18n")
 public class CalendarActivity extends AppCompatActivity implements OnClickListener {
     private static final String TAG = "CalendarActivity";
-    private LinearLayout ll_calendar_main; // 声明一个万年历区域的线性视图对象
-    private LinearLayout ll_month_select; // 声明一个月份选择区域的线性视图对象
+    private LinearLayout ll_calendar_main; // 声明一个万年历区域的线性布局对象
+    private LinearLayout ll_month_select; // 声明一个月份选择区域的线性布局对象
     private MonthPicker mp_month; // 声明一个月份选择器对象
     private ViewPager vp_calendar; // 声明一个翻页视图对象
     private TextView tv_calendar; // 声明一个选中年份的文本视图对象
