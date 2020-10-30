@@ -7,8 +7,9 @@ import java.util.Collections;
 import com.example.device.util.BitmapUtil;
 import com.example.device.util.DateUtil;
 
-import android.annotation.TargetApi;
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
@@ -25,6 +26,8 @@ import android.media.ImageReader.OnImageAvailableListener;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Size;
@@ -32,7 +35,7 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.widget.Toast;
 
-@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class Camera2View extends TextureView {
     private static final String TAG = "Camera2View";
     private Context mContext; // 声明一个上下文对象
@@ -97,8 +100,8 @@ public class Camera2View extends TextureView {
         }
     }
 
-    private ArrayList<String> mShootingArray; // 连拍的相片保存路径队列
-    // 获取连拍的相片保存路径队列
+    private ArrayList<String> mShootingArray; // 连拍的相片保存路径列表
+    // 获取连拍的相片保存路径列表
     public ArrayList<String> getShootingList() {
         Log.d(TAG, "mShootingArray.size()=" + mShootingArray.size());
         return mShootingArray;
@@ -170,8 +173,10 @@ public class Camera2View extends TextureView {
             mImageReader = ImageReader.newInstance(largest.getWidth(), largest.getHeight(), ImageFormat.JPEG, 10);
             // 设置图像读取器的图像可用监听器，一旦捕捉到图像数据就会触发监听器的onImageAvailable方法
             mImageReader.setOnImageAvailableListener(onImageAvaiableListener, mHandler);
-            // 开启摄像头
-            cm.openCamera(cameraid, mDeviceStateCallback, mHandler);
+            if (ActivityCompat.checkSelfPermission(mContext, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                // 开启摄像头
+                cm.openCamera(cameraid, mDeviceStateCallback, mHandler);
+            }
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
