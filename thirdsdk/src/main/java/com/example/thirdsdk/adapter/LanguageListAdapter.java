@@ -19,9 +19,9 @@ public class LanguageListAdapter extends BaseAdapter {
     private ArrayList<Language> mLanguageList; // 声明一个语言信息队列
 
     // 语言适配器的构造函数，传入上下文与语言队列
-    public LanguageListAdapter(Context context, ArrayList<Language> planet_list) {
+    public LanguageListAdapter(Context context, ArrayList<Language> language_list) {
         mContext = context;
-        mLanguageList = planet_list;
+        mLanguageList = language_list;
     }
 
     // 获取列表项的个数
@@ -54,9 +54,9 @@ public class LanguageListAdapter extends BaseAdapter {
             // 从转换视图中获取之前保存的视图持有者
             holder = (ViewHolder) convertView.getTag();
         }
-        Language planet = mLanguageList.get(position);
-        holder.tv_name.setText(planet.name); // 显示语言的名称
-        holder.tv_desc.setText(planet.desc); // 显示语言的描述
+        Language language = mLanguageList.get(position);
+        holder.tv_name.setText(language.name); // 显示语言的名称
+        holder.tv_desc.setText(language.desc); // 显示语言的描述
         return convertView;
     }
 
