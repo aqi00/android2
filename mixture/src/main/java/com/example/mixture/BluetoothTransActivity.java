@@ -331,6 +331,9 @@ public class BluetoothTransActivity extends AppCompatActivity implements
         mBlueSocket = socket;
         tv_discovery.setText("连接成功");
         refreshDevice(mBlueSocket.getRemoteDevice(), BlueListAdapter.CONNECTED);
+        // 创建一个蓝牙消息的接收线程
+        BlueReceiveTask receive = new BlueReceiveTask(mBlueSocket, mHandler);
+        receive.start();
     }
 
     // 服务端侦听到连接
