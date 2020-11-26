@@ -115,7 +115,7 @@ public class BannerFlipper extends RelativeLayout {
             //return false;
             // 如果外层是普通的ScrollView，则此处不允许父容器的拦截动作
             // CustomScrollActivity里面通过自定义ScrollView，来区分水平滑动还是垂直滑动
-            // BannerOptimizeActivity使用系统ScrollView，则此处需要下面代码禁止父容器的拦截
+            // DisallowScrollActivity使用系统ScrollView，则此处需要下面代码禁止父容器的拦截
             if (Math.abs(distanceY) < Math.abs(distanceX)) { // 水平方向的滚动
                 // 告诉上级布局不要拦截触摸事件
                 BannerFlipper.this.getParent().requestDisallowInterceptTouchEvent(true);
