@@ -2,7 +2,7 @@ package com.example.event.opengl;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.opengl.GLES30;
 import android.opengl.GLUtils;
 
 import java.io.BufferedReader;
@@ -19,6 +19,7 @@ import static android.opengl.GLES20.GL_TEXTURE_MIN_FILTER;
 import static android.opengl.GLES20.GL_TEXTURE_WRAP_S;
 import static android.opengl.GLES20.GL_TEXTURE_WRAP_T;
 import static android.opengl.GLES20.GL_VERTEX_SHADER;
+import static android.opengl.GLES20.glActiveTexture;
 import static android.opengl.GLES20.glAttachShader;
 import static android.opengl.GLES20.glBindTexture;
 import static android.opengl.GLES20.glCompileShader;
@@ -64,16 +65,16 @@ public class PanoramaUtil {
         return shaderSource.toString();
     }
 
-    static int initTexture(Context context, int drawableId) {
+    static int initTexture(Context context, Bitmap bitmap) {
         int[] textures = new int[1];
         glGenTextures(1, textures, 0);
         int textureId = textures[0];
+        glActiveTexture(GLES30.GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textures[0]);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), drawableId);
         GLUtils.texImage2D(GL_TEXTURE_2D, 0, bitmap, 0);
         return textureId;
     }

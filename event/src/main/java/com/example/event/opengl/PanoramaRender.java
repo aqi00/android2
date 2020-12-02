@@ -1,6 +1,8 @@
 package com.example.event.opengl;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView.Renderer;
 import android.opengl.Matrix;
@@ -46,7 +48,8 @@ public class PanoramaRender implements Renderer {
     private int mVertexCount;
     private FloatBuffer mVertexBuff;
     private FloatBuffer mTextureBuff;
-    private int mDrawableId;
+    private int mLastDrawableId = 0, mThisDrawableId = 0;
+    private Bitmap mBitmap;
     private final float mCurrMatrix[] = new float[16];
     private final float mMVPMatrix[] = new float[16];
     public float xAngle = 0f;
@@ -86,7 +89,8 @@ public class PanoramaRender implements Renderer {
 
     // 设置全景图片的资源编号
     public void setDrawableId(int drawableId) {
-        mDrawableId = drawableId;
+        mBitmap = BitmapFactory.decodeResource(mContext.getResources(), drawableId);
+        mThisDrawableId = drawableId;
     }
 
     // 在表面创建时触发
@@ -128,10 +132,10 @@ public class PanoramaRender implements Renderer {
 
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectMatrix, 0, mCurrMatrix, 0);
         Matrix.setIdentityM(mCurrMatrix, 0);
-        int textrueID = PanoramaUtil.initTexture(mContext, mDrawableId);
-        Log.d(TAG, "textureID:" + textrueID);
-        glActiveTexture(GLES20.GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, textrueID);
+        if (mLastDrawableId != mThisDrawableId) {
+            int textrueID = PanoramaUtil.initTexture(mContext, mBitmap);
+            mLastDrawableId = mThisDrawableId;
+        }
         glUniformMatrix4fv(mUProjectMatrixHandler, 1, false, mMVPMatrix, 0);
         glDrawArrays(GL_TRIANGLES, 0, mVertexCount);
     }
