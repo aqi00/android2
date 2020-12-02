@@ -2,7 +2,6 @@ package com.example.event.opengl;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.opengl.GLES30;
 import android.opengl.GLUtils;
 
 import java.io.BufferedReader;
@@ -13,6 +12,7 @@ import static android.opengl.GLES20.GL_CLAMP_TO_EDGE;
 import static android.opengl.GLES20.GL_FRAGMENT_SHADER;
 import static android.opengl.GLES20.GL_LINEAR;
 import static android.opengl.GLES20.GL_NEAREST;
+import static android.opengl.GLES20.GL_TEXTURE0;
 import static android.opengl.GLES20.GL_TEXTURE_2D;
 import static android.opengl.GLES20.GL_TEXTURE_MAG_FILTER;
 import static android.opengl.GLES20.GL_TEXTURE_MIN_FILTER;
@@ -69,7 +69,7 @@ public class PanoramaUtil {
         int[] textures = new int[1];
         glGenTextures(1, textures, 0);
         int textureId = textures[0];
-        glActiveTexture(GLES30.GL_TEXTURE0);
+        glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, textures[0]);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
