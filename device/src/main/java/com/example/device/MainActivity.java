@@ -105,6 +105,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
                 Toast.makeText(MainActivity.this, "计步器需要Android4.4或以上版本",
                         Toast.LENGTH_SHORT).show();
+            } else if (Build.VERSION.SDK_INT >= 29) {
+                // Android10.0之后使用计步器需要健身运动权限
+                if (PermissionUtil.checkPermission(this, "android.permission.ACTIVITY_RECOGNITION", (int) v.getId() % 4096)) {
+                    startActivity(new Intent(this, StepActivity.class));
+                }
             } else {
                 Intent intent = new Intent(this, StepActivity.class);
                 startActivity(intent);
@@ -180,6 +185,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 PermissionUtil.goActivity(this, VideoActivity.class);
             } else {
                 Toast.makeText(this, "需要同时允许拍照和录音权限才能录像噢", Toast.LENGTH_SHORT).show();
+            }
+        } else if (requestCode == R.id.btn_step % 4096) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                startActivity(new Intent(this, StepActivity.class));
+            } else {
+                Toast.makeText(this, "需要允许健身运动权限才能使用计步器噢", Toast.LENGTH_SHORT).show();
             }
         } else if (requestCode == R.id.btn_location_begin % 4096) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {

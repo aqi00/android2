@@ -13,8 +13,12 @@
     <!-- SD卡 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- Android10新增权限MANAGE_EXTERNAL_STORAGE -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <!-- 允许修改系统设置 -->
     <uses-permission android:name="android.permission.MANAGE_WRITE_SETTINGS" />
+    <!-- Android10之后，计步器需要健身运动权限 -->
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
     <!-- 定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />

@@ -50,20 +50,19 @@ public class StepActivity extends AppCompatActivity implements SensorEventListen
         for (Sensor sensor : sensorList) {
             if (sensor.getType() == Sensor.TYPE_STEP_DETECTOR) { // 找到步行检测传感器
                 suitable += 1;
+                // 给步行检测传感器注册传感监听器
+                mSensorMgr.registerListener(this,
+                        mSensorMgr.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR),
+                        SensorManager.SENSOR_DELAY_NORMAL);
             } else if (sensor.getType() == Sensor.TYPE_STEP_COUNTER) { // 找到计步器
                 suitable += 10;
+                // 给计步器注册传感监听器
+                mSensorMgr.registerListener(this,
+                        mSensorMgr.getDefaultSensor(Sensor.TYPE_STEP_COUNTER),
+                        SensorManager.SENSOR_DELAY_NORMAL);
             }
         }
-        if (suitable / 10 > 0 && suitable % 10 > 0) {
-            // 给步行检测传感器注册传感监听器
-            mSensorMgr.registerListener(this,
-                    mSensorMgr.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR),
-                    SensorManager.SENSOR_DELAY_NORMAL);
-            // 给计步器注册传感监听器
-            mSensorMgr.registerListener(this,
-                    mSensorMgr.getDefaultSensor(Sensor.TYPE_STEP_COUNTER),
-                    SensorManager.SENSOR_DELAY_NORMAL);
-        } else {
+        if (suitable == 0) {
             tv_step.setText("当前设备不支持计步器，请检查是否存在步行检测传感器和计步器");
         }
     }
