@@ -35,7 +35,7 @@ public class ApkUtil {
         // 查找本地所有的apk文件，其中mime_type指定了APK的文件类型
         Cursor cursor = context.getContentResolver().query(
                 MediaStore.Files.getContentUri("external"),
-                null, "mime_type=\"application/vnd.android.package-archive\"", null, null);
+                null, "mime_type='application/vnd.android.package-archive'", null, null);
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 // 获取文件名
