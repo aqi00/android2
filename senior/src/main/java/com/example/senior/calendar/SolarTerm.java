@@ -1064,7 +1064,7 @@ public class SolarTerm {
     }
 
     public String[] getSolarDays(int year) {
-        Calendar[] calArray = (new SolarTerm()).getSolarTermCalendars(2015);
+        Calendar[] calArray = (new SolarTerm()).getSolarTermCalendars(year);
         String[] solarDays = new String[calArray.length];
         for (int i = 0; i < calArray.length; i++) {
             Calendar cal = calArray[i];
