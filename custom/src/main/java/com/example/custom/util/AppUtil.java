@@ -22,7 +22,7 @@ public class AppUtil {
         PackageManager pm = ctx.getPackageManager();
         // 获取系统中已经安装的应用列表
         List<ApplicationInfo> installList = pm.getInstalledApplications(
-                PackageManager.PERMISSION_GRANTED);
+                PackageManager.MATCH_UNINSTALLED_PACKAGES);
         for (int i = 0; i < installList.size(); i++) {
             ApplicationInfo item = installList.get(i);
             // 去掉重复的应用信息
@@ -68,7 +68,7 @@ public class AppUtil {
         ArrayList<AppInfo> fullArray = (ArrayList<AppInfo>) originArray.clone();
         PackageManager pm = ctx.getPackageManager();
         // 获取系统中已经安装的应用列表
-        List<ApplicationInfo> installList = pm.getInstalledApplications(PackageManager.PERMISSION_GRANTED);
+        List<ApplicationInfo> installList = pm.getInstalledApplications(PackageManager.MATCH_UNINSTALLED_PACKAGES);
         for (int i = 0; i < fullArray.size(); i++) {
             AppInfo app = fullArray.get(i);
             for (ApplicationInfo item : installList) {
