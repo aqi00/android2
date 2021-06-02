@@ -170,12 +170,12 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         } else if (operator.equals("×")) { // 当前是相乘运算
             result = String.valueOf(Arith.mul(firstNum, nextNum));
         } else if (operator.equals("÷")) { // 当前是相除运算
-            if (Double.parseDouble(nextNum) == 0) { // 发现被除数是0
-                // 被除数为0，要弹窗提示用户
-                Toast.makeText(this, "被除数不能为零", Toast.LENGTH_SHORT).show();
+            if (Double.parseDouble(nextNum) == 0) { // 发现除数是0
+                // 除数为0，要弹窗提示用户
+                Toast.makeText(this, "除数不能为零", Toast.LENGTH_SHORT).show();
                 // 返回false表示运算失败
                 return false;
-            } else { // 被除数非0，则进行正常的除法运算
+            } else { // 除数非0，则进行正常的除法运算
                 result = String.valueOf(Arith.div(firstNum, nextNum));
             }
         }
