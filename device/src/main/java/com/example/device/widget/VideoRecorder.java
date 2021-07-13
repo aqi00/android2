@@ -8,6 +8,7 @@ import com.example.device.util.MediaUtil;
 
 import android.content.Context;
 import android.hardware.Camera;
+import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.media.MediaRecorder.AudioEncoder;
 import android.media.MediaRecorder.AudioSource;
@@ -154,16 +155,18 @@ public class VideoRecorder extends LinearLayout implements
         mMediaRecorder.setPreviewDisplay(mHolder.getSurface()); // 设置媒体录制器的预览界面
         mMediaRecorder.setVideoSource(VideoSource.CAMERA); // 设置视频源为摄像头
         mMediaRecorder.setAudioSource(AudioSource.MIC); // 设置音频源为麦克风
-        mMediaRecorder.setOutputFormat(OutputFormat.MPEG_4); // 设置媒体的输出格式
-        mMediaRecorder.setAudioEncoder(AudioEncoder.AMR_NB); // 设置媒体的音频编码器
-        // 如果录像报错：MediaRecorder start failed: -19
-        // 试试把setVideoSize和setVideoFrameRate注释掉，因为尺寸设置必须为摄像头所支持，否则报错
-        // mMediaRecorder.setVideoSize(mWidth, mHeight); // 设置视频的分辨率
-        // mMediaRecorder.setVideoFrameRate(16); // 设置视频每秒录制的帧数
-        // setVideoFrameRate与setVideoEncodingBitRate设置其一即可
-        mMediaRecorder.setVideoEncodingBitRate(1 * 1024 * 512); // 设置视频每秒录制的字节数
+        // setProfile囊括了setOutputFormat、setVideoEncoder、setAudioEncoder、setVideoSize、setVideoEncodingBitRate等参数设置
+        mMediaRecorder.setProfile(CamcorderProfile.get(CamcorderProfile.QUALITY_720P));
+//        mMediaRecorder.setOutputFormat(OutputFormat.MPEG_4); // 设置媒体的输出格式
+//        mMediaRecorder.setAudioEncoder(AudioEncoder.AMR_NB); // 设置媒体的音频编码器
+//        // 如果录像报错：MediaRecorder start failed: -19
+//        // 试试把setVideoSize和setVideoFrameRate注释掉，因为尺寸设置必须为摄像头所支持，否则报错
+//        // mMediaRecorder.setVideoSize(mWidth, mHeight); // 设置视频的分辨率
+//        // mMediaRecorder.setVideoFrameRate(16); // 设置视频每秒录制的帧数
+//        // setVideoFrameRate与setVideoEncodingBitRate设置其一即可
+//        mMediaRecorder.setVideoEncodingBitRate(1 * 1024 * 512); // 设置视频每秒录制的字节数
+//        mMediaRecorder.setVideoEncoder(VideoEncoder.MPEG_4_SP); // 设置媒体的视频编码器
         mMediaRecorder.setOrientationHint(90); // 输出旋转90度，也就是保持竖屏录制
-        mMediaRecorder.setVideoEncoder(VideoEncoder.MPEG_4_SP); // 设置媒体的视频编码器
         mMediaRecorder.setMaxDuration(mRecordMaxTime * 1000); // 设置媒体的最大录制时长
         // mMediaRecorder.setMaxFileSize(1024*1024*10); // 设置媒体的最大文件大小
         // setMaxFileSize与setMaxDuration设置其一即可

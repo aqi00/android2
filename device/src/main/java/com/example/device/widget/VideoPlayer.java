@@ -98,6 +98,7 @@ public class VideoPlayer extends LinearLayout implements
         if (mTimer != null) {
             mTimer.cancel(); // 取消计时器
         }
+        mMediaPlayer.release(); // 释放媒体播放器资源
     }
 
     @Override
