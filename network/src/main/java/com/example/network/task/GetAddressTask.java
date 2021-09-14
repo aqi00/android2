@@ -1,5 +1,7 @@
 package com.example.network.task;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.text.MessageFormat;
 
 import org.json.JSONArray;
@@ -19,7 +21,7 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
     private final static String TAG = "GetAddressTask";
     // 谷歌地图从2019年开始必须传入密钥才能根据经纬度获取地址，所以把查询接口改成了国内的天地图
     //private String mAddressUrl = "http://maps.google.cn/maps/api/geocode/json?latlng={0},{1}&sensor=true&language=zh-CN";
-    private String mAddressUrl = "https://api.tianditu.gov.cn/geocoder?postStr={'lon':%f,'lat':%f,'ver':1}&type=geocode&tk=145897399844a50e3de2309513c8df4b";
+    private String mQueryUrl = "https://api.tianditu.gov.cn/geocoder?postStr=%s&type=geocode&tk=253b3bd69713d4bdfdc116255f379841";
 
     public GetAddressTask() {
         super();
@@ -29,8 +31,13 @@ public class GetAddressTask extends AsyncTask<Location, Void, String> {
     protected String doInBackground(Location... params) {
         Location location = params[0];
         // 把经度和纬度代入到URL地址
-        //String url = MessageFormat.format(mAddressUrl, location.getLatitude(), location.getLongitude());
-        String url = String.format(mAddressUrl, location.getLongitude(), location.getLatitude());
+        String param = String.format("{'lon':%f,'lat':%f,'ver':1}", location.getLongitude(), location.getLatitude());
+        try {
+            param = URLEncoder.encode(param, "utf8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        String url = String.format(mQueryUrl, param);
         // 创建一个HTTP请求对象
         HttpReqData req_data = new HttpReqData(url);
         // 发送HTTP请求信息，并获得HTTP应答对象
