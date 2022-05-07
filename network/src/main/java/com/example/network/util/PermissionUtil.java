@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.Log;
 
 /**
@@ -64,6 +65,9 @@ public class PermissionUtil {
             serial = Build.getSerial();
         } else {
             serial = Build.SERIAL;
+        }
+        if (TextUtils.isEmpty(serial) || serial.toLowerCase().startsWith("unknown")) {
+            serial = String.format("%s_%s_%d", Build.BRAND, Build.HARDWARE, Build.TIME);
         }
         return serial;
     }
