@@ -87,6 +87,7 @@ public class StockService extends Service {
             } else if (mType == SHENZHEN) { // 深圳成指
                 req_data.url = "https://hq.sinajs.cn/list=s_sz399001";
             }
+            req_data.referer = "https://finance.sina.com.cn";
             // 发送HTTP请求信息，并获得HTTP应答对象
             HttpRespData resp_data = HttpRequestUtil.getData(req_data);
             // 返回串形如 var hq_str_s_sh000001="上证指数,3019.9873,-5.6932,-0.19,1348069,14969598";
