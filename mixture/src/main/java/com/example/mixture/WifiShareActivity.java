@@ -67,7 +67,11 @@ public class WifiShareActivity extends AppCompatActivity implements
         ll_client_title = findViewById(R.id.ll_client_title);
         lv_wifi_client = findViewById(R.id.lv_wifi_client);
         findViewById(R.id.btn_wifi_save).setOnClickListener(this);
-        et_wifi_name.setText(Build.SERIAL);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            et_wifi_name.setText(Build.getSerial());
+        } else {
+            et_wifi_name.setText(Build.SERIAL);
+        }
         et_wifi_password.setText("");
         ck_wifi_switch.setOnCheckedChangeListener(this);
         // 从系统服务中获取无线网络管理器
