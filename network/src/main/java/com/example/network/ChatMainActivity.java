@@ -9,6 +9,7 @@ import com.example.network.task.UploadHttpTask;
 import com.example.network.task.UploadHttpTask.OnUploadHttpListener;
 import com.example.network.thread.ClientThread;
 import com.example.network.util.DateUtil;
+import com.example.network.util.PermissionUtil;
 import com.example.network.util.Utils;
 import com.example.network.widget.TextProgressCircle;
 
@@ -121,7 +122,7 @@ public class ChatMainActivity extends AppCompatActivity implements
                     MainApplication.getInstance().getNickName(),
                     DateUtil.formatTime(DateUtil.getNowDateTime("")), body);
             // 在聊天窗口中添加文本消息
-            appendMsg(Build.SERIAL, append);
+            appendMsg(PermissionUtil.getSerial(), append);
             // 往后端服务器发送文本消息的请求
             MainApplication.getInstance().sendAction(ClientThread.SENDMSG, mOtherId, body);
             et_input.setText("");
@@ -131,9 +132,9 @@ public class ChatMainActivity extends AppCompatActivity implements
     // 在聊天窗口中添加文本消息
     private static void appendMsg(String deviceId, String append) {
         // 我方消息靠右对齐，对方消息靠左对齐
-        int gravity = deviceId.equals(Build.SERIAL) ? Gravity.RIGHT : Gravity.LEFT;
+        int gravity = deviceId.equals(PermissionUtil.getSerial()) ? Gravity.RIGHT : Gravity.LEFT;
         // 我方消息背景色为蓝色，对方消息背景色为红色
-        int bg_color = deviceId.equals(Build.SERIAL) ? 0xffccccff : 0xffffcccc;
+        int bg_color = deviceId.equals(PermissionUtil.getSerial()) ? 0xffccccff : 0xffffcccc;
         // 以下初始化单条聊天消息的线性布局
         LinearLayout ll_append = new LinearLayout(mContext);
         LinearLayout.LayoutParams ll_params = new LinearLayout.LayoutParams(
@@ -216,12 +217,12 @@ public class ChatMainActivity extends AppCompatActivity implements
                     DateUtil.formatTime(DateUtil.getNowDateTime("")));
             if (mType == TYPE_PHOTO) { // 图片消息
                 // 在聊天窗口中添加多媒体消息
-                showMedia(ClientThread.RECVPHOTO, Build.SERIAL, title, mFilePath);
+                showMedia(ClientThread.RECVPHOTO, PermissionUtil.getSerial(), title, mFilePath);
                 // 向后端服务器发送图片消息的请求
                 MainApplication.getInstance().sendAction(ClientThread.SENDPHOTO, mOtherId, downloadUrl);
             } else if (mType == TYPE_SOUND) { // 音频消息
                 // 在聊天窗口中添加多媒体消息
-                showMedia(ClientThread.RECVSOUND, Build.SERIAL, title, mFilePath);
+                showMedia(ClientThread.RECVSOUND, PermissionUtil.getSerial(), title, mFilePath);
                 // 向后端服务器发送音频消息的请求
                 MainApplication.getInstance().sendAction(ClientThread.SENDSOUND, mOtherId, downloadUrl);
             }
@@ -276,10 +277,10 @@ public class ChatMainActivity extends AppCompatActivity implements
         Log.d(TAG, "showMedia action=" + action + ", url=" + url);
         boolean isLocalPath = (!url.contains("http://") && !url.contains("https://"));
         // 我方消息靠右对齐，对方消息靠左对齐
-        int gravity = deviceId.equals(Build.SERIAL) ? Gravity.RIGHT : Gravity.LEFT;
+        int gravity = deviceId.equals(PermissionUtil.getSerial()) ? Gravity.RIGHT : Gravity.LEFT;
         gravity = gravity | Gravity.CENTER_VERTICAL; // 并且垂直居中
         // 我方消息背景色为蓝色，对方消息背景色为红色
-        int bg_color = deviceId.equals(Build.SERIAL) ? 0xffccccff : 0xffffcccc;
+        int bg_color = deviceId.equals(PermissionUtil.getSerial()) ? 0xffccccff : 0xffffcccc;
         int type = TYPE_PHOTO;
         // 以下初始化单条聊天消息的线性布局
         LinearLayout ll_append = new LinearLayout(mContext);

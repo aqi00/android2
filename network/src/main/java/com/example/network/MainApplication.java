@@ -2,6 +2,7 @@ package com.example.network;
 
 import com.example.network.thread.ClientThread;
 import com.example.network.util.DateUtil;
+import com.example.network.util.PermissionUtil;
 
 import android.app.Application;
 import android.os.Build;
@@ -37,7 +38,7 @@ public class MainApplication extends Application {
     public void sendAction(String action, String otherId, String msgText) {
         // 拼接完整的聊天消息
         String content = String.format("%s,%s,%s,%s,%s%s%s\r\n",
-                action, Build.SERIAL, getNickName(), DateUtil.getNowDateTime(""),
+                action, PermissionUtil.getSerial(), getNickName(), DateUtil.getNowDateTime(""),
                 otherId, ClientThread.SPLIT_LINE, msgText);
         Log.d(TAG, "sendAction : " + content);
         // 获得一个默认的消息对象

@@ -58,4 +58,14 @@ public class PermissionUtil {
         ctx.startActivity(intent);
     }
 
+    public static String getSerial() {
+        String serial = "";
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            serial = Build.getSerial();
+        } else {
+            serial = Build.SERIAL;
+        }
+        return serial;
+    }
+
 }
