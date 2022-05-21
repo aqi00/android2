@@ -108,7 +108,7 @@ public class FindShakeActivity extends AppCompatActivity implements SensorEventL
         }
     };
 
-    // 计算中奖等级
+    // 计算博饼结果
     private String calculatePrize() {
         int four_count = checkCount(4);
         if (four_count == 6) { // 出现六个红四
