@@ -106,6 +106,7 @@ public class MortgageActivity extends AppCompatActivity implements OnClickListen
     }
 
     private String[] ratioDescArray = {
+            "2022年10月01日 五年期商贷利率 4.65%　公积金利率 3.10%",
             "2015年10月24日 五年期商贷利率 4.90%　公积金利率 3.25%",
             "2015年08月26日 五年期商贷利率 5.15%　公积金利率 3.25%",
             "2015年06月28日 五年期商贷利率 5.40%　公积金利率 3.50%",
@@ -114,8 +115,8 @@ public class MortgageActivity extends AppCompatActivity implements OnClickListen
             "2014年11月22日 五年期商贷利率 6.15%　公积金利率 4.25%",
             "2012年07月06日 五年期商贷利率 6.55%　公积金利率 4.50%",
     };
-    private double[] businessArray = {4.90, 5.15, 5.40, 5.65, 5.90, 6.15, 6.55};
-    private double[] accumulationArray = {3.25, 3.25, 3.50, 3.75, 4.00, 4.25, 4.50};
+    private double[] businessArray = {4.65, 4.90, 5.15, 5.40, 5.65, 5.90, 6.15, 6.55};
+    private double[] accumulationArray = {3.10, 3.25, 3.25, 3.50, 3.75, 4.00, 4.25, 4.50};
 
     // 定义一个基准利率的选择监听器
     class RatioSelectedListener implements OnItemSelectedListener {
