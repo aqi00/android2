@@ -115,7 +115,7 @@ public class ViewSlider extends FrameLayout implements BookView.OnScrollListener
                     }
                 }
                 break;
-            case MotionEvent.ACTION_UP: // 手指松开
+            case MotionEvent.ACTION_UP: // 手指提起
                 if (mShowPage == SHOW_PRE) { // 原来在拉出上一页
                     // 根据已拉出的距离计算接下来要往哪个方向滚动
                     int direction = Math.abs(distanceX) < mWidth / 2 ? BookView.DIRECTION_LEFT : BookView.DIRECTION_RIGHT;
