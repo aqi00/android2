@@ -32,7 +32,7 @@ public class CustomScrollView extends ScrollView {
                 mLastPosY = event.getY();
                 result = super.onInterceptTouchEvent(event);
                 break;
-            default: // 其余动作，包括手指移动、手指松开等等
+            default: // 其余动作，包括手指移动、手指提起等等
                 float thisPosX = event.getX();
                 float thisPosY = event.getY();
                 mOffsetX += Math.abs(thisPosX - mLastPosX); // x轴偏差

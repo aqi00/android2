@@ -100,7 +100,7 @@ public class CropImageView extends ImageView {
                 }
                 setBitmapRect(rect); // 设置位图的矩形边界
                 break;
-            case MotionEvent.ACTION_UP: // 手指松开
+            case MotionEvent.ACTION_UP: // 手指提起
                 break;
             default:
                 break;

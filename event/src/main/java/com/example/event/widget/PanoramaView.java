@@ -109,7 +109,7 @@ public class PanoramaView extends RelativeLayout implements SensorEventListener 
                 mRender.yAngle += dx * 0.3f;
                 mRender.xAngle += dy * 0.3f;
                 break;
-            case MotionEvent.ACTION_UP: // 手指松开
+            case MotionEvent.ACTION_UP: // 手指提起
                 // 手势松开，则重新注册陀螺仪传感器
                 mSensorMgr.registerListener(this, mGyroscopeSensor,
                         SensorManager.SENSOR_DELAY_FASTEST);

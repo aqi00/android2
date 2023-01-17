@@ -134,7 +134,7 @@ public class SignatureView extends View {
                 mPos.firstX = event.getX();
                 mPos.firstY = event.getY();
                 break;
-            case MotionEvent.ACTION_UP: // 手指松开
+            case MotionEvent.ACTION_UP: // 手指提起
                 // 在画布上绘制指定路径线条
                 mCanvas.drawPath(mPath, mPaint);
                 mPath.reset();

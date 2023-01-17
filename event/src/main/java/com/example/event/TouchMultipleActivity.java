@@ -43,7 +43,7 @@ public class TouchMultipleActivity extends AppCompatActivity {
             if (isMinorPressed) {
                 desc_minor = String.format("%s次要动作名称是：移动", desc_minor);
             }
-        } else if (action == MotionEvent.ACTION_UP) { // 手指松开
+        } else if (action == MotionEvent.ACTION_UP) { // 手指提起
             desc_major = String.format("%s提起", desc_major);
         } else if (action == MotionEvent.ACTION_CANCEL) { // 取消手势
             desc_major = String.format("%s取消", desc_major);
