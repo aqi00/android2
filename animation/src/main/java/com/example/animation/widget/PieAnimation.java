@@ -31,7 +31,7 @@ public class PieAnimation extends View {
         mPaint = new Paint(); // 创建一个新的画笔
         mPaint.setAntiAlias(true); //设置画笔为无锯齿
         mPaint.setColor(Color.GREEN); // 设置画笔的颜色
-        mPaint.setStyle(Style.FILL); // 设置画笔的类型。STROK表示空心，FILL表示实心
+        mPaint.setStyle(Style.FILL); // 设置画笔的类型。STROKE表示空心，FILL表示实心
     }
 
     // 开始播放动画
