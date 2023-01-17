@@ -50,7 +50,7 @@ public class FloatWindow extends View {
                     case MotionEvent.ACTION_MOVE: // 手指移动
                         updateViewPosition(); // 更新视图的位置
                         break;
-                    case MotionEvent.ACTION_UP: // 手指松开
+                    case MotionEvent.ACTION_UP: // 手指提起
                         updateViewPosition(); // 更新视图的位置
                         // 响应悬浮窗的点击事件
                         if (Math.abs(mScreenX - mDownX) < 3

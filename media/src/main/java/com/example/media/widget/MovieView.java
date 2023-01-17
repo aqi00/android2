@@ -77,7 +77,7 @@ public class MovieView extends VideoView implements
                 mXpos = (int) event.getX();
                 mYpos = (int) event.getY();
                 break;
-            case MotionEvent.ACTION_UP: // 手指松开
+            case MotionEvent.ACTION_UP: // 手指提起
                 // 松开手指，则弹出或关闭相关的控件（如顶部的标题栏和底部的控制条）
                 if (Math.abs(event.getX() - mXpos) < mOffset &&
                         Math.abs(event.getY() - mYpos) < mOffset) {
