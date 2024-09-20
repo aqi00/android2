@@ -10,7 +10,7 @@ import android.util.Log;
 public class NetUtil {
     private final static String TAG = "NetUtil";
 
-    public static String[] mClassArray = {"UNKNOWN", "2G", "3G", "4G"};
+    public static String[] mClassArray = {"UNKNOWN", "2G", "3G", "4G", "5G"};
 
     public static int TYPE_UNKNOWN = 0;
     public static int TYPE_2G = 1;
