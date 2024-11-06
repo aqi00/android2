@@ -14,7 +14,7 @@ public class Utils {
         return df.format(src);
     }
 
-    public static String[] mClassNameArray = {"UNKNOWN", "2G", "3G", "4G"};
+    public static String[] mClassNameArray = {"UNKNOWN", "2G", "3G", "4G", "5G"};
 
 //	public static int TYPE_UNKNOWN = 0;
 //	public static int TYPE_2G = 1;
